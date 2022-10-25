@@ -37,7 +37,7 @@ function testData(cb) {
     console.error(error);
   }); */
 
-  const valueRef = ref(db, 'Text_Post');
+  const valueRef = ref(db, 'Posts');
   onValue(valueRef, (snapshot) => {
     if (snapshot.exists()) {
       dbBool = true;
@@ -53,7 +53,7 @@ function testData(cb) {
 
 
 function getData(cb) {
-  const valueRef = ref(db, 'Text_Post');
+  const valueRef = ref(db, 'Posts');
   onValue(valueRef, (snapshot) => {
     if (snapshot.exists()) {
       cb(Object.entries(snapshot.val()));
@@ -66,21 +66,24 @@ function getData(cb) {
 }
 
 // POST APIs
-function writeData(author,value) {
+function writeData(author,content, resource, time, type) {
   const db = getDatabase();
 
   //text post entry
   const text_post = {
     author: author,
-    body: value
+    content: content,
+    resource: false,
+    time: time,
+    type: type
   };
 
   //retrieve key
-  const newKey = push(child(ref(db, "Text_Post"), 'Post')).key;
+  const newKey = push(child(ref(db, "Posts"), 'Post')).key;
 
   const updates = {}
   updates['/Post' + newKey] = text_post;
-  return update(ref(db,"Text_Post"), updates);
+  return update(ref(db,"Posts"), updates);
 }
 
 export { writeData, testData, getData }

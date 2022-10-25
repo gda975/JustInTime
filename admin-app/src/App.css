@@ -1,3 +1,23 @@
+.content_page{
+  border: 1px solid black;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }

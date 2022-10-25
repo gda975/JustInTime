@@ -3,7 +3,7 @@ import { writeData, testData, getData } from './FirebaseAPI'
 import { useState, useEffect } from 'react';
 import './App.css';
 import { get } from 'firebase/database';
-
+import Main_Feed from './Main_Feed';
 
 
 function App() {
@@ -23,27 +23,22 @@ function App() {
       </h1>
 
       Insert Testing <br></br>
-      <input type="text" onInput={(val) => {
+      <textarea type="text" onInput={(val) => {
         setInput(val.target.value)
-      }}></input> <br></br>
+      }}></textarea> <br></br>
 
       <button type='button' onClick={() => {
-        writeData("TeamJ_temp", insertInput);
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        writeData("TeamJ_temp", insertInput, false, date, "text");
         console.log(insertInput)
       }}> Submit</button> <br></br>
-
+  
       <button type='button' onClick={() => {
           getData(setEntries);
       }}> Get all Entries</button> <br></br>
       {insertInput}
-      {entries.map((val, index) => {
-        return (
-          <div key = {index + ""}>
-            Text : {val[1] == undefined ? ""  : val[1].body}
-
-          </div>
-        )
-      })}
+      <Main_Feed entries = {entries} />
     </div>
   );
 }
