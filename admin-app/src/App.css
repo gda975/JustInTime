@@ -1,8 +1,18 @@
-.content_page{
-  border: 1px solid black;
-  width: 50%;
+.content-page{
+  border: 1px solid rgb(146, 146, 146);
+  width: 35%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: start;
+  padding: 10px;
+
+}
+
+#content-txt{
+  height: 300px;
+  width:100%;
+  box-sizing: border-box
 }
 
 

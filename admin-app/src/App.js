@@ -29,16 +29,16 @@ function App() {
 
       <button type='button' onClick={() => {
         let today = new Date();
-        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         writeData("TeamJ_temp", insertInput, false, date, "text");
         console.log(insertInput)
       }}> Submit</button> <br></br>
-  
+
       <button type='button' onClick={() => {
-          getData(setEntries);
+        getData(setEntries);
       }}> Get all Entries</button> <br></br>
       {insertInput}
-      <Main_Feed entries = {entries} />
+      <Main_Feed entries={entries} />
     </div>
   );
 }
