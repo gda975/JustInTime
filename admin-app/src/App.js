@@ -60,6 +60,7 @@ function App() {
             <Main_Feed entries={entries} />
         </div>
     );
+
 }
 
 export default App;
