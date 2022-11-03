@@ -8,6 +8,7 @@ import {
     onValue,
     push,
     update,
+    remove
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -91,4 +92,29 @@ function writeData(author, content, resource, time, type) {
     return update(ref(db, 'Posts'), updates);
 }
 
-export { writeData, testData, getData };
+// PUT APIS
+function updateData(content,key,date){
+    const db = getDatabase();
+
+    //retrieve post
+    const path = 'Posts/Post-' + key;
+    const post = ref(db,path);
+
+
+    const updates = {};
+    updates['/content'] = content;
+    updates['/time'] = date;
+    return update(ref(db, path), updates);
+}
+
+// DELETE APIS
+function deleteData(key){
+    const db = getDatabase();
+
+    //get path
+    const path = 'Posts/Post-' + key;
+
+    return remove(ref(db,path));
+}
+
+export { writeData, testData, getData, updateData, deleteData};
