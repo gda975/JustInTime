@@ -29,13 +29,14 @@ export default function Atom(props) {
     }
 
     function deletePost(){
-       const key = props.val[0].split('-')[1];
+       const key = props.val[0];
+       console.log(key)
         deleteData(key);
     }
 
     return (
         <div className="content-page">
-            <p>Author: {props.val[1].author}</p>
+            <p>Author: {props.val[1] == undefined ? "" : props.val[1].author}</p>
             <div className="content" key={props.index + ""}>
 
                 {!toggleEdit ? <div className="content-actual">Content: {props.val[1] == undefined ? "" : props.val[1].content} </div> :
@@ -45,7 +46,7 @@ export default function Atom(props) {
                     </div>}
 
             </div>
-            <p>Time: {props.val[1].time}</p>
+            <p>Time: {props.val[1] == undefined ? "" : props.val[1].time}</p>
 
             <div className="atom-action">
                 <button type="button" onClick={toggleEditFunc}> {!toggleEdit? "Edit" : "Cancel"} </button>

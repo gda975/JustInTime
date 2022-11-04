@@ -8,7 +8,9 @@ import {
     onValue,
     push,
     update,
-    remove
+    remove,
+    query,
+    orderByChild
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -59,11 +61,20 @@ function testData(cb) {
 }
 
 function getData(cb) {
-    const valueRef = ref(db, 'Posts');
+    const pathRef = ref(db, 'Posts');
+    const valueRef = query(pathRef, orderByChild('time'));
+
+    let entries = [];
+    console.log(valueRef)
     onValue(valueRef, (snapshot) => {
         if (snapshot.exists()) {
-            cb(Object.entries(snapshot.val()));
-            console.log(Object.entries(snapshot.val()));
+            entries = [];
+            //console.log(Object.entries(snapshot.val())  )
+            snapshot.forEach((child) => {
+                const data = [child.key, child.val()];
+                entries.push(data);
+            })
+            cb(entries.reverse());
         } else {
             cb(null);
             console.log('No data');
@@ -112,7 +123,7 @@ function deleteData(key){
     const db = getDatabase();
 
     //get path
-    const path = 'Posts/Post-' + key;
+    const path = 'Posts/' + key;
 
     return remove(ref(db,path));
 }
