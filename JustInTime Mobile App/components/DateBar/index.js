@@ -28,12 +28,12 @@ const DateBar = () => {
 
     return (
         <View
-            style={{
-                paddingHorizontal: 24,
-                paddingVertical: 16,
-            }}
+            style={[
+                {paddingHorizontal: 24},
+                {paddingVertical: 16},
+            ]}
         >
-            <Text style={{ fontSize: 24, color: '#4B9CD3' }}>
+            <Text style={{ fontSize: 24, color: '#4B9CD3'}}>
                 {`${weekday[date.getDay()]}, ${
                     month[date.getMonth()]
                 } ${date.getDate()}`}
