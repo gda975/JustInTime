@@ -1,16 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-    getDatabase,
-    ref,
-    get,
-    child,
-    set,
-    onValue,
-    push,
-    update,
-    remove,
-    query,
-    orderByChild
+    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -83,7 +73,7 @@ function getData(cb) {
 }
 
 // POST APIs
-function writeData(author, content, resource, time, type) {
+function writeData(author, content, resource, time, type, cagetory) {
     const db = getDatabase();
 
     //text post entry
@@ -93,6 +83,7 @@ function writeData(author, content, resource, time, type) {
         resource: false,
         time: time,
         type: type,
+        cagetory: cagetory
     };
 
     //retrieve key
@@ -104,12 +95,12 @@ function writeData(author, content, resource, time, type) {
 }
 
 // PUT APIS
-function updateData(content,key,date){
+function updateData(content, key, date) {
     const db = getDatabase();
 
     //retrieve post
     const path = 'Posts/Post-' + key;
-    const post = ref(db,path);
+    const post = ref(db, path);
 
 
     const updates = {};
@@ -119,13 +110,13 @@ function updateData(content,key,date){
 }
 
 // DELETE APIS
-function deleteData(key){
+function deleteData(key) {
     const db = getDatabase();
 
     //get path
     const path = 'Posts/' + key;
 
-    return remove(ref(db,path));
+    return remove(ref(db, path));
 }
 
-export { writeData, testData, getData, updateData, deleteData};
+export { writeData, testData, getData, updateData, deleteData };

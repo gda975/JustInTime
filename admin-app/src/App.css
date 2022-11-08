@@ -9,17 +9,27 @@
 
 }
 
+.atom-cagetory{
+    margin-left: 0px;
+    left : 0px;
+}
+
 #content-txt{
   height: 300px;
   width:100%;
   box-sizing: border-box
 }
 
-div {
-    white-space: pre-wrap;
+h1{
+    margin-bottom: 0px;
 }
 
-textarea:not(.edit-textarea) {
+div {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+textarea{
   border: none;
   resize: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -31,7 +41,66 @@ textarea:focus {
     outline: none;
 }
 
+.edit-textarea {
+    padding: inherit;
+    height: 70%;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+}
 
+.edit-button {
+
+}
+
+.insert-title {
+    text-align: left;
+}
+
+.insert-submit-button {
+    position: absolute;
+    right: 5px; 
+    bottom: 5px;  
+}
+
+.insert-cancel-button {
+    position: absolute;
+    right: 75px; 
+    bottom: 5px;  
+}
+
+.insert-select {
+    position: absolute;
+    left: 5px; 
+    bottom: 5px;  
+}
+
+.insert-button-container{
+    position: fixed;
+    left: 5%;
+}
+
+.insert-atom {
+    padding: 10px;
+    border: 0.2px solid rgb(203, 203, 203);
+    border-radius: 5px;
+    background-color: white;
+    width: 40%;
+    margin: auto;
+    height: 300px;
+    position: relative;
+}
+
+.insert-container{
+    width: 100%;
+    height: 100%;
+   position: fixed;
+    z-index: 1;
+    left: 0;
+    backdrop-filter: blur(2px);
+}
 
 
 
