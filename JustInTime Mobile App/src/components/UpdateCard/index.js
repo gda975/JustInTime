@@ -27,7 +27,7 @@ const UpdateCard = (props) => {
                 >
                     {props.title || 'This is the update title'}
                 </Text>
-                <Text style={{ color: '#595959' }}>
+                <Text style={{ color: '#595959', fontSize: 12 }}>
                     {props.time || 'n minutes ago'}
                 </Text>
             </View>
