@@ -29,7 +29,7 @@ const Item = ({ title, content, datetime }) => (
     </View>
     <View style={styles.contentView}>
       <Text style={styles.title}>{title}</Text>
-      <Text stlye={styles.content}>{content}</Text>
+      <Text style={styles.content}>{content}</Text>
     </View>
   </View>
 );
