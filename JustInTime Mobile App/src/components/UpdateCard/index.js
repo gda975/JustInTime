@@ -1,35 +1,41 @@
 import { Text, View } from 'react-native';
 
-const UpdateCard = () => (
-    <View
-        style={{
-            backgroundColor: '#ebebeb',
-            height: 72,
-            marginTop: 8,
-            marginHorizontal: 24,
-            borderRadius: 8,
-        }}
-    >
+const UpdateCard = (props) => {
+    return (
         <View
             style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                padding: 12,
-                paddingBottom: 8,
+                backgroundColor: '#ebebeb',
+                height: 72,
+                marginTop: 8,
+                marginHorizontal: 24,
+                borderRadius: 8,
             }}
         >
-            <Text
+            <View
                 style={{
-                    color: 'red',
-                    fontWeight: 'bold',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    padding: 12,
+                    paddingBottom: 8,
                 }}
             >
-                This is the update title
+                <Text
+                    style={{
+                        color: 'red',
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {props.title || 'This is the update title'}
+                </Text>
+                <Text style={{ color: '#595959' }}>
+                    {props.time || 'n minutes ago'}
+                </Text>
+            </View>
+            <Text style={{ paddingHorizontal: 12 }}>
+                {props.text || 'This is the body text...'}
             </Text>
-            <Text style={{ color: '#595959' }}>n minutes ago</Text>
         </View>
-        <Text style={{ paddingHorizontal: 12 }}>This is the body text...</Text>
-    </View>
-);
+    );
+};
 
 export default UpdateCard;

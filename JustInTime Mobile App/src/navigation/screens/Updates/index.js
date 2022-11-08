@@ -10,7 +10,7 @@ const UpdatesScreen = () => {
             <View style={{ flexDirection: 'row' }}>
                 <TitleBar name="Recent Updates" />
             </View>
-            <UpdateCard />
+            <UpdateCard title="Test title" />
             <UpdateCard />
         </View>
     );
