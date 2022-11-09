@@ -14,7 +14,7 @@ export default function InsertElement(props) {
     return (
         <div className="insert-atom">
             <h2 className="insert-title">New post from</h2>
-            <textarea ref={props.refEl} className='edit-textarea' placeholder="Start typing new post ..."
+            <textarea ref={props.refEl} className='insert-textarea' placeholder="Start typing new post ..."
                 type="text"
                 onInput={(val) => {
                     setInput(val.target.value);

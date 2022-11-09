@@ -4,8 +4,8 @@ export default function Time() {
     let month = String(today.getMonth() + 1).padStart(2, '0');
     let day = String(today.getDate()).padStart(2, '0');
 
-    let hour = today.getHours();
-    let minute = today.getMinutes();
+    let hour = String(today.getHours()).padStart(2, '0');
+    let minute = String(today.getMinutes()).padStart(2, '0');
     let second = String(today.getSeconds()).padStart(2, '0');
     let date = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 
