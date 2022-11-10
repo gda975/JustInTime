@@ -1,40 +1,26 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import ResourceCard from '../ResourceCard';
 
 const Resources = () => {
     return (
-        <View style={styles.outerFlexBox}>
-            <View style={styles.leftColumn}>
-                <ResourceCard name1='Policy' name2='Links' color='#EF426F'> </ResourceCard>
-                <ResourceCard name1='Useful' name2='Sites' color='#A8673E'> </ResourceCard>
-                <ResourceCard name1='Helpful' name2='Reading' color= '#00A5AD'> </ResourceCard>
-            </View>
-            <View style={styles.rightColumn}>
-                <ResourceCard name1='Instructional' name2='Videos' color ='#C4D600'> </ResourceCard>
-                <ResourceCard name1='Workplace' name2='Updates' color='#00594C'> </ResourceCard>
-                <ResourceCard name1='Staff' name2='Events' color='#13294B'> </ResourceCard>
-            </View>
-        </View>
+        <ScrollView contentContainerStyle={styles.flexContainer}>
+            <ResourceCard text={['Policy', 'Links']} color="#EF426F" />
+            <ResourceCard text={['Useful', 'Sites']} color="#A8673E" />
+            <ResourceCard text={['Helpful', 'Reading']} color="#00A5AD" />
+            <ResourceCard text={['Instructional', 'Videos']} color="#C4D600" />
+            <ResourceCard text={['Workplace', 'Updates']} color="#00594C" />
+            <ResourceCard text={['Staff', 'Events']} color="#13294B" />
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    outerFlexBox: {
-        flexDirection: "row",
-        justifyContent: "center",
-        height: 600,
-        paddingTop: 10
+    flexContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        paddingBottom: 150,
     },
-    leftColumn: {
-        flexDirection: "column",
-        justifyContent: "space-between",
-        paddingRight: 8
-    },
-    rightColumn: {
-        flexDirection: "column",
-        justifyContent: "space-between",
-        paddingLeft: 8
-    }
 });
 
 export default Resources;
