@@ -6,9 +6,7 @@ const SettingsScreen = () => {
     return (
         <View>
             <DateBar/>
-            <View style={{flexDirection:"row"}}>
-                <TitleBar name='Settings'/>
-            </View>
+            <TitleBar name='Settings'/>
         </View>
     );
 };
