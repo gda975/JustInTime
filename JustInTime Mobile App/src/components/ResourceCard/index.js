@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     textArea: {
         backgroundColor: '#F4E8DD',
         height: 140,
-        width: 176,
+        width: 180,
         justifyContent: 'center',
         borderBottomLeftRadius: 12,
         borderBottomRightRadius: 12
