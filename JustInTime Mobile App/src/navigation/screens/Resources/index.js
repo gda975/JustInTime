@@ -6,9 +6,7 @@ const ResourceScreen = () => {
     return (
         <View>
             <DateBar/>
-            <View style={{flexDirection:"row"}}>
-                <TitleBar name='Resources'/>
-            </View>
+            <TitleBar name='Resources'/>
         </View>
     );
 };
