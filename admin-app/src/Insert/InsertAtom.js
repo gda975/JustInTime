@@ -21,7 +21,7 @@ export default function InsertAtom() {
 
     return (
         <div className="insert-main-container">
-            {!insertOn ? <div className="insert-button-container"> <button className="edit-button" type="button" onClick={setMode}> Insert new Post</button></div> :
+            {!insertOn ? <div className="insert-button-container"> <button className="insert-button" type="button" onClick={setMode}> Insert new Post</button></div> :
                 <div className="insert-container">
                     <InsertElement callback = {setMode} refEl = {textEl}/>
                 </div>}

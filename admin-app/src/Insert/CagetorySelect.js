@@ -4,7 +4,7 @@ export default function CagetorySelect(props) {
     
 
     return (
-        <div className="insert-select">
+        <div className={"insert-select" + props.class}>
             <select onChange={(e) => {props.callback(e)}}>
                 <option value="DEFAULT" disabled>Choose cagetory</option>
                 <option value="Workplace Updates">Workplace Updates</option>

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild
+    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild, equalTo
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -59,7 +59,6 @@ function getData(cb) {
     onValue(valueRef, (snapshot) => {
         if (snapshot.exists()) {
             entries = [];
-            //console.log(Object.entries(snapshot.val())  )
             snapshot.forEach((child) => {
                 const data = [child.key, child.val()];
                 entries.push(data);
@@ -70,6 +69,32 @@ function getData(cb) {
             console.log('No data');
         }
     });
+}
+
+function filterBy(cagetory, cb) {
+    if(cagetory == "ALL"){
+        return getData(cb);
+    }
+
+    const pathRef = ref(db, 'Posts');
+    const valueRef = query(pathRef, orderByChild('cagetory'), equalTo(cagetory));
+
+    let entries = [];
+    console.log(valueRef)
+    onValue(valueRef, (snapshot) => {
+        if (snapshot.exists()) {
+            entries = [];
+            snapshot.forEach((child) => {
+                const data = [child.key, child.val()];
+                entries.push(data);
+            })
+            cb(entries.reverse());
+        } else {
+            cb(null);
+            console.log('No data');
+        }
+    });
+
 }
 
 // POST APIs
@@ -95,7 +120,7 @@ function writeData(author, content, resource, time, type, cagetory) {
 }
 
 // PUT APIS
-function updateData(content, key, date) {
+function updateData(content, key, date, cagetory) {
     const db = getDatabase();
 
     //retrieve post
@@ -106,6 +131,7 @@ function updateData(content, key, date) {
     const updates = {};
     updates['/content'] = content;
     updates['/time'] = date;
+    updates['/cagetory'] = cagetory;
     return update(ref(db, path), updates);
 }
 
@@ -119,4 +145,4 @@ function deleteData(key) {
     return remove(ref(db, path));
 }
 
-export { writeData, testData, getData, updateData, deleteData };
+export { writeData, testData, getData, updateData, deleteData, filterBy };

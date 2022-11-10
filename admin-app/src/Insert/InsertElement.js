@@ -20,7 +20,7 @@ export default function InsertElement(props) {
                     setInput(val.target.value);
                 }}
             ></textarea>
-            <CagetorySelect callback={handleSelect} />
+            <CagetorySelect callback={handleSelect} class = {"-insert"}/>
             <button type="button" className="insert-cancel-button" onClick={() => { props.callback() }}> Cancel</button>
             <button type="button" className="insert-submit-button" onClick={() => {
                 let date = Time();

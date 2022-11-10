@@ -2,10 +2,16 @@ import { useState, useRef, useEffect } from "react";
 import { updateData, deleteData } from "./FirebaseAPI";
 import Time from "./Utilities/Time";
 import PanelColor from "./Utilities/PanelColor";
+import CagetorySelect from "./Insert/CagetorySelect";
 
 export default function Atom(props) {
     let [toggleEdit, setEdit] = useState(false);
     let textEl = useRef(null);
+    let [cagetory, setValue] = useState("DEFAULT");
+
+    function handleSelect(event) {
+        setValue(event.target.value);
+    }
 
     useEffect(() => {
         if (textEl.current) {
@@ -25,7 +31,7 @@ export default function Atom(props) {
         const content = textEl.current.value;
         const key = props.val[0].split('-')[1];
         let date = Time();
-        updateData(content, key, date);
+        updateData(content, key, date, cagetory);
         console.log(content)
         toggleEditFunc();
     }
@@ -38,7 +44,7 @@ export default function Atom(props) {
 
     return (
         <div className="content-page">
-            <div className="content-panel" style={{ backgroundColor: PanelColor(props.val[1].cagetory)}}>{props.val[1] == undefined ? "" : props.val[1].time}</div>
+            <div className="content-panel" style={{ backgroundColor: PanelColor(props.val[1].cagetory) }}>{props.val[1] == undefined ? "" : props.val[1].time}</div>
             <div className="atom-main">
                 <h2 className="atom-cagetory">{props.val[1] == undefined ? "" : props.val[1].cagetory}</h2>
                 <p><b>Author:</b> {props.val[1] == undefined ? "" : props.val[1].author}</p>
@@ -46,6 +52,7 @@ export default function Atom(props) {
                     {!toggleEdit ? <div className="content-actual">{props.val[1] == undefined ? "" : props.val[1].content} </div> :
                         <div className="content-edit">
                             <textarea ref={textEl} id="content-txt" defaultValue={props.val[1] == undefined ? "" : props.val[1].content}></textarea>
+                            <CagetorySelect callback={handleSelect} class={"-edit"} />
                             <button onClick={update}> Save </button>
                         </div>}
                     <br></br>

@@ -42,6 +42,22 @@
     background-color: #F4E8DD;
 }
 
+.cagetory-button-container {
+    position: fixed;
+    left: 5%;
+}
+
+.cagetory-button {
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.insert-select-edit {
+    position: relative;
+    display: inline;
+}
+
 button {
     border: 0.1px solid rgba(224, 224, 224, 0.947);
     border-radius: 5px;
@@ -56,7 +72,7 @@ select {
     height: 30px;
 }
 
-button:hover{
+button:hover {
     background-color: #cacaca;
 }
 
@@ -109,7 +125,7 @@ textarea:focus {
     bottom: 5px;
 }
 
-.insert-select {
+.insert-select-insert {
     position: absolute;
     left: 5px;
     bottom: 5px;
