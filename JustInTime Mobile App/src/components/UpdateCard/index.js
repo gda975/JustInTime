@@ -21,7 +21,7 @@ const UpdateCard = (props) => {
             >
                 <Text
                     style={{
-                        color: 'red',
+                        color: `${props.color || 'red'}`,
                         fontWeight: 'bold',
                     }}
                 >
