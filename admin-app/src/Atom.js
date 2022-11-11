@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { updateData, deleteData } from "./FirebaseAPI";
+import { updateData, deleteData, getData, writeData } from "./FirebaseAPI";
 import Time from "./Utilities/Time";
 import PanelColor from "./Utilities/PanelColor";
 import CagetorySelect from "./Insert/CagetorySelect";
@@ -7,7 +7,7 @@ import CagetorySelect from "./Insert/CagetorySelect";
 export default function Atom(props) {
     let [toggleEdit, setEdit] = useState(false);
     let textEl = useRef(null);
-    let [cagetory, setValue] = useState("DEFAULT");
+    let [cagetory, setValue] = useState(props.val[1].cagetory);
 
     function handleSelect(event) {
         setValue(event.target.value);
@@ -32,7 +32,7 @@ export default function Atom(props) {
         const key = props.val[0].split('-')[1];
         let date = Time();
         updateData(content, key, date, cagetory);
-        console.log(content)
+        getData(props.currentCagetory, props.entriesCallback);
         toggleEditFunc();
     }
 
@@ -52,7 +52,7 @@ export default function Atom(props) {
                     {!toggleEdit ? <div className="content-actual">{props.val[1] == undefined ? "" : props.val[1].content} </div> :
                         <div className="content-edit">
                             <textarea ref={textEl} id="content-txt" defaultValue={props.val[1] == undefined ? "" : props.val[1].content}></textarea>
-                            <CagetorySelect callback={handleSelect} class={"-edit"} />
+                            <CagetorySelect callback={handleSelect} class={"-edit"} selectvalue = {cagetory} />
                             <button onClick={update}> Save </button>
                         </div>}
                     <br></br>

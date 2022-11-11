@@ -12,7 +12,7 @@ export default function PanelColor(cagetory) {
         case "Policy Links":
             color = "#EF426F";
             break;
-        case "Instruction Videos":
+        case "Instructional Videos":
             color = "#C4D600";
             break;
         case "Useful Sites":

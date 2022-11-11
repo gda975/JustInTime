@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { filterBy } from "../FirebaseAPI";
+import { getData } from "../FirebaseAPI";
 import Main_Feed from "./Main_Feed";
 
 export default function Feed(props) {
@@ -7,7 +7,7 @@ export default function Feed(props) {
     let [cagetory, setCagetory] = useState("ALL");
 
     useEffect(() => {
-        filterBy(cagetory, setEntries);
+        getData(cagetory, setEntries);
     }, [cagetory])
 
     function changeCagetory(e) {
@@ -21,12 +21,12 @@ export default function Feed(props) {
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="ALL">All Cagetories</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Workplace Updates">Workplace Updates</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Policy Links">Policy Links</button>
-                <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Instruction Videos">Instruction Videos</button>
+                <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Instructional Videos">Instructional Videos</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Useful Sites">Useful Sites</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Helpful Reading">Helpful Reading</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Staff Event">Staff Event</button>
             </div>
-            <Main_Feed entries={entries} />
+            <Main_Feed cagetory = {cagetory} entries={entries}  entriesCallback = {setEntries}/>
 
         </div>
     );

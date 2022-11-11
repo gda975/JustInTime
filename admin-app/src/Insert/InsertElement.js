@@ -5,7 +5,7 @@ import CagetorySelect from "./CagetorySelect";
 
 export default function InsertElement(props) {
     let [insertInput, setInput] = useState('');
-    let [currentValue, setValue] = useState("DEFAULT");
+    let [currentValue, setValue] = useState("Workplace Updates");
 
     function handleSelect(event) {
         setValue(event.target.value);
@@ -24,7 +24,6 @@ export default function InsertElement(props) {
             <button type="button" className="insert-cancel-button" onClick={() => { props.callback() }}> Cancel</button>
             <button type="button" className="insert-submit-button" onClick={() => {
                 let date = Time();
-                currentValue = (currentValue == "DEFAULT" ? "Workplace Updates" : currentValue);
                 writeData('TeamJ_temp', insertInput, false, date, 'text', currentValue);
                 console.log(insertInput);
                 props.callback();
