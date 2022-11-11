@@ -58,7 +58,7 @@
     display: inline;
 }
 
-button {
+button, input{
     border: 0.1px solid rgba(224, 224, 224, 0.947);
     border-radius: 5px;
     background-color: #ffffff;
@@ -70,6 +70,7 @@ select {
     border: 0.1px solid rgba(224, 224, 224, 0.947);
     border-radius: 5px;
     height: 30px;
+    margin-right: 10px;
 }
 
 button:hover {
@@ -113,22 +114,34 @@ textarea:focus {
     text-align: left;
 }
 
-.insert-submit-button {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-}
-
-.insert-cancel-button {
-    position: absolute;
-    right: 75px;
-    bottom: 5px;
-}
-
-.insert-select-insert {
+.insert-cagetory-containter {
     position: absolute;
     left: 5px;
     bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.insert-cancel-button {
+    position: relative;
+    display: inline;
+    float: right;
+}
+
+.insert-submit-button {
+    position: relative;
+    display: inline;
+    float: right;
+}
+
+.insert-select-insert {
+    position: relative;
+    display: inline;
+}
+
+.insert-custom-button {
+    position: relative;
+    display: inline;
 }
 
 .insert-button-container {
@@ -141,7 +154,7 @@ textarea:focus {
     border: 0.2px solid rgb(203, 203, 203);
     border-radius: 5px;
     background-color: white;
-    width: 40%;
+    width: 50%;
     margin: auto;
     height: 300px;
     position: relative;

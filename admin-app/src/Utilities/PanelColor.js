@@ -24,6 +24,8 @@ export default function PanelColor(cagetory) {
         case "Staff Event":
             color = "#13294B";
             break;
+        default:
+            color = "#4a4e4d"
     }
 
     return color;
