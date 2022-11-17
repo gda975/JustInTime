@@ -1,13 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-    getDatabase,
-    ref,
-    get,
-    child,
-    set,
-    onValue,
-    push,
-    update,
+    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild, equalTo, off
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -57,12 +50,24 @@ function testData(cb) {
     });
 }
 
-function getData(cb) {
-    const valueRef = ref(db, 'Posts');
+function getData(category, cb) {
+    const pathRef = ref(db, 'Posts');
+
+    let valueRef;
+    if (category == "ALL") valueRef = query(pathRef, orderByChild('time'));
+    else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
+
+    let entries = [];
+    console.log(valueRef)
     onValue(valueRef, (snapshot) => {
+        console.log(category);
         if (snapshot.exists()) {
-            cb(Object.entries(snapshot.val()));
-            console.log(Object.entries(snapshot.val()));
+            entries = [];
+            snapshot.forEach((child) => {
+                const data = [child.key, child.val()];
+                entries.push(data);
+            })
+            cb(entries.reverse());
         } else {
             cb(null);
             console.log('No data');
@@ -70,17 +75,42 @@ function getData(cb) {
     });
 }
 
+function getPostNumber(category) {
+    return new Promise(function (resolve, reject) {
+        try {
+            const pathRef = ref(db, 'Posts_number' + '/' + category);
+            let value;
+
+            onValue(pathRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    value = snapshot.val();
+                    resolve(value);
+                } else {
+                    resolve(null);
+                }
+            })
+        }
+        catch (e) {
+            reject(e);
+        }
+    })
+
+}
+
 // POST APIs
-function writeData(author, content, resource, time, type) {
+function writeData(author, content, resource, time, type, category, title) {
     const db = getDatabase();
 
     //text post entry
     const text_post = {
         author: author,
+        title: title,
         content: content,
         resource: false,
         time: time,
         type: type,
+        category: category
     };
 
     //retrieve key
@@ -91,4 +121,43 @@ function writeData(author, content, resource, time, type) {
     return update(ref(db, 'Posts'), updates);
 }
 
-export { writeData, testData, getData };
+// PUT APIS
+function updateData(content, key, date, category) {
+    const db = getDatabase();
+
+    //retrieve post
+    const path = 'Posts/Post-' + key;
+    const post = ref(db, path);
+
+
+    const updates = {};
+    updates['/content'] = content;
+    updates['/time'] = date;
+    updates['/category'] = category;
+    update(ref(db, path), updates);
+    return "";
+}
+
+function updatePostNumber(category, number) {
+    const db = getDatabase();
+
+    //retrieve post
+    const path = 'Posts_number';
+    const post = ref(db, path);
+
+    const updates = {};
+    updates['/' + category] = number;
+    return update(ref(db, path), updates);
+}
+
+// DELETE APIS
+function deleteData(key) {
+    const db = getDatabase();
+
+    //get path
+    const path = 'Posts/' + key;
+
+    return remove(ref(db, path));
+}
+
+export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber };

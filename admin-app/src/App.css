@@ -1,30 +1,173 @@
-.content-page{
-  border: 0.2px solid rgb(208, 208, 208);
-  width: 35%;
-  margin: auto;
-  margin-top: 10px;
-  border-radius: 5px;
-  text-align: start;
-  padding: 10px;
+.content-page {
+    box-shadow: 0px 0.5px 10px rgb(174, 174, 174);
+    /*  border: 0.2px solid rgb(208, 208, 208); */
+    width: 35%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: start;
+
+    background-color: #F4E8DD;
 
 }
 
-#content-txt{
-  height: 300px;
-  width:100%;
-  box-sizing: border-box
+.atom-main {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.atom-main>h2 {
+    margin-top: 5px;
+}
+
+.content-panel {
+    height: 25px;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-color: #A8673E;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+
+.atom-category {
+    margin-left: 0px;
+    left: 0px;
+}
+
+#content-txt {
+    height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #F4E8DD;
+}
+
+.category-button-container {
+    position: fixed;
+    left: 5%;
+}
+
+.category-button {
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.insert-select-edit {
+    position: relative;
+    display: inline;
+}
+
+button, input{
+    border: 0.1px solid rgba(224, 224, 224, 0.947);
+    border-radius: 5px;
+    background-color: #ffffff;
+    height: 30px;
+    margin-right: 10px;
+}
+
+select {
+    border: 0.1px solid rgba(224, 224, 224, 0.947);
+    border-radius: 5px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #cacaca;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+div {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 textarea {
-  border: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+    border: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
 }
 
+textarea:focus {
+    outline: none;
+}
 
+.insert-textarea {
+    padding: inherit;
+    height: 70%;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+}
 
+.edit-button {}
 
+.insert-title {
+    text-align: left;
+}
+
+.insert-category-containter {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.insert-cancel-button {
+    position: relative;
+    display: inline;
+    float: right;
+}
+
+.insert-submit-button {
+    position: relative;
+    display: inline;
+    float: right;
+}
+
+.insert-select-insert {
+    position: relative;
+    display: inline;
+}
+
+.insert-custom-button {
+    position: relative;
+    display: inline;
+}
+
+.insert-button-container {
+    position: fixed;
+    left: 5%;
+}
+
+.insert-atom {
+    padding: 10px;
+    border: 0.2px solid rgb(203, 203, 203);
+    border-radius: 5px;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    height: 300px;
+    position: relative;
+}
+
+.insert-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    backdrop-filter: blur(2px);
+}
 
 
 
@@ -68,6 +211,7 @@ textarea {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
