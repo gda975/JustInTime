@@ -8,15 +8,17 @@ import InsertAtom from './Insert/InsertAtom';
 import Feed from './Feed/Feed';
 
 function App() {
-    
+    let [globalCategory, setCategory] = useState("ALL");
+    let [globalEntries, setEntries] = useState([]);
+
     return (
         <div className="App">
             <h1>
                 Hello UNC Nursing
             </h1>
-           <InsertAtom />
+           <InsertAtom category = {globalCategory} setEntries = {setEntries}/>
             <br></br>
-            <Feed/>
+            <Feed setCategory = {setCategory} globalEntries = {globalEntries} setEntries = {setEntries}/>
         </div>
     );
 }

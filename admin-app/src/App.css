@@ -30,7 +30,7 @@
     color: white;
 }
 
-.atom-cagetory {
+.atom-category {
     margin-left: 0px;
     left: 0px;
 }
@@ -42,12 +42,12 @@
     background-color: #F4E8DD;
 }
 
-.cagetory-button-container {
+.category-button-container {
     position: fixed;
     left: 5%;
 }
 
-.cagetory-button {
+.category-button {
     display: block;
     margin-left: 5px;
     margin-bottom: 5px;
@@ -114,7 +114,7 @@ textarea:focus {
     text-align: left;
 }
 
-.insert-cagetory-containter {
+.insert-category-containter {
     position: absolute;
     left: 5px;
     bottom: 5px;

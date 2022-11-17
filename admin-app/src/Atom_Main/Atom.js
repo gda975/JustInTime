@@ -2,12 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { updateData, deleteData, getData, writeData } from "../FirebaseAPI";
 import Time from "../Utilities/Time";
 import PanelColor from "../Utilities/PanelColor";
-import CagetorySelect from "../Insert/CagetorySelect";
+import CategorySelect from "../Insert/CategorySelect";
 
 export default function Atom(props) {
     let [toggleEdit, setEdit] = useState(false);
     let textEl = useRef(null);
-    let [cagetory, setValue] = useState(props.val[1].cagetory);
+    let [category, setValue] = useState(props.val[1].category);
 
     function handleSelect(event) {
         setValue(event.target.value);
@@ -31,8 +31,8 @@ export default function Atom(props) {
         const content = textEl.current.value;
         const key = props.val[0].split('-')[1];
         let date = Time();
-        updateData(content, key, date, cagetory);
-        getData(props.currentCagetory, props.entriesCallback);
+        updateData(content, key, date, category);
+        getData(props.currentCategory, props.entriesCallback);
         toggleEditFunc();
     }
 
@@ -40,20 +40,20 @@ export default function Atom(props) {
         const key = props.val[0];
         console.log(key)
         deleteData(key);
-        getData(props.currentCagetory, props.entriesCallback);
+        getData(props.currentCategory, props.entriesCallback);
     }
 
     return (
         <div className="content-page">
-            <div className="content-panel" style={{ backgroundColor: PanelColor(props.val[1].cagetory) }}>{props.val[1] == undefined ? "" : props.val[1].time}</div>
+            <div className="content-panel" style={{ backgroundColor: PanelColor(props.val[1].category) }}>{props.val[1] == undefined ? "" : props.val[1].time}</div>
             <div className="atom-main">
-                <h2 className="atom-cagetory">{props.val[1] == undefined ? "" : props.val[1].title}</h2>
+                <h2 className="atom-category">{props.val[1] == undefined ? "" : props.val[1].title}</h2>
                 <p><b>Author:</b> {props.val[1] == undefined ? "" : props.val[1].author}</p>
                 <div className="content" key={props.index + ""}>
                     {!toggleEdit ? <div className="content-actual">{props.val[1] == undefined ? "" : props.val[1].content} </div> :
                         <div className="content-edit">
                             <textarea ref={textEl} id="content-txt" defaultValue={props.val[1] == undefined ? "" : props.val[1].content}></textarea>
-                            <CagetorySelect callback={handleSelect} class={"-edit"} selectvalue = {cagetory} />
+                            <CategorySelect callback={handleSelect} class={"-edit"} selectvalue = {category} />
                             <button onClick={update}> Save </button>
                         </div>}
                     <br></br>

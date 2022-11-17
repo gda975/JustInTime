@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 
-export default function CagetorySelect(props) {
+export default function CategorySelect(props) {
     
 
     return (

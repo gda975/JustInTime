@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { getPostNumber, writeData, updatePostNumber} from "../FirebaseAPI";
+import { getPostNumber, writeData, updatePostNumber, getData} from "../FirebaseAPI";
 import Time from "../Utilities/Time";
-import CagetorySelect from "./CagetorySelect";
+import CategorySelect from "./CategorySelect";
 
 export default function InsertElement(props) {
     let [insertInput, setInput] = useState('');
     let [currentValue, setValue] = useState("Workplace Updates");
     let [customMode, setMode] = useState(false);
     let [buttonText, setText] = useState(0)
-    let names = ["Or Custom Title", "Or Cagetory"];
+    let names = ["Or Custom Title", "Or category"];
     let title = "";
 
     function handleSelect(event) {
@@ -31,7 +31,8 @@ export default function InsertElement(props) {
             });
         }
         else writeData('TeamJ_temp', insertInput, false, date, 'text', "Custom", currentValue);
-
+        getData(props.category, props.setEntries);
+        
         console.log(insertInput);
         props.callback();
     }
@@ -45,8 +46,8 @@ export default function InsertElement(props) {
                     setInput(val.target.value);
                 }}
             ></textarea>
-            <div className="insert-cagetory-containter">
-                {customMode ? <input onInput={(val) => { setValue(val.target.value) }} className={"-insert"} /> : <CagetorySelect callback={handleSelect} class={"-insert"} />}
+            <div className="insert-category-containter">
+                {customMode ? <input onInput={(val) => { setValue(val.target.value) }} className={"-insert"} /> : <CategorySelect callback={handleSelect} class={"-insert"} />}
                 <button type="button" className="insert-custom-button" onClick={handleMode}>{names[buttonText]}</button>
                 <button type="button" className="insert-submit-button" onClick={handleInsert}>Submit</button>
                 <button type="button" className="insert-cancel-button" onClick={() => { props.callback() }}> Cancel</button>

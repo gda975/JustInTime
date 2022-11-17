@@ -1,8 +1,8 @@
 
-export default function PanelColor(cagetory) {
+export default function PanelColor(category) {
     let color = "#00594C";
 
-    switch (cagetory) {
+    switch (category) {
         case undefined:
             color = "#00594C";
             break;

@@ -50,16 +50,17 @@ function testData(cb) {
     });
 }
 
-function getData(cagetory, cb) {
+function getData(category, cb) {
     const pathRef = ref(db, 'Posts');
 
     let valueRef;
-    if (cagetory == "ALL") valueRef = query(pathRef, orderByChild('time'));
-    else valueRef = query(pathRef, orderByChild('cagetory'), equalTo(cagetory));
+    if (category == "ALL") valueRef = query(pathRef, orderByChild('time'));
+    else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
 
     let entries = [];
     console.log(valueRef)
     onValue(valueRef, (snapshot) => {
+        console.log(category);
         if (snapshot.exists()) {
             entries = [];
             snapshot.forEach((child) => {
@@ -74,10 +75,10 @@ function getData(cagetory, cb) {
     });
 }
 
-function getPostNumber(cagetory) {
+function getPostNumber(category) {
     return new Promise(function (resolve, reject) {
         try {
-            const pathRef = ref(db, 'Posts_number' + '/' + cagetory);
+            const pathRef = ref(db, 'Posts_number' + '/' + category);
             let value;
 
             onValue(pathRef, (snapshot) => {
@@ -98,7 +99,7 @@ function getPostNumber(cagetory) {
 }
 
 // POST APIs
-function writeData(author, content, resource, time, type, cagetory, title) {
+function writeData(author, content, resource, time, type, category, title) {
     const db = getDatabase();
 
     //text post entry
@@ -109,7 +110,7 @@ function writeData(author, content, resource, time, type, cagetory, title) {
         resource: false,
         time: time,
         type: type,
-        cagetory: cagetory
+        category: category
     };
 
     //retrieve key
@@ -121,7 +122,7 @@ function writeData(author, content, resource, time, type, cagetory, title) {
 }
 
 // PUT APIS
-function updateData(content, key, date, cagetory) {
+function updateData(content, key, date, category) {
     const db = getDatabase();
 
     //retrieve post
@@ -132,12 +133,12 @@ function updateData(content, key, date, cagetory) {
     const updates = {};
     updates['/content'] = content;
     updates['/time'] = date;
-    updates['/cagetory'] = cagetory;
+    updates['/category'] = category;
     update(ref(db, path), updates);
     return "";
 }
 
-function updatePostNumber(cagetory, number) {
+function updatePostNumber(category, number) {
     const db = getDatabase();
 
     //retrieve post
@@ -145,7 +146,7 @@ function updatePostNumber(cagetory, number) {
     const post = ref(db, path);
 
     const updates = {};
-    updates['/' + cagetory] = number;
+    updates['/' + category] = number;
     return update(ref(db, path), updates);
 }
 
