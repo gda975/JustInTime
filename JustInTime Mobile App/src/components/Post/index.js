@@ -1,4 +1,11 @@
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import {
+    SafeAreaView,
+    View,
+    FlatList,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+} from 'react-native';
 
 // import the data from the database and convert into this format
 const DATA = [
@@ -22,26 +29,33 @@ const DATA = [
     },
 ];
 
-const Item = ({ title, content, datetime }) => (
-    <View style={styles.shadowContainer}>
-        <View style={styles.item}>
-            <View style={styles.datetimebar}>
-                <Text style={styles.datecontent}>{datetime}</Text>
-            </View>
-            <View style={styles.contentView}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.content}>{content}</Text>
+const Item = ({ title, content, datetime, navigation }) => (
+    <TouchableOpacity
+        onPress={() => {
+            navigation.navigate('ContentScreen');
+        }}
+    >
+        <View style={styles.shadowContainer}>
+            <View style={styles.item}>
+                <View style={styles.datetimebar}>
+                    <Text style={styles.datecontent}>{datetime}</Text>
+                </View>
+                <View style={styles.contentView}>
+                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.content}>{content}</Text>
+                </View>
             </View>
         </View>
-    </View>
+    </TouchableOpacity>
 );
 
-const Post = () => {
+const Post = ({ navigation }) => {
     const renderItem = ({ item }) => (
         <Item
             title={item.title}
             content={item.content}
             datetime={item.datetime}
+            navigation={navigation}
         />
     );
 
