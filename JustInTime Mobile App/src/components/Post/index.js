@@ -10,29 +10,53 @@ import {
 // import the data from the database and convert into this format
 const DATA = [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        id: '1',
         title: 'First Item',
-        content: 'content',
+        content:
+            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
         datetime: 'November 2nd',
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        id: '2',
         title: 'Second Item',
         content: 'content',
         datetime: 'November 1st',
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        id: '3',
         title: 'Third Item',
         content: 'content',
         datetime: 'October 31st',
     },
+    {
+        id: '4',
+        title: 'Fourth Item',
+        content: 'content',
+        datetime: 'November 2nd',
+    },
+    {
+        id: '5',
+        title: 'Fifth Item',
+        content: 'content',
+        datetime: 'November 1st',
+    },
+    {
+        id: '6',
+        title: 'Sixth Item',
+        content: 'content',
+        datetime: 'October 31st',
+    },
 ];
+const limit = 45;
 
 const Item = ({ title, content, datetime, navigation }) => (
     <TouchableOpacity
         onPress={() => {
-            navigation.navigate('ContentScreen');
+            navigation.navigate('ContentScreen', {
+                title: title,
+                content: content,
+                datetime: datetime,
+            });
         }}
     >
         <View style={styles.shadowContainer}>
@@ -42,7 +66,11 @@ const Item = ({ title, content, datetime, navigation }) => (
                 </View>
                 <View style={styles.contentView}>
                     <Text style={styles.title}>{title}</Text>
-                    <Text style={styles.content}>{content}</Text>
+                    <Text style={styles.content}>
+                        {content.length > limit
+                            ? content.substring(0, limit) + '...'
+                            : content}
+                    </Text>
                 </View>
             </View>
         </View>
@@ -65,6 +93,7 @@ const Post = ({ navigation }) => {
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.title}
+                style={{ marginBottom: 300 }}
             />
         </SafeAreaView>
     );
