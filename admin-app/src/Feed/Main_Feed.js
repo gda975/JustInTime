@@ -1,5 +1,5 @@
 
-import Atom from "../Atom"
+import Atom from "../Atom_Main/Atom"
 
 export default function Main_Feed(props) {
 

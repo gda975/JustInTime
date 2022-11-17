@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { updateData, deleteData, getData, writeData } from "./FirebaseAPI";
-import Time from "./Utilities/Time";
-import PanelColor from "./Utilities/PanelColor";
-import CagetorySelect from "./Insert/CagetorySelect";
+import { updateData, deleteData, getData, writeData } from "../FirebaseAPI";
+import Time from "../Utilities/Time";
+import PanelColor from "../Utilities/PanelColor";
+import CagetorySelect from "../Insert/CagetorySelect";
 
 export default function Atom(props) {
     let [toggleEdit, setEdit] = useState(false);
@@ -40,13 +40,14 @@ export default function Atom(props) {
         const key = props.val[0];
         console.log(key)
         deleteData(key);
+        getData(props.currentCagetory, props.entriesCallback);
     }
 
     return (
         <div className="content-page">
             <div className="content-panel" style={{ backgroundColor: PanelColor(props.val[1].cagetory) }}>{props.val[1] == undefined ? "" : props.val[1].time}</div>
             <div className="atom-main">
-                <h2 className="atom-cagetory">{props.val[1] == undefined ? "" : props.val[1].cagetory}</h2>
+                <h2 className="atom-cagetory">{props.val[1] == undefined ? "" : props.val[1].title}</h2>
                 <p><b>Author:</b> {props.val[1] == undefined ? "" : props.val[1].author}</p>
                 <div className="content" key={props.index + ""}>
                     {!toggleEdit ? <div className="content-actual">{props.val[1] == undefined ? "" : props.val[1].content} </div> :

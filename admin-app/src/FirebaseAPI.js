@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild, equalTo
+    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild, equalTo, off
 } from 'firebase/database';
 
 const firebaseConfig = {
@@ -54,7 +54,7 @@ function getData(cagetory, cb) {
     const pathRef = ref(db, 'Posts');
 
     let valueRef;
-    if(cagetory == "ALL") valueRef = query(pathRef, orderByChild('time'));
+    if (cagetory == "ALL") valueRef = query(pathRef, orderByChild('time'));
     else valueRef = query(pathRef, orderByChild('cagetory'), equalTo(cagetory));
 
     let entries = [];
@@ -74,13 +74,37 @@ function getData(cagetory, cb) {
     });
 }
 
+function getPostNumber(cagetory) {
+    return new Promise(function (resolve, reject) {
+        try {
+            const pathRef = ref(db, 'Posts_number' + '/' + cagetory);
+            let value;
+
+            onValue(pathRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    value = snapshot.val();
+                    resolve(value);
+                } else {
+                    resolve(null);
+                }
+            })
+        }
+        catch (e) {
+            reject(e);
+        }
+    })
+
+}
+
 // POST APIs
-function writeData(author, content, resource, time, type, cagetory) {
+function writeData(author, content, resource, time, type, cagetory, title) {
     const db = getDatabase();
 
     //text post entry
     const text_post = {
         author: author,
+        title: title,
         content: content,
         resource: false,
         time: time,
@@ -113,6 +137,18 @@ function updateData(content, key, date, cagetory) {
     return "";
 }
 
+function updatePostNumber(cagetory, number) {
+    const db = getDatabase();
+
+    //retrieve post
+    const path = 'Posts_number';
+    const post = ref(db, path);
+
+    const updates = {};
+    updates['/' + cagetory] = number;
+    return update(ref(db, path), updates);
+}
+
 // DELETE APIS
 function deleteData(key) {
     const db = getDatabase();
@@ -123,4 +159,4 @@ function deleteData(key) {
     return remove(ref(db, path));
 }
 
-export { writeData, testData, getData, updateData, deleteData};
+export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber };

@@ -25,6 +25,7 @@ export default function Feed(props) {
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Useful Sites">Useful Sites</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Helpful Reading">Helpful Reading</button>
                 <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Staff Event">Staff Event</button>
+                <button className="cagetory-button" onClick={(e) => { changeCagetory(e) }} type="button" value="Custom">Custom Resources</button>
             </div>
             <Main_Feed cagetory = {cagetory} entries={entries}  entriesCallback = {setEntries}/>
 
