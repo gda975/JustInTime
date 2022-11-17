@@ -6,9 +6,9 @@ import Resources from '../../../components/Resources';
 const ResourceScreen = () => {
     return (
         <View>
-            <DateBar/>
-            <TitleBar name='Resources'/>
-            <Resources></Resources>
+            <DateBar />
+            <TitleBar name="Resources" />
+            <Resources />
         </View>
     );
 };
