@@ -15,47 +15,54 @@ const DATA = [
         content:
             "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
         datetime: 'November 2nd',
+        color: 'blank',
     },
     {
         id: '2',
         title: 'Second Item',
         content: 'content',
         datetime: 'November 1st',
+        color: 'blank',
     },
     {
         id: '3',
         title: 'Third Item',
         content: 'content',
         datetime: 'October 31st',
+        color: 'blank',
     },
     {
         id: '4',
         title: 'Fourth Item',
         content: 'content',
         datetime: 'November 2nd',
+        color: 'blank',
     },
     {
         id: '5',
         title: 'Fifth Item',
         content: 'content',
         datetime: 'November 1st',
+        color: 'blank',
     },
     {
         id: '6',
         title: 'Sixth Item',
         content: 'content',
         datetime: 'October 31st',
+        color: 'blank',
     },
 ];
 const limit = 45;
 
-const Item = ({ title, content, datetime, navigation }) => (
+const Item = ({ title, content, datetime, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
             navigation.navigate('ContentScreen', {
                 title: title,
                 content: content,
                 datetime: datetime,
+                color: color,
             });
         }}
     >
@@ -83,6 +90,7 @@ const Post = ({ navigation }) => {
             title={item.title}
             content={item.content}
             datetime={item.datetime}
+            color={item.color}
             navigation={navigation}
         />
     );

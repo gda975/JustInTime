@@ -4,7 +4,7 @@ const BackButton = ({ navigation }) => {
     return (
         <TouchableOpacity
             onPress={() => {
-                navigation.navigate('HomeScreen');
+                navigation.goBack();
             }}
             style={{ paddingHorizontal: 24, paddingVertical: 5 }}
         >

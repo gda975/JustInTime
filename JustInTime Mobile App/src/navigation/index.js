@@ -12,6 +12,7 @@ import ResourcesScreen from './screens/Resources';
 import SettingsScreen from './screens/Settings';
 import ContentScreen from './screens/Content';
 import HomeStack from './stacks/HomeStack';
+import UpdatesStack from './stacks/UpdatesStack';
 
 // Screen Names
 const homeName = 'Home';
@@ -62,7 +63,7 @@ const MainContainer = () => {
                 })}
             >
                 <Tab.Screen name={homeName} component={HomeStack} />
-                <Tab.Screen name={updatesName} component={UpdatesScreen} />
+                <Tab.Screen name={updatesName} component={UpdatesStack} />
                 <Tab.Screen name={resourcesName} component={ResourcesScreen} />
                 <Tab.Screen name={settingsName} component={SettingsScreen} />
             </Tab.Navigator>
