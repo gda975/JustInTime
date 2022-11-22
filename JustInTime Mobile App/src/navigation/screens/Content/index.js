@@ -1,12 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import BackButton from '../../../components/BackButton';
 import DateBar from '../../../components/DateBar';
 
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
     return (
-        <View>
-            <DateBar />
+        <SafeAreaView>
             <BackButton navigation={navigation} />
             <View style={styles.shadowContainer}>
                 <View style={styles.item}>
@@ -19,7 +18,7 @@ const ContentScreen = ({ route, navigation }) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
