@@ -101,7 +101,8 @@ const Post = ({ navigation }) => {
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.title}
-                style={{ marginBottom: 300 }}
+                style={{ marginBottom: 265 }}
+                contentContainerStyle={{ paddingBottom: 30 }}
             />
         </SafeAreaView>
     );
