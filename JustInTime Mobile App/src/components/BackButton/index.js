@@ -8,7 +8,7 @@ const BackButton = ({ navigation }) => {
             }}
             style={{ paddingHorizontal: 24, paddingVertical: 5 }}
         >
-            <Text style={{ fontSize: 24, color: '#4B9CD3' }}>
+            <Text style={{ fontSize: 20, color: '#4B9CD3' }}>
                 &#x2190; Back
             </Text>
         </TouchableOpacity>
