@@ -131,7 +131,6 @@ const ResourcesList = ({ route, navigation }) => {
             <FlatList
                 data={DATA}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.title}
                 style={{ marginBottom: 265 }}
                 contentContainerStyle={{ paddingBottom: 30 }}
             ></FlatList>

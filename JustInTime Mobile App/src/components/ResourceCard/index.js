@@ -6,7 +6,7 @@ const ResourceCard = (props) => {
         <TouchableOpacity
             onPress={() => {
                 props.navigation.navigate('ResourceListScreen', {
-                    title: `${(props.text && props.text[0]) || ''} \n ${
+                    title: `${(props.text && props.text[0]) || ''} ${
                         (props.text && props.text[1]) || ''
                     }`,
                 });
