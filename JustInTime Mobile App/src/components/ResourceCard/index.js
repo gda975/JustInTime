@@ -1,24 +1,35 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ResourceCard = (props) => {
     return (
-        <View style={styles.shadowContainer}>
-            <View
-                style={{
-                    backgroundColor: props.color,
-                    padding: 20,
-                    borderTopLeftRadius: 12,
-                    borderTopRightRadius: 12,
-                }}
-            />
-            <View style={styles.textArea}>
-                <Text style={styles.text}>
-                    {`${(props.text && props.text[0]) || ''} \n ${
+        <TouchableOpacity
+            onPress={() => {
+                props.navigation.navigate('ResourceListScreen', {
+                    title: `${(props.text && props.text[0]) || ''} \n ${
                         (props.text && props.text[1]) || ''
-                    }`}
-                </Text>
+                    }`,
+                });
+            }}
+        >
+            <View style={styles.shadowContainer}>
+                <View
+                    style={{
+                        backgroundColor: props.color,
+                        padding: 20,
+                        borderTopLeftRadius: 12,
+                        borderTopRightRadius: 12,
+                    }}
+                />
+                <View style={styles.textArea}>
+                    <Text style={styles.text}>
+                        {`${(props.text && props.text[0]) || ''} \n ${
+                            (props.text && props.text[1]) || ''
+                        }`}
+                    </Text>
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
