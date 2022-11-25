@@ -93,6 +93,38 @@ const DATA = [
         content: 'Lorem ipsum dolor sit amet',
         datetime: '4m ago',
     },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: '4h ago',
+    },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: 'Yesterday',
+        color: 'green',
+    },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: '4m ago',
+    },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: '4h ago',
+    },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: 'Yesterday',
+        color: 'green',
+    },
+    {
+        title: 'Test title',
+        content: 'Lorem ipsum dolor sit amet',
+        datetime: '4m ago',
+    },
 ];
 
 const ResourceItem = ({ title, content, datetime, color, navigation }) => (
@@ -106,9 +138,19 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
             });
         }}
     >
-        <View>
-            <Text>Title</Text>
-            <Text>Content</Text>
+        <View
+            style={{
+                borderBottomWidth: 1,
+                paddingVertical: 10,
+                borderColor: 'gray',
+            }}
+        >
+            <Text
+                style={{ fontWeight: 'bold', fontSize: 16, paddingBottom: 4 }}
+            >
+                Title
+            </Text>
+            <Text style={{ fontSize: 16 }}>Content</Text>
         </View>
     </TouchableOpacity>
 );
@@ -133,9 +175,16 @@ const ResourcesList = ({ route, navigation }) => {
             <FlatList
                 data={DATA}
                 renderItem={renderItem}
-                style={{ marginBottom: 265 }}
-                contentContainerStyle={{ paddingBottom: 30 }}
-            ></FlatList>
+                style={{
+                    paddingHorizontal: 24,
+                    paddingVertical: 0,
+                    marginBottom: 75,
+                    marginTop: 10,
+                }}
+                contentContainerStyle={{
+                    paddingBottom: 30,
+                }}
+            />
         </SafeAreaView>
     );
 };
