@@ -5,6 +5,7 @@ import {
     View,
     Text,
 } from 'react-native';
+import BackButton from '../../../components/BackButton';
 import TitleBar from './../../../components/TitleBar';
 
 const DATA = [
@@ -127,6 +128,7 @@ const ResourcesList = ({ route, navigation }) => {
 
     return (
         <SafeAreaView>
+            <BackButton navigation={navigation} />
             <TitleBar name={title} />
             <FlatList
                 data={DATA}
