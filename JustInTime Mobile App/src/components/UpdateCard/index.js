@@ -1,8 +1,15 @@
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 const UpdateCard = (props) => {
     return (
-        <View
+        <TouchableOpacity
+            onPress={() => {
+                props.navigation.navigate('ContentScreen', {
+                    title: props.title,
+                    content: props.content,
+                    datetime: props.datetime,
+                });
+            }}
             style={{
                 backgroundColor: '#ebebeb',
                 height: 72,
@@ -28,13 +35,13 @@ const UpdateCard = (props) => {
                     {props.title || 'This is the update title'}
                 </Text>
                 <Text style={{ color: '#595959', fontSize: 12 }}>
-                    {props.time || 'n minutes ago'}
+                    {props.datetime || 'n minutes ago'}
                 </Text>
             </View>
             <Text style={{ paddingHorizontal: 12 }}>
                 {props.text || 'This is the body text...'}
             </Text>
-        </View>
+        </TouchableOpacity>
     );
 };
 
