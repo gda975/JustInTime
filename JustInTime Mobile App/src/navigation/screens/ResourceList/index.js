@@ -11,7 +11,8 @@ import TitleBar from './../../../components/TitleBar';
 const DATA = [
     {
         title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
+        content:
+            'Lorem ipsum dolor sit amet but this one will have a bunch more text just to see how the thing responds and even more text Lorem ipsum dolor sit amet but this one will have a bunch more text just to see how the thing responds and even more text',
         datetime: '4m ago',
         color: 'blue',
     },
@@ -126,6 +127,7 @@ const DATA = [
         datetime: '4m ago',
     },
 ];
+const limit = 150;
 
 const ResourceItem = ({ title, content, datetime, color, navigation }) => (
     <TouchableOpacity
@@ -148,9 +150,13 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
             <Text
                 style={{ fontWeight: 'bold', fontSize: 16, paddingBottom: 4 }}
             >
-                Title
+                {title}
             </Text>
-            <Text style={{ fontSize: 16 }}>Content</Text>
+            <Text style={{ fontSize: 16 }}>
+                {content.length > limit
+                    ? content.substring(0, limit) + '...'
+                    : content}
+            </Text>
         </View>
     </TouchableOpacity>
 );
