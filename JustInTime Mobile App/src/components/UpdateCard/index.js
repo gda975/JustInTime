@@ -7,7 +7,7 @@ const UpdateCard = (props) => {
                 props.navigation.navigate('ContentScreen', {
                     title: props.title,
                     content: props.content,
-                    dateTime: props.dateTime,
+                    datetime: props.datetime,
                 });
             }}
             style={{
@@ -35,7 +35,7 @@ const UpdateCard = (props) => {
                     {props.title || 'This is the update title'}
                 </Text>
                 <Text style={{ color: '#595959', fontSize: 12 }}>
-                    {props.time || 'n minutes ago'}
+                    {props.datetime || 'n minutes ago'}
                 </Text>
             </View>
             <Text style={{ paddingHorizontal: 12 }}>

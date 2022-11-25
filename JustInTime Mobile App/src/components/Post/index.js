@@ -13,7 +13,7 @@ const DATA = [
         id: '1',
         title: 'First Item',
         content:
-            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
+            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
         datetime: 'November 2nd',
         color: 'blank',
     },
@@ -101,7 +101,8 @@ const Post = ({ navigation }) => {
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.title}
-                style={{ marginBottom: 300 }}
+                style={{ marginBottom: 265 }}
+                contentContainerStyle={{ paddingBottom: 30 }}
             />
         </SafeAreaView>
     );

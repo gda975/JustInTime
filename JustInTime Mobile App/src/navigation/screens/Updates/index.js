@@ -110,7 +110,8 @@ const UpdatesScreen = ({ navigation }) => {
             <FlatList
                 renderItem={renderItem}
                 data={UpdatesList}
-                style={{ marginBottom: 150 }}
+                style={{ marginBottom: 135 }}
+                contentContainerStyle={{ paddingBottom: 30 }}
             />
         </View>
     );
