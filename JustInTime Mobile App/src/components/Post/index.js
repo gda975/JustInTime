@@ -1,3 +1,4 @@
+import { jsonEval } from '@firebase/util';
 import {
     SafeAreaView,
     View,
@@ -6,47 +7,8 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native';
+import { getData } from '../../../FirebaseAPI';
 
-// import the data from the database and convert into this format
-const DATA = [
-    {
-        id: '1',
-        title: 'First Item',
-        content:
-            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
-        datetime: 'November 2nd',
-    },
-    {
-        id: '2',
-        title: 'Second Item',
-        content: 'content',
-        datetime: 'November 1st',
-    },
-    {
-        id: '3',
-        title: 'Third Item',
-        content: 'content',
-        datetime: 'October 31st',
-    },
-    {
-        id: '4',
-        title: 'Fourth Item',
-        content: 'content',
-        datetime: 'November 2nd',
-    },
-    {
-        id: '5',
-        title: 'Fifth Item',
-        content: 'content',
-        datetime: 'November 1st',
-    },
-    {
-        id: '6',
-        title: 'Sixth Item',
-        content: 'content',
-        datetime: 'October 31st',
-    },
-];
 const limit = 45;
 
 const Item = ({ title, content, datetime, navigation }) => (
@@ -77,22 +39,31 @@ const Item = ({ title, content, datetime, navigation }) => (
     </TouchableOpacity>
 );
 
-const Post = ({ navigation }) => {
+const Post = (props) => {
+    let DATA = getData(props.category, props.setEntries).reverse();
+    let jsonData = [];
+    for (const element of DATA) {
+        jsonData.push({
+            title: element['author'],
+            content: element['content'],
+            datetime: element['time'],
+        });
+    }
+    console.log(jsonData);
+
     const renderItem = ({ item }) => (
         <Item
             title={item.title}
             content={item.content}
             datetime={item.datetime}
-            navigation={navigation}
+            navigation={props.navigation}
         />
     );
-
     return (
         <SafeAreaView>
             <FlatList
-                data={DATA}
+                data={jsonData}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.title}
                 style={{ marginBottom: 300 }}
             />
         </SafeAreaView>
