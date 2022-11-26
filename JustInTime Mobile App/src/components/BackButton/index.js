@@ -1,17 +1,16 @@
-import { TouchableOpacity, Image } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 const BackButton = ({ navigation }) => {
     return (
         <TouchableOpacity
             onPress={() => {
-                navigation.navigate('HomeScreen');
+                navigation.goBack();
             }}
             style={{ paddingHorizontal: 24, paddingVertical: 5 }}
         >
-            <Image
-                source={require('../../../assets/backbutton.png')}
-                style={{ height: 45, width: 45 }}
-            />
+            <Text style={{ fontSize: 20, color: '#4B9CD3' }}>
+                &#x2190; Back
+            </Text>
         </TouchableOpacity>
     );
 };

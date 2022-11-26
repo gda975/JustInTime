@@ -11,13 +11,14 @@ import { getData } from '../../../FirebaseAPI';
 
 const limit = 45;
 
-const Item = ({ title, content, datetime, navigation }) => (
+const Item = ({ title, content, datetime, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
             navigation.navigate('ContentScreen', {
                 title: title,
                 content: content,
                 datetime: datetime,
+                color: color,
             });
         }}
     >
@@ -64,7 +65,8 @@ const Post = (props) => {
             <FlatList
                 data={jsonData}
                 renderItem={renderItem}
-                style={{ marginBottom: 300 }}
+                style={{ marginBottom: 265 }}
+                contentContainerStyle={{ paddingBottom: 30 }}
             />
         </SafeAreaView>
     );
