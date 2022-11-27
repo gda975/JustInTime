@@ -32,7 +32,6 @@ export default function Atom(props) {
         const key = props.val[0].split('-')[1];
         let date = Time();
         updateData(content, key, date, category);
-        getData(props.currentCategory, props.entriesCallback);
         toggleEditFunc();
     }
 
@@ -40,7 +39,6 @@ export default function Atom(props) {
         const key = props.val[0];
         console.log(key)
         deleteData(key);
-        getData(props.currentCategory, props.entriesCallback);
     }
 
     return (

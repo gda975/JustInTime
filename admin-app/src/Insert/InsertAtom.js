@@ -23,7 +23,7 @@ export default function InsertAtom(props) {
         <div className="insert-main-container">
             {!insertOn ? <div className="insert-button-container"> <button className="insert-button" type="button" onClick={setMode}> Insert new Post</button></div> :
                 <div className="insert-container">
-                    <InsertElement callback = {setMode} refEl = {textEl} category = {props.category} setEntries = {props.setEntries}/>
+                    <InsertElement callback = {setMode} refEl = {textEl} category = {props.category} setEntries = {props.setEntries} setCategory={props.setCategory}/>
                 </div>}
         </div>
 

@@ -50,30 +50,32 @@ function testData(cb) {
     });
 }
 
-function getData(category, cb) {
-    const pathRef = ref(db, 'Posts');
+function getData(callback) {
+        try {
+            const pathRef = ref(db, 'Posts');
+            let entries = [];
+            onValue(pathRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    entries = [];
+                    snapshot.forEach((child) => {
+                        const data = [child.key, child.val()];
+                        entries.push(data);
+                    })
+                    callback(entries);
+                } else {
+                    callback(entries);
+                }
+            });
+        } catch (e) {
+            console.log(e);
+        }
+}
 
-    let valueRef;
+/* let valueRef;
     if (category == "ALL") valueRef = query(pathRef, orderByChild('time'));
     else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
+*/
 
-    let entries = [];
-    console.log(valueRef)
-    onValue(valueRef, (snapshot) => {
-        console.log(category);
-        if (snapshot.exists()) {
-            entries = [];
-            snapshot.forEach((child) => {
-                const data = [child.key, child.val()];
-                entries.push(data);
-            })
-            cb(entries.reverse());
-        } else {
-            cb(null);
-            console.log('No data');
-        }
-    });
-}
 
 function getPostNumber(category) {
     return new Promise(function (resolve, reject) {
