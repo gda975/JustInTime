@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getPostNumber, writeData, updatePostNumber, getData} from "../FirebaseAPI";
+import { getPostNumber, writeData, updatePostNumber, getData } from "../FirebaseAPI";
 import Time from "../Utilities/Time";
 import CategorySelect from "./CategorySelect";
 
@@ -26,13 +26,15 @@ export default function InsertElement(props) {
         if (buttonText != 1) {
             getPostNumber(currentValue).then((e) => {
                 title = currentValue + " #" + e;
+
+                //reset category to ALL if not equal to current
+                if (props.category != currentValue) props.setCategory("ALL");
                 writeData('TeamJ_temp', insertInput, false, date, 'text', currentValue, title);
                 updatePostNumber(currentValue, e + 1)
             });
         }
         else writeData('TeamJ_temp', insertInput, false, date, 'text', "Custom", currentValue);
-        getData(props.category, props.setEntries);
-        
+
         console.log(insertInput);
         props.callback();
     }

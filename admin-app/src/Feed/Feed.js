@@ -6,12 +6,12 @@ export default function Feed(props) {
     let [category, setCategory] = useState("ALL");
 
     useEffect(() => {
-        getData(category, props.setEntries);
+        console.log(category)
     }, [category])
 
     function changeCategory(e) {
         setCategory(e.target.value + "");
-        props.setCategory(category);
+        props.setCategory(e.target.value + "");
     }
 
     return (
@@ -27,7 +27,7 @@ export default function Feed(props) {
                 <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="Staff Event">Staff Event</button>
                 <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="Custom">Custom Resources</button>
             </div>
-            <Main_Feed category = {category} entries={props.globalEntries}  entriesCallback = {props.setEntries}/>
+            <Main_Feed category={category} entries={props.globalEntries} entriesCallback={props.setEntries} />
 
         </div>
     );
