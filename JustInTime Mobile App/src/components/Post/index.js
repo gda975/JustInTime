@@ -1,4 +1,6 @@
 import { jsonEval } from '@firebase/util';
+import { useFocusEffect } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import {
     SafeAreaView,
     View,
@@ -41,16 +43,24 @@ const Item = ({ title, content, datetime, color, navigation }) => (
 );
 
 const Post = (props) => {
-    let DATA = getData(props.category, props.setEntries).reverse();
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setTimeout(
+            () => setData(getData(props.category, props.setEntries).reverse()),
+            800
+        );
+    }, []);
+
     let jsonData = [];
-    for (const element of DATA) {
+    for (const element of data) {
         jsonData.push({
             title: element['author'],
             content: element['content'],
             datetime: element['time'],
         });
     }
-    console.log(jsonData);
+    // console.log(jsonData, data);
 
     const renderItem = ({ item }) => (
         <Item
