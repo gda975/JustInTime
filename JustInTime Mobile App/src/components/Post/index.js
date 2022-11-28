@@ -1,3 +1,6 @@
+import { jsonEval } from '@firebase/util';
+import { useFocusEffect } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import {
     SafeAreaView,
     View,
@@ -6,53 +9,8 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native';
+import { getData } from '../../../FirebaseAPI';
 
-// import the data from the database and convert into this format
-const DATA = [
-    {
-        id: '1',
-        title: 'First Item',
-        content:
-            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
-        datetime: 'November 2nd',
-        color: 'blank',
-    },
-    {
-        id: '2',
-        title: 'Second Item',
-        content: 'content',
-        datetime: 'November 1st',
-        color: 'blank',
-    },
-    {
-        id: '3',
-        title: 'Third Item',
-        content: 'content',
-        datetime: 'October 31st',
-        color: 'blank',
-    },
-    {
-        id: '4',
-        title: 'Fourth Item',
-        content: 'content',
-        datetime: 'November 2nd',
-        color: 'blank',
-    },
-    {
-        id: '5',
-        title: 'Fifth Item',
-        content: 'content',
-        datetime: 'November 1st',
-        color: 'blank',
-    },
-    {
-        id: '6',
-        title: 'Sixth Item',
-        content: 'content',
-        datetime: 'October 31st',
-        color: 'blank',
-    },
-];
 const limit = 45;
 
 const Item = ({ title, content, datetime, color, navigation }) => (
@@ -84,23 +42,39 @@ const Item = ({ title, content, datetime, color, navigation }) => (
     </TouchableOpacity>
 );
 
-const Post = ({ navigation }) => {
+const Post = (props) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setTimeout(
+            () => setData(getData(props.category, props.setEntries).reverse()),
+            800
+        );
+    }, []);
+
+    let jsonData = [];
+    for (const element of data) {
+        jsonData.push({
+            title: element['author'],
+            content: element['content'],
+            datetime: element['time'],
+        });
+    }
+    // console.log(jsonData, data);
+
     const renderItem = ({ item }) => (
         <Item
             title={item.title}
             content={item.content}
             datetime={item.datetime}
-            color={item.color}
-            navigation={navigation}
+            navigation={props.navigation}
         />
     );
-
     return (
         <SafeAreaView>
             <FlatList
-                data={DATA}
+                data={jsonData}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.title}
                 style={{ marginBottom: 265 }}
                 contentContainerStyle={{ paddingBottom: 30 }}
             />
