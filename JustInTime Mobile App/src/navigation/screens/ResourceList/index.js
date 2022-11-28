@@ -190,6 +190,7 @@ const ResourcesList = ({ route, navigation }) => {
                 contentContainerStyle={{
                     paddingBottom: 30,
                 }}
+                alwaysBounceVertical={false}
             />
         </SafeAreaView>
     );

@@ -9,7 +9,7 @@ import {
 import { getData } from '../../../FirebaseAPI';
 import { useState, useEffect, useCallback } from 'react';
 
-const limit = 50;
+const limit = 40;
 const wait = (timeout) => {
     return new Promise((resolve) => setTimeout(resolve, timeout));
 };
@@ -104,6 +104,7 @@ const Update = (props) => {
                         onRefresh={onRefresh}
                     />
                 }
+                alwaysBounceVertical={false}
             />
         </SafeAreaView>
     );

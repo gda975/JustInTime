@@ -98,6 +98,7 @@ const Post = (props) => {
                         onRefresh={onRefresh}
                     />
                 }
+                alwaysBounceVertical={false}
             />
         </SafeAreaView>
     );

@@ -12,6 +12,7 @@ const ContentScreen = ({ route, navigation }) => {
                     marginBottom: 0,
                 }}
                 contentContainerStyle={{ paddingBottom: 50 }}
+                alwaysBounceVertical={false}
             >
                 <Text
                     style={{

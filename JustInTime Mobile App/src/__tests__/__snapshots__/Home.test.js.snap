@@ -58,6 +58,7 @@ exports[`check for same homepage snapshot 1`] = `
     emulateUnlessSupported={true}
   >
     <RCTScrollView
+      alwaysBounceVertical={false}
       contentContainerStyle={
         {
           "paddingBottom": 30,

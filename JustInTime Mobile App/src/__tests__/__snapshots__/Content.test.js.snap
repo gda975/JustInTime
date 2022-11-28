@@ -35,6 +35,7 @@ exports[`check for same content page snapshot 1`] = `
     </Text>
   </View>
   <RCTScrollView
+    alwaysBounceVertical={false}
     contentContainerStyle={
       {
         "paddingBottom": 50,
