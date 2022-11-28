@@ -15,6 +15,22 @@ const wait = (timeout) => {
     return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+
+    const month = date.toLocaleDateString('en-us', {
+        month: 'long',
+    });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    return `${month} ${dayNum}, ${time}`;
+};
+
 const Item = ({ title, content, datetime, category, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
@@ -34,7 +50,9 @@ const Item = ({ title, content, datetime, category, color, navigation }) => (
                         { backgroundColor: getColor(category) },
                     ]}
                 >
-                    <Text style={styles.datecontent}>{datetime}</Text>
+                    <Text style={styles.datecontent}>
+                        {parseDateTime(datetime)}
+                    </Text>
                 </View>
                 <View style={styles.contentView}>
                     <Text style={styles.title}>{title}</Text>

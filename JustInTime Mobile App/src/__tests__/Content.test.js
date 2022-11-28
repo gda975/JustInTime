@@ -4,6 +4,22 @@ import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+
+    const month = date.toLocaleDateString('en-us', {
+        month: 'long',
+    });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    return `${month} ${dayNum}, ${time}`;
+};
+
 test('integration check content page renders properly', () => {
     let testTitle = 'test title randomly generated';
     render(
@@ -12,14 +28,14 @@ test('integration check content page renders properly', () => {
                 params: {
                     title: testTitle,
                     content: 'Test content',
-                    datetime: 'Test date',
+                    datetime: new Date(),
                 },
             }}
         />
     );
     expect(screen.getByText(testTitle)).toBeTruthy();
     expect(screen.getByText('Test content')).toBeTruthy();
-    expect(screen.getByText('Test date')).toBeTruthy();
+    expect(screen.getByText(parseDateTime(new Date()))).toBeTruthy();
 });
 
 test('check that back button exists', () => {
@@ -29,7 +45,7 @@ test('check that back button exists', () => {
                 params: {
                     title: 'Test title',
                     content: 'Test content',
-                    datetime: 'Test date',
+                    datetime: new Date(),
                 },
             }}
         />
@@ -45,7 +61,7 @@ test('check for same content page snapshot', () => {
                     params: {
                         title: 'Test title',
                         content: 'Test content',
-                        datetime: 'Test date',
+                        datetime: new Date(),
                     },
                 }}
             />
