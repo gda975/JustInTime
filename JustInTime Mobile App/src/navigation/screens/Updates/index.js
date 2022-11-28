@@ -1,120 +1,30 @@
-import { View, FlatList } from 'react-native';
+import { View } from 'react-native';
+import { useEffect, useState } from 'react';
 import DateBar from '../../../components/DateBar';
 import TitleBar from '../../../components/TitleBar';
-import UpdateCard from '../../../components/UpdateCard';
+import Update from '../../../components/UpdateCard';
+import { getData } from '../../../../FirebaseAPI';
 
-const UpdatesList = [
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-];
+const HomeScreen = ({ navigation }) => {
+    let [category, setCategory] = useState('ALL');
+    let [globalEntries, setEntries] = useState([]);
 
-const UpdatesScreen = ({ navigation }) => {
-    const renderItem = ({ item }) => {
-        return (
-            <UpdateCard
-                title={item.title}
-                content={item.content}
-                datetime={item.datetime}
-                color={item.color}
-                navigation={navigation}
-            />
-        );
-    };
+    useEffect(() => {
+        getData(category, setEntries);
+    }, [category]);
 
     return (
         <View>
             <DateBar />
             <TitleBar name="Recent Updates" />
-            <FlatList
-                renderItem={renderItem}
-                data={UpdatesList}
-                style={{ marginBottom: 135 }}
-                contentContainerStyle={{ paddingBottom: 30 }}
+            <Update
+                navigation={navigation}
+                category={category}
+                globalEntries={globalEntries}
+                setEntries={setEntries}
             />
         </View>
     );
 };
 
-export default UpdatesScreen;
+export default HomeScreen;
