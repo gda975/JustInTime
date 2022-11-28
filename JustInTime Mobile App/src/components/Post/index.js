@@ -13,7 +13,7 @@ import { getData } from '../../../FirebaseAPI';
 
 const limit = 45;
 
-const Item = ({ title, content, datetime, color, navigation }) => (
+const Item = ({ title, content, datetime, category, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
             navigation.navigate('ContentScreen', {
@@ -26,7 +26,12 @@ const Item = ({ title, content, datetime, color, navigation }) => (
     >
         <View style={styles.shadowContainer}>
             <View style={styles.item}>
-                <View style={styles.datetimebar}>
+                <View
+                    style={[
+                        styles.datetimebar,
+                        { backgroundColor: getColor(category) },
+                    ]}
+                >
                     <Text style={styles.datecontent}>{datetime}</Text>
                 </View>
                 <View style={styles.contentView}>
@@ -55,9 +60,10 @@ const Post = (props) => {
     let jsonData = [];
     for (const element of data) {
         jsonData.push({
-            title: element['author'],
+            title: element['title'],
             content: element['content'],
             datetime: element['time'],
+            category: element['category'],
         });
     }
     // console.log(jsonData, data);
@@ -67,6 +73,7 @@ const Post = (props) => {
             title={item.title}
             content={item.content}
             datetime={item.datetime}
+            category={item.category}
             navigation={props.navigation}
         />
     );
@@ -81,6 +88,24 @@ const Post = (props) => {
         </SafeAreaView>
     );
 };
+
+function getColor(category) {
+    if (category == 'Policy Links') {
+        return '#EF426F';
+    } else if (category == 'Useful Sites') {
+        return '#A8673E';
+    } else if (category == 'Helpful Reading') {
+        return '#00A5AD';
+    } else if (category == 'Instructional Videos') {
+        return '#C4D600';
+    } else if (category == 'Workplace Updates') {
+        return '#00594C';
+    } else if (category == 'Staff Events') {
+        return '13294B';
+    } else {
+        return '#4A4E4D';
+    }
+}
 
 const styles = StyleSheet.create({
     shadowContainer: {
@@ -111,7 +136,6 @@ const styles = StyleSheet.create({
     datetimebar: {
         paddingHorizontal: 12,
         paddingVertical: 8,
-        backgroundColor: '#DE3163',
         color: 'white',
         fontSize: 16,
     },
