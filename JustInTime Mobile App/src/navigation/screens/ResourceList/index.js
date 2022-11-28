@@ -1,142 +1,29 @@
+import { useCallback, useEffect, useState } from 'react';
 import {
     FlatList,
     SafeAreaView,
     TouchableOpacity,
     View,
     Text,
+    RefreshControl,
 } from 'react-native';
 import BackButton from '../../../components/BackButton';
 import TitleBar from './../../../components/TitleBar';
+import { getData } from '../../../../FirebaseAPI';
 
-const DATA = [
-    {
-        title: 'Test title',
-        content:
-            'Lorem ipsum dolor sit amet but this one will have a bunch more text just to see how the thing responds and even more text Lorem ipsum dolor sit amet but this one will have a bunch more text just to see how the thing responds and even more text',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'blue',
-    },
-    {
-        title: 'Another Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-        color: 'purple',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4h ago',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: 'Yesterday',
-        color: 'green',
-    },
-    {
-        title: 'Test title',
-        content: 'Lorem ipsum dolor sit amet',
-        datetime: '4m ago',
-    },
-];
 const limit = 150;
+const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
 
 const ResourceItem = ({ title, content, datetime, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
             navigation.navigate('ContentScreen', {
-                title,
-                content,
-                datetime,
-                color,
+                title: title,
+                content: content,
+                datetime: datetime,
+                color: color,
             });
         }}
     >
@@ -162,7 +49,34 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
 );
 
 const ResourcesList = ({ route, navigation }) => {
-    const { title } = route.params;
+    const { title, category, resourceCategory, globalEntries, setEntries } =
+        route.params;
+    const [data, setData] = useState([]);
+    const [refreshToggle, setRefreshToggle] = useState(true);
+    const JSONresourceCategory = JSON.stringify(resourceCategory);
+    const withoutQuotes = JSONresourceCategory.replaceAll('"', '');
+
+    useEffect(() => {
+        setTimeout(() => {
+            setData(getData(withoutQuotes, setEntries).reverse());
+            setRefreshToggle(false);
+        }, 800);
+    }, [refreshToggle]);
+
+    const onRefresh = useCallback(() => {
+        setRefreshToggle(true);
+        wait(1500).then(() => setRefreshToggle(false));
+    });
+
+    let jsonData = [];
+    for (const element of data) {
+        jsonData.push({
+            title: element['title'],
+            content: element['content'],
+            datetime: element['time'],
+            category: element['category'],
+        });
+    }
 
     const renderItem = ({ item }) => (
         <ResourceItem
@@ -179,17 +93,24 @@ const ResourcesList = ({ route, navigation }) => {
             <BackButton navigation={navigation} />
             <TitleBar name={title} />
             <FlatList
-                data={DATA}
+                data={jsonData}
                 renderItem={renderItem}
                 style={{
                     paddingHorizontal: 24,
                     paddingVertical: 0,
                     marginBottom: 75,
                     marginTop: 10,
+                    minHeight: 100,
                 }}
                 contentContainerStyle={{
                     paddingBottom: 30,
                 }}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshToggle}
+                        onRefresh={onRefresh}
+                    />
+                }
                 alwaysBounceVertical={false}
             />
         </SafeAreaView>
