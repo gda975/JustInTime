@@ -1,6 +1,22 @@
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import BackButton from '../../../components/BackButton';
 
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+
+    const month = date.toLocaleDateString('en-us', {
+        month: 'long',
+    });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    return `${month} ${dayNum}, ${time}`;
+};
+
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
     return (
@@ -31,7 +47,7 @@ const ContentScreen = ({ route, navigation }) => {
                             color: 'gray',
                         }}
                     >
-                        {datetime}
+                        {parseDateTime(datetime)}
                     </Text>
                 )}
                 <Text style={{ paddingVertical: 8, fontSize: 20 }}>

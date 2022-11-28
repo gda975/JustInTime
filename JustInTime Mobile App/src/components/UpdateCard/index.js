@@ -10,6 +10,28 @@ import { useState, useEffect } from 'react';
 
 const limit = 50;
 
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+    const now = new Date();
+
+    const getMonth = (date) =>
+        date.toLocaleDateString('en-us', {
+            month: 'short',
+        });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    if (getMonth(now) == getMonth(date) && date.getDate() == now.getDate()) {
+        return `${time}`;
+    } else {
+        return `${getMonth(date)} ${dayNum}, ${time}`;
+    }
+};
+
 const Item = ({ item, navigation }) => (
     <TouchableOpacity
         onPress={() => {
@@ -45,7 +67,7 @@ const Item = ({ item, navigation }) => (
                 {item.title || 'This is the update title'}
             </Text>
             <Text style={{ color: '#595959', fontSize: 12 }}>
-                {item.datetime || 'n minutes ago'}
+                {parseDateTime(item.datetime) || ''}
             </Text>
         </View>
         {
