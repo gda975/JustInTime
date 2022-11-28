@@ -17,8 +17,8 @@ export default function Feed(props) {
     return (
         <div className="feed-container">
             <div className="category-button-container">
-                <h2>Choose Cagetories</h2>
-                <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="ALL">All Cagetories</button>
+                <h2>Choose Categories</h2>
+                <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="ALL">All Categories</button>
                 <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="Workplace Updates">Workplace Updates</button>
                 <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="Policy Links">Policy Links</button>
                 <button className="category-button" onClick={(e) => { changeCategory(e) }} type="button" value="Instructional Videos">Instructional Videos</button>

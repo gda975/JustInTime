@@ -7,6 +7,7 @@ import Main_Feed from './Feed/Main_Feed';
 import InsertAtom from './Insert/InsertAtom';
 import Feed from './Feed/Feed';
 import HandleEntries from './Utilities/HandleEntries';
+import LoginPage from './Login/LoginPage';
 
 function App() {
     let [globalCategory, setCategory] = useState("ALL");
@@ -26,11 +27,15 @@ function App() {
     return (
         <div className="App">
             <h1>
-                Hello UNC Nursing
+            Center for Nursing Excellence
             </h1>
+            <h2>
+                UNC CNE
+            </h2>
+            {/* <LoginPage/> */}
             <InsertAtom category={globalCategory} setEntries={setEntries} setCategory={setCategory}/>
             <br></br>
-            <Feed setCategory={setCategory} globalEntries={feed} />
+            <Feed setCategory={setCategory} globalEntries={feed}/>
         </div>
     );
 }
