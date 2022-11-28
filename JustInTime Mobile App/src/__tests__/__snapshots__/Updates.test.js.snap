@@ -1,0 +1,863 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check for same updates page snapshot 1`] = `
+<View>
+  <View
+    style={
+      [
+        {
+          "paddingHorizontal": 24,
+        },
+        {
+          "paddingTop": 56,
+        },
+        {
+          "paddingBottom": 8,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#4B9CD3",
+          "fontSize": 24,
+        }
+      }
+    >
+      Monday, November 28
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "paddingHorizontal": 24,
+        "paddingVertical": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 36,
+          },
+          {
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#4B9CD3",
+          },
+        ]
+      }
+    >
+      Recent Updates
+    </Text>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 30,
+      }
+    }
+    data={
+      [
+        {
+          "color": "blue",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+        {
+          "color": "purple",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Another Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4h ago",
+          "title": "Test title",
+        },
+        {
+          "color": "green",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "Yesterday",
+          "title": "Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+        {
+          "color": "blue",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+        {
+          "color": "purple",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Another Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4h ago",
+          "title": "Test title",
+        },
+        {
+          "color": "green",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "Yesterday",
+          "title": "Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+        {
+          "color": "blue",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+        {
+          "color": "purple",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Another Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4h ago",
+          "title": "Test title",
+        },
+        {
+          "color": "green",
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "Yesterday",
+          "title": "Test title",
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "datetime": "4m ago",
+          "title": "Test title",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={[]}
+    style={
+      {
+        "marginBottom": 135,
+      }
+    }
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "blue",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "purple",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Another Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "red",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4h ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "green",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Yesterday
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "red",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "blue",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "purple",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Another Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "red",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4h ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "green",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Yesterday
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "backgroundColor": "#ebebeb",
+              "borderRadius": 8,
+              "height": 72,
+              "marginHorizontal": 24,
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+                "paddingBottom": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "red",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Test title
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#595959",
+                  "fontSize": 12,
+                }
+              }
+            >
+              4m ago
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "paddingHorizontal": 12,
+              }
+            }
+          >
+            This is the body text...
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;
