@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { useEffect, useState } from 'react';
 import DateBar from '../../../components/DateBar';
 import TitleBar from '../../../components/TitleBar';

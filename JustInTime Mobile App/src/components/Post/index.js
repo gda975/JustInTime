@@ -1,5 +1,3 @@
-import { jsonEval } from '@firebase/util';
-import { useFocusEffect } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import {
     SafeAreaView,
