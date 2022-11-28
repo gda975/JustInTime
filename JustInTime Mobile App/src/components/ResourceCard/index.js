@@ -1,7 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { getData } from '../../../FirebaseAPI';
 
-const ResourceCard = (props) => {
+const ResourceCard = (props, navigation) => {
+    let [category, setCategory] = useState('ALL');
+    let [globalEntries, setEntries] = useState([]);
+
+    useEffect(() => {
+        getData(category, setEntries);
+    }, [category]);
+
     return (
         <TouchableOpacity
             onPress={() => {
@@ -9,6 +18,10 @@ const ResourceCard = (props) => {
                     title: `${(props.text && props.text[0]) || ''} ${
                         (props.text && props.text[1]) || ''
                     }`,
+                    category: { category },
+                    resourceCategory: props.category,
+                    globalEntries: { globalEntries },
+                    setEntries: { setEntries },
                 });
             }}
         >
