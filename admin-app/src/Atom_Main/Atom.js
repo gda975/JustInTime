@@ -29,7 +29,7 @@ export default function Atom(props) {
 
     function update() {
         const content = textEl.current.value;
-        const key = props.val[0].split('-')[1];
+        const key = props.val[0];
         let date = Time();
         updateData(content, key, date, category);
         toggleEditFunc();
