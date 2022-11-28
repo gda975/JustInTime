@@ -8,7 +8,10 @@ const ResourceScreen = ({ navigation }) => {
         <View>
             <DateBar />
             <TitleBar name="Resources" />
-            <ScrollView contentContainerStyle={styles.flexContainer}>
+            <ScrollView
+                contentContainerStyle={styles.flexContainer}
+                alwaysBounceVertical={false}
+            >
                 <ResourceCard
                     text={['Policy', 'Links']}
                     color="#EF426F"

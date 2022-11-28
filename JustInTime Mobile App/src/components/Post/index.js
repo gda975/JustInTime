@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
     SafeAreaView,
     View,
@@ -6,10 +6,14 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
+    RefreshControl,
 } from 'react-native';
 import { getData } from '../../../FirebaseAPI';
 
 const limit = 45;
+const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
 
 const Item = ({ title, content, datetime, category, color, navigation }) => (
     <TouchableOpacity
@@ -47,13 +51,19 @@ const Item = ({ title, content, datetime, category, color, navigation }) => (
 
 const Post = (props) => {
     const [data, setData] = useState([]);
+    const [refreshToggle, setRefreshToggle] = useState(true);
 
     useEffect(() => {
-        setTimeout(
-            () => setData(getData(props.category, props.setEntries).reverse()),
-            800
-        );
-    }, []);
+        setTimeout(() => {
+            setData(getData(props.category, props.setEntries).reverse());
+            setRefreshToggle(false);
+        }, 800);
+    }, [refreshToggle]);
+
+    const onRefresh = useCallback(() => {
+        setRefreshToggle(true);
+        wait(1500).then(() => setRefreshToggle(false));
+    });
 
     let jsonData = [];
     for (const element of data) {
@@ -80,8 +90,15 @@ const Post = (props) => {
             <FlatList
                 data={jsonData}
                 renderItem={renderItem}
-                style={{ marginBottom: 265 }}
+                style={{ marginBottom: 265, minHeight: 100 }}
                 contentContainerStyle={{ paddingBottom: 30 }}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshToggle}
+                        onRefresh={onRefresh}
+                    />
+                }
+                alwaysBounceVertical={false}
             />
         </SafeAreaView>
     );
