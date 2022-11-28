@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
     SafeAreaView,
     View,
@@ -6,56 +7,11 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native';
+import { getData } from '../../../FirebaseAPI';
 
-// import the data from the database and convert into this format
-const DATA = [
-    {
-        id: '1',
-        title: 'First Item',
-        content:
-            "this content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in herethis content is really long and it won't fit on the preview. I guess you'll just have to click on it to see the super secret and important things in here",
-        datetime: 'November 2nd',
-        color: 'blank',
-    },
-    {
-        id: '2',
-        title: 'Second Item',
-        content: 'content',
-        datetime: 'November 1st',
-        color: 'blank',
-    },
-    {
-        id: '3',
-        title: 'Third Item',
-        content: 'content',
-        datetime: 'October 31st',
-        color: 'blank',
-    },
-    {
-        id: '4',
-        title: 'Fourth Item',
-        content: 'content',
-        datetime: 'November 2nd',
-        color: 'blank',
-    },
-    {
-        id: '5',
-        title: 'Fifth Item',
-        content: 'content',
-        datetime: 'November 1st',
-        color: 'blank',
-    },
-    {
-        id: '6',
-        title: 'Sixth Item',
-        content: 'content',
-        datetime: 'October 31st',
-        color: 'blank',
-    },
-];
 const limit = 45;
 
-const Item = ({ title, content, datetime, color, navigation }) => (
+const Item = ({ title, content, datetime, category, color, navigation }) => (
     <TouchableOpacity
         onPress={() => {
             navigation.navigate('ContentScreen', {
@@ -68,7 +24,12 @@ const Item = ({ title, content, datetime, color, navigation }) => (
     >
         <View style={styles.shadowContainer}>
             <View style={styles.item}>
-                <View style={styles.datetimebar}>
+                <View
+                    style={[
+                        styles.datetimebar,
+                        { backgroundColor: getColor(category) },
+                    ]}
+                >
                     <Text style={styles.datecontent}>{datetime}</Text>
                 </View>
                 <View style={styles.contentView}>
@@ -84,29 +45,65 @@ const Item = ({ title, content, datetime, color, navigation }) => (
     </TouchableOpacity>
 );
 
-const Post = ({ navigation }) => {
+const Post = (props) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setTimeout(
+            () => setData(getData(props.category, props.setEntries).reverse()),
+            800
+        );
+    }, []);
+
+    let jsonData = [];
+    for (const element of data) {
+        jsonData.push({
+            title: element['title'],
+            content: element['content'],
+            datetime: element['time'],
+            category: element['category'],
+        });
+    }
+    // console.log(jsonData, data);
+
     const renderItem = ({ item }) => (
         <Item
             title={item.title}
             content={item.content}
             datetime={item.datetime}
-            color={item.color}
-            navigation={navigation}
+            category={item.category}
+            navigation={props.navigation}
         />
     );
-
     return (
         <SafeAreaView>
             <FlatList
-                data={DATA}
+                data={jsonData}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.title}
                 style={{ marginBottom: 265 }}
                 contentContainerStyle={{ paddingBottom: 30 }}
             />
         </SafeAreaView>
     );
 };
+
+function getColor(category) {
+    if (category == 'Policy Links') {
+        return '#EF426F';
+    } else if (category == 'Useful Sites') {
+        return '#A8673E';
+    } else if (category == 'Helpful Reading') {
+        return '#00A5AD';
+    } else if (category == 'Instructional Videos') {
+        return '#C4D600';
+    } else if (category == 'Workplace Updates') {
+        return '#00594C';
+    } else if (category == 'Staff Events') {
+        return '13294B';
+    } else {
+        return '#4A4E4D';
+    }
+}
 
 const styles = StyleSheet.create({
     shadowContainer: {
@@ -137,7 +134,6 @@ const styles = StyleSheet.create({
     datetimebar: {
         paddingHorizontal: 12,
         paddingVertical: 8,
-        backgroundColor: '#DE3163',
         color: 'white',
         fontSize: 16,
     },

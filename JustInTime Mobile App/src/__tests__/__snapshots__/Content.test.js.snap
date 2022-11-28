@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check for same content page snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#4B9CD3",
+          "fontSize": 20,
+        }
+      }
+    >
+      ← Back
+    </Text>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 50,
+      }
+    }
+    style={
+      {
+        "marginBottom": 0,
+        "paddingHorizontal": 24,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          {
+            "color": "#4B9CD3",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        Test title
+      </Text>
+      <Text
+        style={
+          {
+            "color": "gray",
+            "fontSize": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        Test date
+      </Text>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        Test content
+      </Text>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

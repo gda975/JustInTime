@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check for same homepage snapshot 1`] = `
+<View>
+  <View
+    style={
+      [
+        {
+          "paddingHorizontal": 24,
+        },
+        {
+          "paddingTop": 56,
+        },
+        {
+          "paddingBottom": 8,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#4B9CD3",
+          "fontSize": 24,
+        }
+      }
+    >
+      Monday, November 28
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "paddingHorizontal": 24,
+        "paddingVertical": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 36,
+          },
+          {
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#4B9CD3",
+          },
+        ]
+      }
+    >
+      Feed
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        {
+          "paddingBottom": 30,
+        }
+      }
+      data={[]}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      style={
+        {
+          "marginBottom": 265,
+        }
+      }
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View />
+    </RCTScrollView>
+  </RCTSafeAreaView>
+</View>
+`;
