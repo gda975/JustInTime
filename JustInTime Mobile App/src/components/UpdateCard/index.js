@@ -77,7 +77,6 @@ const Update = (props) => {
             category: element['category'],
         });
     }
-    console.log(jsonData);
 
     const renderItem = ({ item }) => {
         return <Item item={item} navigation={props.navigation} />;

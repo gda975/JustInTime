@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
-test('integration check that feed shows on updates page', () => {
+test('integration check that title shows on updates page', () => {
     render(<UpdatesScreen />);
     expect(screen.getByText('Recent Updates')).toBeTruthy();
 });

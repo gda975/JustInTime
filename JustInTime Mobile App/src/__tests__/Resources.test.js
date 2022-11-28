@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, fireEvent } from '@testing-library/react-native';
 import ResourcesScreen from './../../src/navigation/screens/Resources';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
-test('integration check that feed shows on resources page', () => {
+test('integration check that title shows on resources page', () => {
     render(<ResourcesScreen />);
     expect(screen.getByText('Resources')).toBeTruthy();
 });
@@ -28,7 +28,22 @@ test('check that all resources render', () => {
     expect(screen.getByText('Staff Events')).toBeTruthy();
 });
 
-test('check for same updates page snapshot', () => {
+test('check for same resources page snapshot', () => {
     const tree = renderer.create(<ResourcesScreen />).toJSON();
     expect(tree).toMatchSnapshot();
+});
+
+test('try clicking on resource', () => {
+    let navigated = false;
+    render(
+        <ResourcesScreen
+            navigation={{
+                navigate: jest.fn(() => {
+                    navigated = true;
+                }),
+            }}
+        />
+    );
+    fireEvent.press(screen.getByText('Policy Links', { exact: false }));
+    expect(navigated).toBe(true);
 });

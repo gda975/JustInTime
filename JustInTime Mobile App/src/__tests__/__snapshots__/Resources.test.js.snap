@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`check for same updates page snapshot 1`] = `
+exports[`check for same resources page snapshot 1`] = `
 <View>
   <View
     style={
