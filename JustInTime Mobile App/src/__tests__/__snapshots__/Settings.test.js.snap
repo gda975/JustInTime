@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check for same updates page snapshot 1`] = `
+<View>
+  <View
+    style={
+      [
+        {
+          "paddingHorizontal": 24,
+        },
+        {
+          "paddingTop": 56,
+        },
+        {
+          "paddingBottom": 8,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#4B9CD3",
+          "fontSize": 24,
+        }
+      }
+    >
+      Monday, November 28
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "paddingHorizontal": 24,
+        "paddingVertical": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 36,
+          },
+          {
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#4B9CD3",
+          },
+        ]
+      }
+    >
+      Settings
+    </Text>
+  </View>
+</View>
+`;

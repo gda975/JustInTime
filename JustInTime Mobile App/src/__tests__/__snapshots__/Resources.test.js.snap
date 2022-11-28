@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check for same resources page snapshot 1`] = `
+<View>
+  <View
+    style={
+      [
+        {
+          "paddingHorizontal": 24,
+        },
+        {
+          "paddingTop": 56,
+        },
+        {
+          "paddingBottom": 8,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#4B9CD3",
+          "fontSize": 24,
+        }
+      }
+    >
+      Monday, November 28
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "paddingHorizontal": 24,
+        "paddingVertical": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 36,
+          },
+          {
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#4B9CD3",
+          },
+        ]
+      }
+    >
+      Resources
+    </Text>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+        "paddingBottom": 150,
+      }
+    }
+  >
+    <View>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={19}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#EF426F",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Policy 
+ Links
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={20}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#A8673E",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Useful 
+ Sites
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={21}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#00A5AD",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Helpful 
+ Reading
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={22}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#C4D600",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Instructional 
+ Videos
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={23}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#00594C",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Workplace 
+ Updates
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        handlerTag={24}
+        handlerType="NativeViewGestureHandler"
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        touchSoundDisabled={false}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "margin": 12,
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#13294B",
+                  "borderTopLeftRadius": 12,
+                  "borderTopRightRadius": 12,
+                  "padding": 20,
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#F4E8DD",
+                  "borderBottomLeftRadius": 12,
+                  "borderBottomRightRadius": 12,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Staff 
+ Events
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+    </View>
+  </RCTScrollView>
+</View>
+`;
