@@ -42,9 +42,9 @@ function getData(category, cb) {
     else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
 
     let entries = [];
-    console.log(valueRef);
+    // console.log(valueRef);
     onValue(valueRef, (snapshot) => {
-        console.log(category);
+        // console.log(category);
         if (snapshot.exists()) {
             snapshot.forEach((child) => {
                 const data = child.val();
@@ -53,7 +53,7 @@ function getData(category, cb) {
             // cb(entries.reverse());
         } else {
             // cb(null);
-            console.log('No data');
+            // console.log('No data');
         }
     });
     return entries;
