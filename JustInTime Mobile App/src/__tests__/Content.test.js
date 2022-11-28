@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 jest.useFakeTimers();
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime);
+    const date = new Date('2022/11/28 18:24:43');
 
     const month = date.toLocaleDateString('en-us', {
         month: 'long',
@@ -28,14 +28,16 @@ test('integration check content page renders properly', () => {
                 params: {
                     title: testTitle,
                     content: 'Test content',
-                    datetime: new Date(),
+                    datetime: new Date('2022/11/28 18:24:43'),
                 },
             }}
         />
     );
     expect(screen.getByText(testTitle)).toBeTruthy();
     expect(screen.getByText('Test content')).toBeTruthy();
-    expect(screen.getByText(parseDateTime(new Date()))).toBeTruthy();
+    expect(
+        screen.getByText(parseDateTime(new Date('2022/11/28 18:24:43')))
+    ).toBeTruthy();
 });
 
 test('check that back button exists', () => {
@@ -45,7 +47,7 @@ test('check that back button exists', () => {
                 params: {
                     title: 'Test title',
                     content: 'Test content',
-                    datetime: new Date(),
+                    datetime: new Date('2022/11/28 18:24:43'),
                 },
             }}
         />
@@ -61,7 +63,7 @@ test('check for same content page snapshot', () => {
                     params: {
                         title: 'Test title',
                         content: 'Test content',
-                        datetime: new Date(),
+                        datetime: new Date('2022/11/28 18:24:43'),
                     },
                 }}
             />

@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
     FlatList,
     SafeAreaView,
     TouchableOpacity,
     View,
     Text,
+    RefreshControl,
 } from 'react-native';
 import BackButton from '../../../components/BackButton';
 import TitleBar from './../../../components/TitleBar';
 import { getData } from '../../../../FirebaseAPI';
 
 const limit = 150;
+const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
 
 const ResourceItem = ({ title, content, datetime, color, navigation }) => (
     <TouchableOpacity
@@ -48,16 +52,21 @@ const ResourcesList = ({ route, navigation }) => {
     const { title, category, resourceCategory, globalEntries, setEntries } =
         route.params;
     const [data, setData] = useState([]);
+    const [refreshToggle, setRefreshToggle] = useState(true);
     const JSONresourceCategory = JSON.stringify(resourceCategory);
     const withoutQuotes = JSONresourceCategory.replaceAll('"', '');
 
     useEffect(() => {
-        setTimeout(
-            () => setData(getData(withoutQuotes, setEntries).reverse()),
-            800
-        );
-        console.log(withoutQuotes);
-    }, []);
+        setTimeout(() => {
+            setData(getData(withoutQuotes, setEntries).reverse());
+            setRefreshToggle(false);
+        }, 800);
+    }, [refreshToggle]);
+
+    const onRefresh = useCallback(() => {
+        setRefreshToggle(true);
+        wait(1500).then(() => setRefreshToggle(false));
+    });
 
     let jsonData = [];
     for (const element of data) {
@@ -91,10 +100,17 @@ const ResourcesList = ({ route, navigation }) => {
                     paddingVertical: 0,
                     marginBottom: 75,
                     marginTop: 10,
+                    minHeight: 100,
                 }}
                 contentContainerStyle={{
                     paddingBottom: 30,
                 }}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshToggle}
+                        onRefresh={onRefresh}
+                    />
+                }
                 alwaysBounceVertical={false}
             />
         </SafeAreaView>
