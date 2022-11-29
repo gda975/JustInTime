@@ -5,7 +5,7 @@ import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime);
+    const date = new Date(datetime.replace(/\-/g, '/'));
 
     const month = date.toLocaleDateString('en-us', {
         month: 'long',
