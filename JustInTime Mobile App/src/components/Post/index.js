@@ -24,9 +24,11 @@ const parseDateTime = (datetime) => {
 
     const dayNum = date.getDate();
 
-    const time = new Intl.DateTimeFormat('en-us', {
-        timeStyle: 'short',
-    }).format(date);
+    const time = date
+        .toLocaleTimeString()
+        .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
+
+    console.log(time);
 
     return `${month} ${dayNum}, ${time}`;
 };
