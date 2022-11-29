@@ -143,7 +143,7 @@ function getColor(category) {
         return '#C4D600';
     } else if (category == 'Workplace Updates') {
         return '#00594C';
-    } else if (category == 'Staff Event') {
+    } else if (category == 'Staff Events' || category == 'Staff Event') {
         return '#13294B';
     } else {
         return '#4A4E4D';
