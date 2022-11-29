@@ -7,4 +7,5 @@ Link to admin: https://just-in-time-5698c.web.app
 # TODO
 Add notifications <br>
 Authentication <br>
+Changing premade category should change title <br>
 Resources upload <br>

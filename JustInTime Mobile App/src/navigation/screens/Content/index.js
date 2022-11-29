@@ -1,5 +1,24 @@
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import 'intl';
+import { Linking } from 'react-native';
+import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
+
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+
+    const month = date.toLocaleDateString('en-us', {
+        month: 'long',
+    });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    return `${month} ${dayNum}, ${time}`;
+};
 
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
@@ -12,6 +31,7 @@ const ContentScreen = ({ route, navigation }) => {
                     marginBottom: 0,
                 }}
                 contentContainerStyle={{ paddingBottom: 50 }}
+                alwaysBounceVertical={false}
             >
                 <Text
                     style={{
@@ -31,12 +51,17 @@ const ContentScreen = ({ route, navigation }) => {
                             color: 'gray',
                         }}
                     >
-                        {datetime}
+                        {parseDateTime(datetime)}
                     </Text>
                 )}
-                <Text style={{ paddingVertical: 8, fontSize: 20 }}>
-                    {content}
-                </Text>
+                <Hyperlink
+                    onPress={(url) => Linking.openURL(url)}
+                    linkStyle={{ color: '#2980b9', fontSize: 20 }}
+                >
+                    <Text style={{ paddingVertical: 8, fontSize: 20 }}>
+                        {content}
+                    </Text>
+                </Hyperlink>
             </ScrollView>
         </SafeAreaView>
     );

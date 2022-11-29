@@ -35,6 +35,7 @@ exports[`check for same content page snapshot 1`] = `
     </Text>
   </View>
   <RCTScrollView
+    alwaysBounceVertical={false}
     contentContainerStyle={
       {
         "paddingBottom": 50,
@@ -69,18 +70,22 @@ exports[`check for same content page snapshot 1`] = `
           }
         }
       >
-        Test date
+        November 28, 6:24 PM
       </Text>
-      <Text
-        style={
-          {
-            "fontSize": 20,
-            "paddingVertical": 8,
-          }
-        }
+      <View
+        injectViewProps={[Function]}
       >
-        Test content
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 20,
+              "paddingVertical": 8,
+            }
+          }
+        >
+          Test content
+        </Text>
+      </View>
     </View>
   </RCTScrollView>
 </RCTSafeAreaView>

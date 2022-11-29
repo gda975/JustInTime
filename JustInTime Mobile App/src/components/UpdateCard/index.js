@@ -4,11 +4,37 @@ import {
     View,
     SafeAreaView,
     FlatList,
+    RefreshControl,
 } from 'react-native';
 import { getData } from '../../../FirebaseAPI';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-const limit = 50;
+const limit = 40;
+const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
+const parseDateTime = (datetime) => {
+    const date = new Date(datetime);
+    const now = new Date();
+
+    const getMonth = (date) =>
+        date.toLocaleDateString('en-us', {
+            month: 'short',
+        });
+
+    const dayNum = date.getDate();
+
+    const time = new Intl.DateTimeFormat('en-us', {
+        timeStyle: 'short',
+    }).format(date);
+
+    if (getMonth(now) == getMonth(date) && date.getDate() == now.getDate()) {
+        return `${time}`;
+    } else {
+        return `${getMonth(date)} ${dayNum}, ${time}`;
+    }
+};
 
 const Item = ({ item, navigation }) => (
     <TouchableOpacity
@@ -45,7 +71,7 @@ const Item = ({ item, navigation }) => (
                 {item.title || 'This is the update title'}
             </Text>
             <Text style={{ color: '#595959', fontSize: 12 }}>
-                {item.datetime || 'n minutes ago'}
+                {parseDateTime(item.datetime) || ''}
             </Text>
         </View>
         {
@@ -60,13 +86,19 @@ const Item = ({ item, navigation }) => (
 
 const Update = (props) => {
     const [data, setData] = useState([]);
+    const [refreshToggle, setRefreshToggle] = useState(true);
 
     useEffect(() => {
-        setTimeout(
-            () => setData(getData(props.category, props.setEntries).reverse()),
-            800
-        );
-    }, []);
+        setTimeout(() => {
+            setData(getData(props.category, props.setEntries).reverse());
+            setRefreshToggle(false);
+        }, 800);
+    }, [refreshToggle]);
+
+    const onRefresh = useCallback(() => {
+        setRefreshToggle(true);
+        wait(1500).then(() => setRefreshToggle(false));
+    });
 
     let jsonData = [];
     for (const element of data) {
@@ -86,8 +118,15 @@ const Update = (props) => {
             <FlatList
                 data={jsonData}
                 renderItem={renderItem}
-                style={{ marginBottom: 265 }}
+                style={{ marginBottom: 265, minHeight: 100 }}
                 contentContainerStyle={{ paddingBottom: 30 }}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshToggle}
+                        onRefresh={onRefresh}
+                    />
+                }
+                alwaysBounceVertical={false}
             />
         </SafeAreaView>
     );
@@ -104,8 +143,8 @@ function getColor(category) {
         return '#C4D600';
     } else if (category == 'Workplace Updates') {
         return '#00594C';
-    } else if (category == 'Staff Events') {
-        return '13294B';
+    } else if (category == 'Staff Events' || category == 'Staff Event') {
+        return '#13294B';
     } else {
         return '#4A4E4D';
     }

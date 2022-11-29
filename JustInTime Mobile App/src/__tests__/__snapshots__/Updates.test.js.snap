@@ -58,6 +58,7 @@ exports[`check for same updates page snapshot 1`] = `
     emulateUnlessSupported={true}
   >
     <RCTScrollView
+      alwaysBounceVertical={false}
       contentContainerStyle={
         {
           "paddingBottom": 30,
@@ -74,6 +75,12 @@ exports[`check for same updates page snapshot 1`] = `
       onScroll={[Function]}
       onScrollBeginDrag={[Function]}
       onScrollEndDrag={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+          refreshing={true}
+        />
+      }
       removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
@@ -81,10 +88,12 @@ exports[`check for same updates page snapshot 1`] = `
       style={
         {
           "marginBottom": 265,
+          "minHeight": 100,
         }
       }
       viewabilityConfigCallbackPairs={[]}
     >
+      <RCTRefreshControl />
       <View />
     </RCTScrollView>
   </RCTSafeAreaView>

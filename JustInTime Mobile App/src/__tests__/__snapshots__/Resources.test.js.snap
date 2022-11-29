@@ -55,6 +55,7 @@ exports[`check for same resources page snapshot 1`] = `
     </Text>
   </View>
   <RCTScrollView
+    alwaysBounceVertical={false}
     contentContainerStyle={
       {
         "flexDirection": "row",
