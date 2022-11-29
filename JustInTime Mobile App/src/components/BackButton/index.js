@@ -6,7 +6,11 @@ const BackButton = ({ navigation }) => {
             onPress={() => {
                 navigation.goBack();
             }}
-            style={{ paddingHorizontal: 24, paddingVertical: 5 }}
+            style={[
+                { paddingHorizontal: 24 },
+                { paddingTop: 56 },
+                { paddingBottom: 8 },
+            ]}
         >
             <Text style={{ fontSize: 20, color: '#4B9CD3' }}>
                 &#x2190; Back
