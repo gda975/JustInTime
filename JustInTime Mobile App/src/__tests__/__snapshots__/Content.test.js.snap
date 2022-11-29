@@ -72,16 +72,20 @@ exports[`check for same content page snapshot 1`] = `
       >
         November 28, 6:24 PM
       </Text>
-      <Text
-        style={
-          {
-            "fontSize": 20,
-            "paddingVertical": 8,
-          }
-        }
+      <View
+        injectViewProps={[Function]}
       >
-        Test content
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 20,
+              "paddingVertical": 8,
+            }
+          }
+        >
+          Test content
+        </Text>
+      </View>
     </View>
   </RCTScrollView>
 </RCTSafeAreaView>
