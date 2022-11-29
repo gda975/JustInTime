@@ -23,7 +23,7 @@ const parseDateTime = (datetime) => {
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
     return (
-        <View>
+        <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
             <ScrollView
                 style={{
