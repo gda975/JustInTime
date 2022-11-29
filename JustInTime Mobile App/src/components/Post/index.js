@@ -16,7 +16,7 @@ const wait = (timeout) => {
 };
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime);
+    const date = new Date(datetime.replace(/\-/g, '/'));
 
     const month = date.toLocaleDateString('en-us', {
         month: 'long',
@@ -27,8 +27,6 @@ const parseDateTime = (datetime) => {
     const time = date
         .toLocaleTimeString()
         .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
-
-    console.log(time);
 
     return `${month} ${dayNum}, ${time}`;
 };
