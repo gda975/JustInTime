@@ -54,7 +54,7 @@ const ResourcesList = ({ route, navigation }) => {
     const [data, setData] = useState([]);
     const [refreshToggle, setRefreshToggle] = useState(true);
     const JSONresourceCategory = JSON.stringify(resourceCategory);
-    const withoutQuotes = JSONresourceCategory.replaceAll('"', '');
+    const withoutQuotes = JSONresourceCategory.replace(/"/g, '');
 
     useEffect(() => {
         setTimeout(() => {
