@@ -15,7 +15,7 @@ const wait = (timeout) => {
 };
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime);
+    const date = new Date(datetime.replace(/\-/g, '/'));
     const now = new Date();
 
     const getMonth = (date) =>
