@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import BackButton from '../../../components/BackButton';
 import TitleBar from './../../../components/TitleBar';
-import { getData } from '../../../../FirebaseAPI';
+import useData from '../../../hooks/useData';
 
 const limit = 150;
 const wait = (timeout) => {
@@ -47,27 +47,28 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
     </TouchableOpacity>
 );
 
-const ResourcesList = ({ route, navigation }) => {
+const ResourceList = ({ route, navigation }) => {
     const { title, resourceCategory } = route.params;
-    const [data, setData] = useState([]);
-    const [refreshToggle, setRefreshToggle] = useState(true);
-    const JSONresourceCategory = JSON.stringify(resourceCategory);
-    const withoutQuotes = JSONresourceCategory.replace(/"/g, '');
+    const { allData, refresh } = useData();
+    const [refreshing, setRefreshing] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(withoutQuotes).reverse());
-            setRefreshToggle(false);
+            refresh();
+            setRefreshing(false);
         }, 800);
-    }, [refreshToggle]);
+    }, [refreshing]);
 
     const onRefresh = useCallback(() => {
-        setRefreshToggle(true);
-        wait(1500).then(() => setRefreshToggle(false));
+        setRefreshing(true);
+        refresh();
+        wait(1500).then(() => setRefreshing(false));
     });
 
     let jsonData = [];
-    for (const element of data) {
+    for (const element of allData.filter(
+        (e) => e['category'] == resourceCategory
+    )) {
         jsonData.push({
             title: element['title'],
             content: element['content'],
@@ -105,7 +106,7 @@ const ResourcesList = ({ route, navigation }) => {
                 }}
                 refreshControl={
                     <RefreshControl
-                        refreshing={refreshToggle}
+                        refreshing={refreshing}
                         onRefresh={onRefresh}
                     />
                 }
@@ -115,4 +116,4 @@ const ResourcesList = ({ route, navigation }) => {
     );
 };
 
-export default ResourcesList;
+export default ResourceList;

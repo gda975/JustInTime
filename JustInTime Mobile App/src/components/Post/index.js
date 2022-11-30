@@ -87,7 +87,6 @@ const Post = (props) => {
     });
 
     let jsonData = [];
-
     for (const element of allData.filter((e) =>
         categoryList.includes(e['category'])
     )) {
