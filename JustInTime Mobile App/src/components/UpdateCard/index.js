@@ -6,8 +6,8 @@ import {
     FlatList,
     RefreshControl,
 } from 'react-native';
-import { getData } from '../../../FirebaseAPI';
 import { useState, useEffect, useCallback } from 'react';
+import useData from '../../hooks/useData';
 
 const limit = 40;
 const wait = (timeout) => {
@@ -87,23 +87,25 @@ const Item = ({ item, navigation }) => (
 );
 
 const Update = (props) => {
-    const [data, setData] = useState([]);
-    const [refreshToggle, setRefreshToggle] = useState(true);
+    const { allData, refresh } = useData();
+    const [refreshing, setRefreshing] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(props.category).reverse());
-            setRefreshToggle(false);
+            refresh();
+            setRefreshing(false);
         }, 800);
-    }, [refreshToggle]);
+    }, [refreshing]);
 
     const onRefresh = useCallback(() => {
-        setRefreshToggle(true);
-        wait(1500).then(() => setRefreshToggle(false));
+        setRefreshing(true);
+        refresh();
+        wait(1500).then(() => setRefreshing(false));
     });
 
     let jsonData = [];
-    for (const element of data) {
+
+    for (const element of allData) {
         jsonData.push({
             title: element['title'],
             content: element['content'],
@@ -124,7 +126,7 @@ const Update = (props) => {
                 contentContainerStyle={{ paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl
-                        refreshing={refreshToggle}
+                        refreshing={refreshing}
                         onRefresh={onRefresh}
                     />
                 }
