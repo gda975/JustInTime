@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
 import UpdatesScreen from './../../src/navigation/screens/Updates';
-import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
@@ -16,9 +15,4 @@ test('check that date bar shows on updates page', () => {
             exact: false,
         })
     ).toBeTruthy();
-});
-
-test('check for same updates page snapshot', () => {
-    const tree = renderer.create(<UpdatesScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
 });

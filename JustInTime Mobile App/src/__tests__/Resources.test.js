@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import ResourcesScreen from './../../src/navigation/screens/Resources';
-import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
@@ -26,11 +25,6 @@ test('check that all resources render', () => {
     expect(screen.getByText('Instructional Videos')).toBeTruthy();
     expect(screen.getByText('Workplace Updates')).toBeTruthy();
     expect(screen.getByText('Staff Events')).toBeTruthy();
-});
-
-test('check for same resources page snapshot', () => {
-    const tree = renderer.create(<ResourcesScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
 });
 
 test('try clicking on resource', () => {

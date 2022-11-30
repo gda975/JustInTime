@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
 import SettingsScreen from './../../src/navigation/screens/Settings';
-import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
@@ -27,9 +26,4 @@ test('check notifications settings render properly', () => {
 test('check feed settings render properly', () => {
     render(<SettingsScreen />);
     expect(screen.getByText('Show in feed:')).toBeTruthy();
-});
-
-test('check for same settings page snapshot', () => {
-    const tree = renderer.create(<SettingsScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
 });

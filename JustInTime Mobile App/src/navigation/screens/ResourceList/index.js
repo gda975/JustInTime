@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
     FlatList,
-    SafeAreaView,
     TouchableOpacity,
     View,
     Text,
@@ -89,7 +88,7 @@ const ResourcesList = ({ route, navigation }) => {
     );
 
     return (
-        <SafeAreaView>
+        <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
             <TitleBar name={title} />
             <FlatList
@@ -113,7 +112,7 @@ const ResourcesList = ({ route, navigation }) => {
                 }
                 alwaysBounceVertical={false}
             />
-        </SafeAreaView>
+        </View>
     );
 };
 
