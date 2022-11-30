@@ -1,30 +1,16 @@
-import * as React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-// Screens
-import HomeScreen from './screens/Home';
-import UpdatesScreen from './screens/Updates';
-import ResourceScreen from './screens/Resources';
 import SettingsScreen from './screens/Settings';
-import ContentScreen from './screens/Content';
 import HomeStack from './stacks/HomeStack';
 import UpdatesStack from './stacks/UpdatesStack';
 import ResourceStack from './stacks/ResourceStack';
 import { View } from 'react-native';
 
-// Screen Names
-const homeName = 'Home';
-const updatesName = 'Updates';
-const resourcesName = 'Resources';
-const settingsName = 'Settings';
-
-const Tab = createBottomTabNavigator();
-
 const MainContainer = () => {
+    const Tab = createBottomTabNavigator();
+
     return (
         <NavigationContainer>
             <View
@@ -35,21 +21,21 @@ const MainContainer = () => {
                 }}
             >
                 <Tab.Navigator
-                    initialRouteName={homeName}
+                    initialRouteName={'Home'}
                     screenOptions={({ route }) => ({
                         tabBarIcon: ({ focused, color, size }) => {
                             let iconName;
                             let routeName = route.name;
 
-                            if (routeName === homeName) {
+                            if (routeName === 'Home') {
                                 iconName = focused ? 'home' : 'home-outline';
-                            } else if (routeName === updatesName) {
+                            } else if (routeName === 'Updates') {
                                 iconName = focused ? 'sync' : 'sync-outline';
-                            } else if (routeName === resourcesName) {
+                            } else if (routeName === 'Resources') {
                                 iconName = focused
                                     ? 'albums'
                                     : 'albums-outline';
-                            } else if (routeName === settingsName) {
+                            } else if (routeName === 'Settings') {
                                 iconName = focused
                                     ? 'settings'
                                     : 'settings-outline';
@@ -75,16 +61,10 @@ const MainContainer = () => {
                         headerShown: false,
                     })}
                 >
-                    <Tab.Screen name={homeName} component={HomeStack} />
-                    <Tab.Screen name={updatesName} component={UpdatesStack} />
-                    <Tab.Screen
-                        name={resourcesName}
-                        component={ResourceStack}
-                    />
-                    <Tab.Screen
-                        name={settingsName}
-                        component={SettingsScreen}
-                    />
+                    <Tab.Screen name={'Home'} component={HomeStack} />
+                    <Tab.Screen name={'Updates'} component={UpdatesStack} />
+                    <Tab.Screen name={'Resources'} component={ResourceStack} />
+                    <Tab.Screen name={'Settings'} component={SettingsScreen} />
                 </Tab.Navigator>
             </View>
         </NavigationContainer>
