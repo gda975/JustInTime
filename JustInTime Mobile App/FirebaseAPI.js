@@ -2,19 +2,10 @@ import { initializeApp } from 'firebase/app';
 import {
     getDatabase,
     ref,
-    get,
-    child,
-    set,
     onValue,
-    push,
-    update,
-    remove,
     query,
     orderByChild,
     equalTo,
-    off,
-    orderByValue,
-    orderByKey,
 } from 'firebase/database';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -34,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const dbRef = ref(getDatabase());
 
-function getData(category, cb) {
+function getData(category) {
     const pathRef = ref(db, 'Posts');
 
     let valueRef;

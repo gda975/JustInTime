@@ -48,8 +48,7 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
 );
 
 const ResourcesList = ({ route, navigation }) => {
-    const { title, category, resourceCategory, globalEntries, setEntries } =
-        route.params;
+    const { title, resourceCategory } = route.params;
     const [data, setData] = useState([]);
     const [refreshToggle, setRefreshToggle] = useState(true);
     const JSONresourceCategory = JSON.stringify(resourceCategory);
@@ -57,7 +56,7 @@ const ResourcesList = ({ route, navigation }) => {
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(withoutQuotes, setEntries).reverse());
+            setData(getData(withoutQuotes).reverse());
             setRefreshToggle(false);
         }, 800);
     }, [refreshToggle]);

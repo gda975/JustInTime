@@ -75,7 +75,7 @@ const Post = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(props.category, props.setEntries).reverse());
+            setData(getData(props.category).reverse());
             setRefreshToggle(false);
         }, 800);
     }, [refreshToggle]);
