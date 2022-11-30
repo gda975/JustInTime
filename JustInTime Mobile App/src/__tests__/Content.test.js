@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
 import ContentScreen from './../../src/navigation/screens/Content';
-import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
@@ -53,21 +52,4 @@ test('check that back button exists', () => {
         />
     );
     expect(screen.getByText('Back', { exact: false })).toBeTruthy();
-});
-
-test('check for same content page snapshot', () => {
-    const tree = renderer
-        .create(
-            <ContentScreen
-                route={{
-                    params: {
-                        title: 'Test title',
-                        content: 'Test content',
-                        datetime: new Date('2022/11/28 18:24:43'),
-                    },
-                }}
-            />
-        )
-        .toJSON();
-    expect(tree).toMatchSnapshot();
 });
