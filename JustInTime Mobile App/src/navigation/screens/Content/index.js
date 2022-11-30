@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import 'intl';
 import { Linking } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime.replace(/\-/g, '/'));
+    const date = new Date(
+        typeof datetime == 'string' ? datetime.replace(/\-/g, '/') : datetime
+    );
 
     const month = date.toLocaleDateString('en-us', {
         month: 'long',
@@ -23,7 +25,7 @@ const parseDateTime = (datetime) => {
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
     return (
-        <SafeAreaView>
+        <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
             <ScrollView
                 style={{
@@ -38,7 +40,7 @@ const ContentScreen = ({ route, navigation }) => {
                         fontSize: 30,
                         fontWeight: 'bold',
                         color: '#4B9CD3',
-                        paddingVertical: 8,
+                        paddingBottom: 8,
                     }}
                 >
                     {title}
@@ -63,7 +65,7 @@ const ContentScreen = ({ route, navigation }) => {
                     </Text>
                 </Hyperlink>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     );
 };
 

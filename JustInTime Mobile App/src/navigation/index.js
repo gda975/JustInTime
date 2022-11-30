@@ -14,6 +14,7 @@ import ContentScreen from './screens/Content';
 import HomeStack from './stacks/HomeStack';
 import UpdatesStack from './stacks/UpdatesStack';
 import ResourceStack from './stacks/ResourceStack';
+import { View } from 'react-native';
 
 // Screen Names
 const homeName = 'Home';
@@ -26,48 +27,66 @@ const Tab = createBottomTabNavigator();
 const MainContainer = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName={homeName}
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        let routeName = route.name;
-
-                        if (routeName === homeName) {
-                            iconName = focused ? 'home' : 'home-outline';
-                        } else if (routeName === updatesName) {
-                            iconName = focused ? 'sync' : 'sync-outline';
-                        } else if (routeName === resourcesName) {
-                            iconName = focused ? 'albums' : 'albums-outline';
-                        } else if (routeName === settingsName) {
-                            iconName = focused
-                                ? 'settings'
-                                : 'settings-outline';
-                        }
-
-                        return (
-                            <Ionicons
-                                name={iconName}
-                                size={size}
-                                color={color}
-                            />
-                        );
-                    },
-                    tabBarActiveTintColor: '#FFFFFF',
-                    tabBarInactiveTintColor: '#000000',
-                    tabBarStyle: {
-                        padding: 10,
-                        height: 85,
-                        backgroundColor: '#5DADE2',
-                    },
-                    headerShown: false,
-                })}
+            <View
+                style={{
+                    backgroundColor: '#5DADE2',
+                    paddingBottom: 15,
+                    height: '100%',
+                }}
             >
-                <Tab.Screen name={homeName} component={HomeStack} />
-                <Tab.Screen name={updatesName} component={UpdatesStack} />
-                <Tab.Screen name={resourcesName} component={ResourceStack} />
-                <Tab.Screen name={settingsName} component={SettingsScreen} />
-            </Tab.Navigator>
+                <Tab.Navigator
+                    initialRouteName={homeName}
+                    screenOptions={({ route }) => ({
+                        tabBarIcon: ({ focused, color, size }) => {
+                            let iconName;
+                            let routeName = route.name;
+
+                            if (routeName === homeName) {
+                                iconName = focused ? 'home' : 'home-outline';
+                            } else if (routeName === updatesName) {
+                                iconName = focused ? 'sync' : 'sync-outline';
+                            } else if (routeName === resourcesName) {
+                                iconName = focused
+                                    ? 'albums'
+                                    : 'albums-outline';
+                            } else if (routeName === settingsName) {
+                                iconName = focused
+                                    ? 'settings'
+                                    : 'settings-outline';
+                            }
+
+                            return (
+                                <Ionicons
+                                    name={iconName}
+                                    size={size}
+                                    color={color}
+                                />
+                            );
+                        },
+                        tabBarActiveTintColor: '#FFFFFF',
+                        tabBarInactiveTintColor: '#000000',
+                        tabBarStyle: {
+                            padding: 10,
+                            height: 70,
+                            backgroundColor: '#5DADE2',
+                            shadowColor: '#5DADE2',
+                        },
+                        tabBarItemStyle: {},
+                        headerShown: false,
+                    })}
+                >
+                    <Tab.Screen name={homeName} component={HomeStack} />
+                    <Tab.Screen name={updatesName} component={UpdatesStack} />
+                    <Tab.Screen
+                        name={resourcesName}
+                        component={ResourceStack}
+                    />
+                    <Tab.Screen
+                        name={settingsName}
+                        component={SettingsScreen}
+                    />
+                </Tab.Navigator>
+            </View>
         </NavigationContainer>
     );
 };

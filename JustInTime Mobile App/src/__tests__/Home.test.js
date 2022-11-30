@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
 import HomeScreen from './../../src/navigation/screens/Home';
-import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
@@ -16,9 +15,4 @@ test('check that date bar shows on home page', () => {
             exact: false,
         })
     ).toBeTruthy();
-});
-
-test('check for same homepage snapshot', () => {
-    const tree = renderer.create(<HomeScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
 });
