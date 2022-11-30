@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     RefreshControl,
 } from 'react-native';
-import { getData } from '../../../FirebaseAPI';
+import useData from '../../hooks/useData';
 
 const limit = 45;
 const wait = (timeout) => {
@@ -70,23 +70,27 @@ const Item = ({ title, content, datetime, category, color, navigation }) => (
 );
 
 const Post = (props) => {
-    const [data, setData] = useState([]);
-    const [refreshToggle, setRefreshToggle] = useState(true);
+    const { allData, refresh, categoryList } = useData();
+    const [refreshing, setRefreshing] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(props.category).reverse());
-            setRefreshToggle(false);
+            refresh();
+            setRefreshing(false);
         }, 800);
-    }, [refreshToggle]);
+    }, [refreshing]);
 
     const onRefresh = useCallback(() => {
-        setRefreshToggle(true);
-        wait(1500).then(() => setRefreshToggle(false));
+        setRefreshing(true);
+        refresh();
+        wait(1500).then(() => setRefreshing(false));
     });
 
     let jsonData = [];
-    for (const element of data) {
+
+    for (const element of allData.filter((e) =>
+        categoryList.includes(e['category'])
+    )) {
         jsonData.push({
             title: element['title'],
             content: element['content'],
@@ -94,7 +98,6 @@ const Post = (props) => {
             category: element['category'],
         });
     }
-    // console.log(jsonData, data);
 
     const renderItem = ({ item }) => (
         <Item
@@ -114,7 +117,7 @@ const Post = (props) => {
                 contentContainerStyle={{ paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl
-                        refreshing={refreshToggle}
+                        refreshing={refreshing}
                         onRefresh={onRefresh}
                     />
                 }

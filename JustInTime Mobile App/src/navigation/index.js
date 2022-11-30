@@ -7,6 +7,7 @@ import HomeStack from './stacks/HomeStack';
 import UpdatesStack from './stacks/UpdatesStack';
 import ResourceStack from './stacks/ResourceStack';
 import { View } from 'react-native';
+import { DataProvider } from '../components/DataContext';
 
 const MainContainer = () => {
     const Tab = createBottomTabNavigator();
@@ -20,52 +21,64 @@ const MainContainer = () => {
                     height: '100%',
                 }}
             >
-                <Tab.Navigator
-                    initialRouteName={'Home'}
-                    screenOptions={({ route }) => ({
-                        tabBarIcon: ({ focused, color, size }) => {
-                            let iconName;
-                            let routeName = route.name;
+                <DataProvider>
+                    <Tab.Navigator
+                        initialRouteName={'Home'}
+                        screenOptions={({ route }) => ({
+                            tabBarIcon: ({ focused, color, size }) => {
+                                let iconName;
+                                let routeName = route.name;
 
-                            if (routeName === 'Home') {
-                                iconName = focused ? 'home' : 'home-outline';
-                            } else if (routeName === 'Updates') {
-                                iconName = focused ? 'sync' : 'sync-outline';
-                            } else if (routeName === 'Resources') {
-                                iconName = focused
-                                    ? 'albums'
-                                    : 'albums-outline';
-                            } else if (routeName === 'Settings') {
-                                iconName = focused
-                                    ? 'settings'
-                                    : 'settings-outline';
-                            }
+                                if (routeName === 'Home') {
+                                    iconName = focused
+                                        ? 'home'
+                                        : 'home-outline';
+                                } else if (routeName === 'Updates') {
+                                    iconName = focused
+                                        ? 'sync'
+                                        : 'sync-outline';
+                                } else if (routeName === 'Resources') {
+                                    iconName = focused
+                                        ? 'albums'
+                                        : 'albums-outline';
+                                } else if (routeName === 'Settings') {
+                                    iconName = focused
+                                        ? 'settings'
+                                        : 'settings-outline';
+                                }
 
-                            return (
-                                <Ionicons
-                                    name={iconName}
-                                    size={size}
-                                    color={color}
-                                />
-                            );
-                        },
-                        tabBarActiveTintColor: '#FFFFFF',
-                        tabBarInactiveTintColor: '#000000',
-                        tabBarStyle: {
-                            padding: 10,
-                            height: 70,
-                            backgroundColor: '#5DADE2',
-                            shadowColor: '#5DADE2',
-                        },
-                        tabBarItemStyle: {},
-                        headerShown: false,
-                    })}
-                >
-                    <Tab.Screen name={'Home'} component={HomeStack} />
-                    <Tab.Screen name={'Updates'} component={UpdatesStack} />
-                    <Tab.Screen name={'Resources'} component={ResourceStack} />
-                    <Tab.Screen name={'Settings'} component={SettingsScreen} />
-                </Tab.Navigator>
+                                return (
+                                    <Ionicons
+                                        name={iconName}
+                                        size={size}
+                                        color={color}
+                                    />
+                                );
+                            },
+                            tabBarActiveTintColor: '#FFFFFF',
+                            tabBarInactiveTintColor: '#000000',
+                            tabBarStyle: {
+                                padding: 10,
+                                height: 70,
+                                backgroundColor: '#5DADE2',
+                                shadowColor: '#5DADE2',
+                            },
+                            tabBarItemStyle: {},
+                            headerShown: false,
+                        })}
+                    >
+                        <Tab.Screen name={'Home'} component={HomeStack} />
+                        <Tab.Screen name={'Updates'} component={UpdatesStack} />
+                        <Tab.Screen
+                            name={'Resources'}
+                            component={ResourceStack}
+                        />
+                        <Tab.Screen
+                            name={'Settings'}
+                            component={SettingsScreen}
+                        />
+                    </Tab.Navigator>
+                </DataProvider>
             </View>
         </NavigationContainer>
     );
