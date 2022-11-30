@@ -4,6 +4,8 @@ import { getData } from '../../../FirebaseAPI';
 export default DataContext = createContext({
     allData: [],
     categoryList: [],
+    getCategoryShown: () => {},
+    updateCategoriesShown: () => {},
 });
 
 export const DataProvider = (props) => {
@@ -31,7 +33,9 @@ export const DataProvider = (props) => {
         setRefreshTrigger(!refreshTrigger);
     };
 
-    const updateFeed = (category, isShown) => {
+    const getCategoryShown = (category) => shownOnFeed[category];
+
+    const updateCategoriesShown = (category, isShown) => {
         setShownOnFeed({
             ...shownOnFeed,
             [category]: isShown,
@@ -40,7 +44,13 @@ export const DataProvider = (props) => {
 
     return (
         <DataContext.Provider
-            value={{ allData, categoryList, refresh, updateFeed }}
+            value={{
+                allData,
+                categoryList,
+                getCategoryShown,
+                refresh,
+                updateCategoriesShown,
+            }}
         >
             {props.children}
         </DataContext.Provider>
