@@ -148,7 +148,7 @@ function writeData(author, content, resource, time, type, category, title) {
 
     const updates = {};
     updates['/Post' + newKey] = text_post;
-    return update(ref(db, 'Posts'), updates);
+    return update(ref(db, 'Posts'), updates).catch((error) => { alert("Unathorized Access!") });
 }
 
 // PUT APIS
@@ -164,7 +164,7 @@ function updateData(content, key, date, category) {
     updates['/content'] = content;
     updates['/time'] = date;
     updates['/category'] = category;
-    update(ref(db, path), updates);
+    update(ref(db, path), updates).catch(error => { alert("Unathorized Access!") });
     return "";
 }
 
@@ -187,7 +187,7 @@ function deleteData(key) {
     //get path
     const path = 'Posts/' + key;
 
-    return remove(ref(db, path));
+    return remove(ref(db, path)).catch(error => { alert("Unathorized Access!") });
 }
 
 export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber, logIn };

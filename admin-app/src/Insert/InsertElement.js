@@ -35,7 +35,6 @@ export default function InsertElement(props) {
         }
         else writeData('TeamJ_temp', insertInput, false, date, 'text', "Custom", currentValue);
 
-        console.log(insertInput);
         props.callback();
     }
 

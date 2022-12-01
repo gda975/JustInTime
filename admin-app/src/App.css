@@ -169,6 +169,20 @@ textarea:focus {
     backdrop-filter: blur(2px);
 }
 
+.login-input-container {
+    width: 30%;
+    margin:auto;
+    margin-bottom: 20px;
+}
+
+.login-input {
+    float: right;
+}
+
+/* body{
+    background-color: #B0D7EB;
+}
+ */
 
 
 
