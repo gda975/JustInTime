@@ -17,9 +17,12 @@ function App() {
     let [login, setLogin] = useState(false);
 
     useEffect(() => {
-        getData(setData);
         logIn(setLogin);
     }, [])
+
+    useEffect(() => {
+        getData(setData);
+    }, [login])
 
     useEffect(() => {
         console.log("Changed");
@@ -29,20 +32,20 @@ function App() {
     return (
         <div className="App">
             {!login ? <div>
-                <LoginPage callback = {setLogin} />
+                <LoginPage callback={setLogin} />
             </div> :
-            <div>
-                <h1>
-                    Center for Nursing Excellence
-                </h1>
-                <h2>
-                    UNC CNE
-                </h2>
-                {/* <LoginPage/> */}
-                <InsertAtom category={globalCategory} setEntries={setEntries} setCategory={setCategory} />
-                <br></br>
-                <Feed setCategory={setCategory} globalEntries={feed} />
-            </div>}
+                <div>
+                    <h1>
+                        Center for Nursing Excellence
+                    </h1>
+                    <h2>
+                        UNC CNE
+                    </h2>
+                    {/* <LoginPage/> */}
+                    <InsertAtom category={globalCategory} setEntries={setEntries} setCategory={setCategory} />
+                    <br></br>
+                    <Feed setCategory={setCategory} globalEntries={feed} />
+                </div>}
         </div>
     );
 }
