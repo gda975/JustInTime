@@ -27,10 +27,11 @@ function App() {
     }, [data, globalCategory])
 
     return (
-        !login ? <div>
-            <LoginPage/>
-        </div> :
-            <div className="App">
+        <div className="App">
+            {!login ? <div>
+                <LoginPage callback = {setLogin} />
+            </div> :
+            <div>
                 <h1>
                     Center for Nursing Excellence
                 </h1>
@@ -41,7 +42,8 @@ function App() {
                 <InsertAtom category={globalCategory} setEntries={setEntries} setCategory={setCategory} />
                 <br></br>
                 <Feed setCategory={setCategory} globalEntries={feed} />
-            </div>
+            </div>}
+        </div>
     );
 }
 

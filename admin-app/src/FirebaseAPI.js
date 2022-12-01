@@ -25,7 +25,7 @@ const dbRef = ref(getDatabase());
 //testing login 
 // Initialize Firebase Authentication and get a reference to the service
 function logIn(callback) {
-    const auth = getAuth(app)
+    /* const auth = getAuth(app)
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -45,7 +45,7 @@ function logIn(callback) {
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
-        });
+        }); */
 }
 
 // GET APIs
