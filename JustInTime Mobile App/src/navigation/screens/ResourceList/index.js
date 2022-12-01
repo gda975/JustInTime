@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
     FlatList,
-    SafeAreaView,
     TouchableOpacity,
     View,
     Text,
@@ -49,16 +48,15 @@ const ResourceItem = ({ title, content, datetime, color, navigation }) => (
 );
 
 const ResourcesList = ({ route, navigation }) => {
-    const { title, category, resourceCategory, globalEntries, setEntries } =
-        route.params;
+    const { title, resourceCategory } = route.params;
     const [data, setData] = useState([]);
     const [refreshToggle, setRefreshToggle] = useState(true);
     const JSONresourceCategory = JSON.stringify(resourceCategory);
-    const withoutQuotes = JSONresourceCategory.replaceAll('"', '');
+    const withoutQuotes = JSONresourceCategory.replace(/"/g, '');
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(withoutQuotes, setEntries).reverse());
+            setData(getData(withoutQuotes).reverse());
             setRefreshToggle(false);
         }, 800);
     }, [refreshToggle]);
@@ -89,7 +87,7 @@ const ResourcesList = ({ route, navigation }) => {
     );
 
     return (
-        <SafeAreaView>
+        <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
             <TitleBar name={title} />
             <FlatList
@@ -113,7 +111,7 @@ const ResourcesList = ({ route, navigation }) => {
                 }
                 alwaysBounceVertical={false}
             />
-        </SafeAreaView>
+        </View>
     );
 };
 

@@ -15,7 +15,9 @@ const wait = (timeout) => {
 };
 
 const parseDateTime = (datetime) => {
-    const date = new Date(datetime);
+    const date = new Date(
+        typeof datetime == 'string' ? datetime.replace(/\-/g, '/') : datetime
+    );
     const now = new Date();
 
     const getMonth = (date) =>
@@ -25,9 +27,9 @@ const parseDateTime = (datetime) => {
 
     const dayNum = date.getDate();
 
-    const time = new Intl.DateTimeFormat('en-us', {
-        timeStyle: 'short',
-    }).format(date);
+    const time = date
+        .toLocaleTimeString()
+        .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
 
     if (getMonth(now) == getMonth(date) && date.getDate() == now.getDate()) {
         return `${time}`;
@@ -90,7 +92,7 @@ const Update = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            setData(getData(props.category, props.setEntries).reverse());
+            setData(getData(props.category).reverse());
             setRefreshToggle(false);
         }, 800);
     }, [refreshToggle]);
