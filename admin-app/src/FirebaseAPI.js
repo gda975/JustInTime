@@ -24,27 +24,29 @@ const dbRef = ref(getDatabase());
 
 //testing login 
 // Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app)
-const provider = new GoogleAuthProvider();
-signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-
+function logIn(callback) {
+    /* const auth = getAuth(app)
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // ...
+            callback(true);
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        }); */
+}
 
 // GET APIs
 function testData(cb) {
@@ -77,24 +79,24 @@ function testData(cb) {
 }
 
 function getData(callback) {
-        try {
-            const pathRef = ref(db, 'Posts');
-            let entries = [];
-            onValue(pathRef, (snapshot) => {
-                if (snapshot.exists()) {
-                    entries = [];
-                    snapshot.forEach((child) => {
-                        const data = [child.key, child.val()];
-                        entries.push(data);
-                    })
-                    callback(entries);
-                } else {
-                    callback(entries);
-                }
-            });
-        } catch (e) {
-            console.log(e);
-        }
+    try {
+        const pathRef = ref(db, 'Posts');
+        let entries = [];
+        onValue(pathRef, (snapshot) => {
+            if (snapshot.exists()) {
+                entries = [];
+                snapshot.forEach((child) => {
+                    const data = [child.key, child.val()];
+                    entries.push(data);
+                })
+                callback(entries);
+            } else {
+                callback(entries);
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 /* let valueRef;
@@ -146,7 +148,7 @@ function writeData(author, content, resource, time, type, category, title) {
 
     const updates = {};
     updates['/Post' + newKey] = text_post;
-    return update(ref(db, 'Posts'), updates);
+    return update(ref(db, 'Posts'), updates).catch((error) => { alert("Unathorized Access!") });
 }
 
 // PUT APIS
@@ -162,7 +164,7 @@ function updateData(content, key, date, category) {
     updates['/content'] = content;
     updates['/time'] = date;
     updates['/category'] = category;
-    update(ref(db, path), updates);
+    update(ref(db, path), updates).catch(error => { alert("Unathorized Access!") });
     return "";
 }
 
@@ -185,7 +187,7 @@ function deleteData(key) {
     //get path
     const path = 'Posts/' + key;
 
-    return remove(ref(db, path));
+    return remove(ref(db, path)).catch(error => { alert("Unathorized Access!") });
 }
 
-export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber };
+export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber, logIn };

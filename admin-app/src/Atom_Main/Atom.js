@@ -28,6 +28,7 @@ export default function Atom(props) {
     }
 
     function update() {
+        console.log(category)
         const content = textEl.current.value;
         const key = props.val[0];
         let date = Time();

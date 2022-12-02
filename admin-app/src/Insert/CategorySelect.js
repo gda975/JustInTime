@@ -12,6 +12,7 @@ export default function CategorySelect(props) {
                 <option value="Useful Sites">Useful Sites</option>
                 <option value="Helpful Reading">Helpful Reading</option>
                 <option value="Staff Event">Staff Event</option>
+                <option value="Custom">Custom</option>
             </select></div>
     )
 }
