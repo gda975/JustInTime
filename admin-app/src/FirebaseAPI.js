@@ -22,31 +22,6 @@ const db = getDatabase();
 const dbRef = ref(getDatabase());
 
 
-//testing login 
-// Initialize Firebase Authentication and get a reference to the service
-function logIn(callback) {
-    /* const auth = getAuth(app)
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // ...
-            callback(true);
-        }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-        }); */
-}
 
 // GET APIs
 function testData(cb) {
@@ -190,4 +165,4 @@ function deleteData(key) {
     return remove(ref(db, path)).catch(error => { alert("Unathorized Access!") });
 }
 
-export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber, logIn };
+export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber};

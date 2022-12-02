@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { writeData, testData, getData, logIn } from './FirebaseAPI';
+import { writeData, testData, getData } from './FirebaseAPI';
 import { useState, useEffect } from 'react';
 import './App.css';
 import { get, set } from 'firebase/database';
@@ -15,10 +15,6 @@ function App() {
     let [data, setData] = useState([]);
     let [feed, setFeed] = useState([]);
     let [login, setLogin] = useState(false);
-
-    useEffect(() => {
-        logIn(setLogin);
-    }, [])
 
     useEffect(() => {
         getData(setData);

@@ -15,6 +15,7 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .atom-main>h2 {
@@ -172,11 +173,17 @@ textarea:focus {
 .login-input-container {
     width: 30%;
     margin:auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .login-input {
-    float: right;
+    
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+    width: 35%;
 }
 
 /* body{

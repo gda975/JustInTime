@@ -1,6 +1,16 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 
+/**
+ * Handles log in or sign up for users and throw errors if detected from Firebase's instance. Switch entire view
+ * from login page to app page if user is authenticated.
+ * 
+ * @param {*} boolean - the boolean for sign up mode
+ * @param {*} email - email in use
+ * @param {*} password - password in use
+ * @param {*} callback - callback function to handle switching to main screen
+ * @param {*} setState - callback function to handle error processing
+ */
 export default function handleLogin(boolean, email, password, callback, setState) {
     if (email == null || email == "") {
         throw "Invalid Login"
@@ -12,7 +22,6 @@ export default function handleLogin(boolean, email, password, callback, setState
                 // Signed in 
                 const user = userCredential.user;
                 callback(true);
-                alert(user);
                 // ...
             })
             .catch((error) => {
@@ -38,6 +47,7 @@ export default function handleLogin(boolean, email, password, callback, setState
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(error.code)
                 try {
                     handleErrorCode(error.code, setState)
                 } catch (e) {
@@ -50,6 +60,13 @@ export default function handleLogin(boolean, email, password, callback, setState
 
 }
 
+/**
+ * Takes error code input and callback function and handle different cases of error with logging function defined
+ * with callback
+ * 
+ * @param {*} code error code received from Firebase Auth
+ * @param {*} callback Logging function to use with respect to error code received
+ */
 function handleErrorCode(code, callback) {
     if (code == null || code == "") {
         throw "Invalid error code"
@@ -60,6 +77,12 @@ function handleErrorCode(code, callback) {
             break;
         case "auth/invalid-email":
             callback("Invalid Email!");
+            break;
+        case "auth/user-not-found":
+            callback("User not found!");
+            break;
+        case "auth/wrong-password":
+            callback("Wrong Password!");
             break;
         default:
             break;
