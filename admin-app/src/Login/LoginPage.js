@@ -31,11 +31,11 @@ export default function LoginPage(props) {
             {newUser ? <h2>Sign Up form</h2> : <h2>Sign In form</h2>}
             <form onSubmit={getSubmit}>
                 <div className="login-input-container">
-                    <label>Email </label>
+                    <label>Email</label>
                     <input className="login-input" type="text" minLength="3" required></input>
                 </div>
                 <div className="login-input-container">
-                    <label>Password </label>
+                    <label>Password</label>
                     <input className="login-input" type="password" minLength="3" required></input>
                 </div>
                 {newUser ?
@@ -45,7 +45,7 @@ export default function LoginPage(props) {
                     </div> :
                     <div></div>}<br></br>
                 <button type="submit">Login</button>
-                <button type="button" onClick={handleNew}>{newUser ? "Sign In" : "Sign Up"}</button>
+                <button type="button" onClick={handleNew}>{newUser ? "Switch to Sign In" : "Create Account"}</button>
             </form>
             <h2>{invalidText}</h2>
         </div>
