@@ -17,3 +17,10 @@ Authentication <br>
 See if there’s anything else needed on the admin panel <br>
 Changing premade category should change title <br>
 Resources upload <br>
+
+# Fake Logins
+theosteiner@gmail.com <br>
+lskmfdl <br> 
+
+restrictedemail@gmail.com <br>
+dweiufbewifbei <br>
