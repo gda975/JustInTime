@@ -1,30 +1,17 @@
-import * as React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-// Screens
-import HomeScreen from './screens/Home';
-import UpdatesScreen from './screens/Updates';
-import ResourceScreen from './screens/Resources';
 import SettingsScreen from './screens/Settings';
-import ContentScreen from './screens/Content';
 import HomeStack from './stacks/HomeStack';
 import UpdatesStack from './stacks/UpdatesStack';
 import ResourceStack from './stacks/ResourceStack';
 import { View } from 'react-native';
-
-// Screen Names
-const homeName = 'Home';
-const updatesName = 'Updates';
-const resourcesName = 'Resources';
-const settingsName = 'Settings';
-
-const Tab = createBottomTabNavigator();
+import { DataProvider } from '../components/DataContext';
 
 const MainContainer = () => {
+    const Tab = createBottomTabNavigator();
+
     return (
         <NavigationContainer>
             <View
@@ -34,58 +21,64 @@ const MainContainer = () => {
                     height: '100%',
                 }}
             >
-                <Tab.Navigator
-                    initialRouteName={homeName}
-                    screenOptions={({ route }) => ({
-                        tabBarIcon: ({ focused, color, size }) => {
-                            let iconName;
-                            let routeName = route.name;
+                <DataProvider>
+                    <Tab.Navigator
+                        initialRouteName={'Home'}
+                        screenOptions={({ route }) => ({
+                            tabBarIcon: ({ focused, color, size }) => {
+                                let iconName;
+                                let routeName = route.name;
 
-                            if (routeName === homeName) {
-                                iconName = focused ? 'home' : 'home-outline';
-                            } else if (routeName === updatesName) {
-                                iconName = focused ? 'sync' : 'sync-outline';
-                            } else if (routeName === resourcesName) {
-                                iconName = focused
-                                    ? 'albums'
-                                    : 'albums-outline';
-                            } else if (routeName === settingsName) {
-                                iconName = focused
-                                    ? 'settings'
-                                    : 'settings-outline';
-                            }
+                                if (routeName === 'Home') {
+                                    iconName = focused
+                                        ? 'home'
+                                        : 'home-outline';
+                                } else if (routeName === 'Updates') {
+                                    iconName = focused
+                                        ? 'sync'
+                                        : 'sync-outline';
+                                } else if (routeName === 'Resources') {
+                                    iconName = focused
+                                        ? 'albums'
+                                        : 'albums-outline';
+                                } else if (routeName === 'Settings') {
+                                    iconName = focused
+                                        ? 'settings'
+                                        : 'settings-outline';
+                                }
 
-                            return (
-                                <Ionicons
-                                    name={iconName}
-                                    size={size}
-                                    color={color}
-                                />
-                            );
-                        },
-                        tabBarActiveTintColor: '#FFFFFF',
-                        tabBarInactiveTintColor: '#000000',
-                        tabBarStyle: {
-                            padding: 10,
-                            height: 70,
-                            backgroundColor: '#5DADE2',
-                            shadowColor: '#5DADE2',
-                        },
-                        tabBarItemStyle: {},
-                        headerShown: false,
-                    })}
-                >
-                    <Tab.Screen name={homeName} component={HomeStack} />
-                    <Tab.Screen name={updatesName} component={UpdatesStack} />
-                    <Tab.Screen
-                        name={resourcesName}
-                        component={ResourceStack}
-                    />
-                    <Tab.Screen
-                        name={settingsName}
-                        component={SettingsScreen}
-                    />
-                </Tab.Navigator>
+                                return (
+                                    <Ionicons
+                                        name={iconName}
+                                        size={size}
+                                        color={color}
+                                    />
+                                );
+                            },
+                            tabBarActiveTintColor: '#FFFFFF',
+                            tabBarInactiveTintColor: '#000000',
+                            tabBarStyle: {
+                                padding: 10,
+                                height: 70,
+                                backgroundColor: '#5DADE2',
+                                shadowColor: '#5DADE2',
+                            },
+                            tabBarItemStyle: {},
+                            headerShown: false,
+                        })}
+                    >
+                        <Tab.Screen name={'Home'} component={HomeStack} />
+                        <Tab.Screen name={'Updates'} component={UpdatesStack} />
+                        <Tab.Screen
+                            name={'Resources'}
+                            component={ResourceStack}
+                        />
+                        <Tab.Screen
+                            name={'Settings'}
+                            component={SettingsScreen}
+                        />
+                    </Tab.Navigator>
+                </DataProvider>
             </View>
         </NavigationContainer>
     );

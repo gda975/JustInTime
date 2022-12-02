@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, Text, Switch, ScrollView } from 'react-native';
 import DateBar from '../../../components/DateBar';
 import TitleBar from '../../../components/TitleBar';
+import useData from '../../../hooks/useData';
 
 const SettingsItem = (props) => {
     const [toggle, setToggle] =
@@ -71,21 +72,64 @@ const SettingsGroup = (props) => (
 
 const SettingsScreen = () => {
     const [notify, setNotify] = useState(false);
+    const { getCategoryShown, updateCategoriesShown } = useData();
+
+    const categoryControl = (category) => {
+        const isShown = getCategoryShown(category);
+        return [isShown, () => updateCategoriesShown(category, !isShown)];
+    };
 
     const CategorySet = (props) => (
         <View>
-            <SettingsItem disabled={props.disabled}>Policy Links</SettingsItem>
-            <SettingsItem disabled={props.disabled}>Useful Sites</SettingsItem>
-            <SettingsItem disabled={props.disabled}>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle && categoryControl('Policy Links')
+                }
+            >
+                Policy Links
+            </SettingsItem>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle && categoryControl('Useful Sites')
+                }
+            >
+                Useful Sites
+            </SettingsItem>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle && categoryControl('Helpful Reading')
+                }
+            >
                 Helpful Reading
             </SettingsItem>
-            <SettingsItem disabled={props.disabled}>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle &&
+                    categoryControl('Instructional Videos')
+                }
+            >
                 Instructional Videos
             </SettingsItem>
-            <SettingsItem disabled={props.disabled}>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle && categoryControl('Workplace Updates')
+                }
+            >
                 Workplace Updates
             </SettingsItem>
-            <SettingsItem disabled={props.disabled}>Staff Events</SettingsItem>
+            <SettingsItem
+                disabled={props.disabled}
+                toggleControl={
+                    props.isFeedToggle && categoryControl('Staff Event')
+                }
+            >
+                Staff Events
+            </SettingsItem>
         </View>
     );
 
@@ -115,7 +159,7 @@ const SettingsScreen = () => {
                 </SettingsGroup>
                 <SettingsGroup>
                     <SettingsGroupTitle>Show in feed:</SettingsGroupTitle>
-                    <CategorySet />
+                    <CategorySet isFeedToggle />
                 </SettingsGroup>
             </ScrollView>
         </View>
