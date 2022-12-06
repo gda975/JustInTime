@@ -104,21 +104,33 @@ textarea:focus {
     height: 70%;
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
     bottom: 30px;
     left: 0;
+    padding-bottom: 80px;
 }
 
 .insert-title {
     text-align: left;
 }
 
+.insert-title-input {
+    padding: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    bottom: 30px;
+    left: 0;
+}
+
 .insert-category-containter {
     position: absolute;
-    left: 5px;
-    bottom: 5px;
+    left: 0;
+    bottom: 0;
     width: 100%;
     text-align: left;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
 }
 
 .insert-cancel-button {
@@ -136,6 +148,7 @@ textarea:focus {
 .insert-select-insert {
     position: relative;
     display: inline;
+    margin-left: 10px;
 }
 
 .insert-custom-button {

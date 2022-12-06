@@ -81,9 +81,9 @@ export default function Feed(props) {
                         props.setCategory(e.target.value);
                     }}
                     type="button"
-                    value="Custom"
+                    value="Other"
                 >
-                    Custom Resources
+                    Other Resources
                 </button>
             </div>
             <MainFeed

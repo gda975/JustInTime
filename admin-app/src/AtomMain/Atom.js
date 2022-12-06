@@ -43,7 +43,10 @@ export default function Atom(props) {
 
     const update = () => {
         const key = props.val[0];
-        let date = new Date().toISOString();
+        let date =
+            new Date().toLocaleDateString() +
+            ' ' +
+            new Date().toLocaleTimeString();
         updateData(content, key, date, category);
         setToggleEdit(!toggleEdit);
     };
