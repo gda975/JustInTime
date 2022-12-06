@@ -31,7 +31,6 @@ export default function InsertAtom(props) {
                         callback={() => setInsert(!insertOn)}
                         refEl={textEl}
                         category={props.category}
-                        setEntries={props.setEntries}
                         setCategory={props.setCategory}
                     />
                 </div>

@@ -109,8 +109,6 @@ textarea:focus {
     left: 0;
 }
 
-.edit-button {}
-
 .insert-title {
     text-align: left;
 }
@@ -236,4 +234,8 @@ label {
     to {
         transform: rotate(360deg);
     }
+}
+
+.sub-main-container {
+    margin-bottom: 30px;
 }

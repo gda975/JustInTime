@@ -1,7 +1,7 @@
 export default function CategorySelect(props) {
     return (
         <div className={'insert-select' + props.class}>
-            <select onChange={props.callback} value={props.selectvalue}>
+            <select onChange={props.callback} defaultValue={props.selectvalue}>
                 <option value="Workplace Updates">Workplace Updates</option>
                 <option value="Policy Links">Policy Links</option>
                 <option value="Instructional Videos">

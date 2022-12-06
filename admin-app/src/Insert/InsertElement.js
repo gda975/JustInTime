@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { getPostNumber, writeData, updatePostNumber } from '../FirebaseAPI';
-import Time from '../Utilities/Time';
 import CategorySelect from './CategorySelect';
 
 export default function InsertElement(props) {
@@ -12,7 +11,7 @@ export default function InsertElement(props) {
     let title = '';
 
     const handleInsert = () => {
-        let date = Time();
+        let date = new Date();
 
         if (!customMode) {
             getPostNumber(currentValue).then((e) => {
@@ -24,7 +23,7 @@ export default function InsertElement(props) {
                     'TeamJ_temp',
                     insertInput,
                     false,
-                    date,
+                    date.toISOString(),
                     'text',
                     currentValue,
                     title
@@ -36,7 +35,7 @@ export default function InsertElement(props) {
                 'TeamJ_temp',
                 insertInput,
                 false,
-                date,
+                date.toISOString(),
                 'text',
                 'Custom',
                 currentValue
