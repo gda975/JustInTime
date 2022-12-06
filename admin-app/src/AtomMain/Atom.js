@@ -3,6 +3,28 @@ import { updateData, deleteData } from '../FirebaseAPI';
 import PanelColor from '../Utilities/PanelColor';
 import CategorySelect from '../Insert/CategorySelect';
 
+const parseDateTime = (datetime) => {
+    const date = new Date(
+        typeof datetime == 'string' ? datetime.replace(/-/g, '/') : datetime
+    );
+
+    const month = date.toLocaleDateString('en-us', {
+        month: 'long',
+    });
+
+    const dayNum = date.getDate();
+
+    const time = date
+        .toLocaleTimeString()
+        .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
+
+    return `${month} ${dayNum}${
+        new Date().getFullYear() !== date.getFullYear()
+            ? ', ' + date.getFullYear()
+            : ''
+    } at ${time}`;
+};
+
 export default function Atom(props) {
     const [toggleEdit, setToggleEdit] = useState(false);
     const [category, setCategory] = useState(props.val[1].category);
@@ -38,7 +60,9 @@ export default function Atom(props) {
                 className="content-panel"
                 style={{ backgroundColor: PanelColor(props.val[1].category) }}
             >
-                {props.val[1] === undefined ? '' : props.val[1].time}
+                {props.val[1] === undefined
+                    ? ''
+                    : parseDateTime(props.val[1].time)}
             </div>
             <div className="atom-main">
                 <h2 className="atom-category">
