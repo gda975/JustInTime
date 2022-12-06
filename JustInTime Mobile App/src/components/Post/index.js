@@ -134,10 +134,10 @@ function getColor(category) {
     } else if (category == 'Helpful Reading') {
         return '#00A5AD';
     } else if (category == 'Instructional Videos') {
-        return '#C4D600';
+        return '#4F758B';
     } else if (category == 'Workplace Updates') {
         return '#00594C';
-    } else if (category == 'Staff Events' || category == 'Staff Event') {
+    } else if (category == 'Staff Events') {
         return '#13294B';
     } else {
         return '#4A4E4D';

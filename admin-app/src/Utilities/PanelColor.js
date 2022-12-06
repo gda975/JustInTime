@@ -1,31 +1,30 @@
-
 export default function PanelColor(category) {
-    let color = "#00594C";
+    let color = '#00594C';
 
     switch (category) {
         case undefined:
-            color = "#00594C";
+            color = '#00594C';
             break;
-        case "Workplace Updates":
-            color = "#00594C";
+        case 'Workplace Updates':
+            color = '#00594C';
             break;
-        case "Policy Links":
-            color = "#EF426F";
+        case 'Policy Links':
+            color = '#EF426F';
             break;
-        case "Instructional Videos":
-            color = "#C4D600";
+        case 'Instructional Videos':
+            color = '#4F758B';
             break;
-        case "Useful Sites":
-            color = "#A8673E";
+        case 'Useful Sites':
+            color = '#A8673E';
             break;
-        case "Helpful Reading":
-            color = "#00A5AD";
+        case 'Helpful Reading':
+            color = '#00A5AD';
             break;
-        case "Staff Event":
-            color = "#13294B";
+        case 'Staff Events':
+            color = '#13294B';
             break;
         default:
-            color = "#4a4e4d"
+            color = '#4a4e4d';
     }
 
     return color;

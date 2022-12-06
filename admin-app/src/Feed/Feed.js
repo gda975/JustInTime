@@ -71,9 +71,9 @@ export default function Feed(props) {
                         props.setCategory(e.target.value);
                     }}
                     type="button"
-                    value="Staff Event"
+                    value="Staff Events"
                 >
-                    Staff Event
+                    Staff Events
                 </button>
                 <button
                     className="category-button"

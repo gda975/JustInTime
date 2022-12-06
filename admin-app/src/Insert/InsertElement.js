@@ -23,7 +23,7 @@ export default function InsertElement(props) {
                     'TeamJ_temp',
                     insertInput,
                     false,
-                    date.toISOString(),
+                    date.toLocaleDateString() + ' ' + date.toLocaleTimeString(),
                     'text',
                     currentValue,
                     title
@@ -35,7 +35,7 @@ export default function InsertElement(props) {
                 'TeamJ_temp',
                 insertInput,
                 false,
-                date.toISOString(),
+                date.toLocaleDateString() + ' ' + date.toLocaleTimeString(),
                 'text',
                 'Custom',
                 currentValue

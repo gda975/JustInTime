@@ -125,7 +125,7 @@ const SettingsScreen = () => {
             <SettingsItem
                 disabled={props.disabled}
                 toggleControl={
-                    props.isFeedToggle && categoryControl('Staff Event')
+                    props.isFeedToggle && categoryControl('Staff Events')
                 }
             >
                 Staff Events

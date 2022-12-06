@@ -58,11 +58,16 @@ export default function Atom(props) {
         <div className="content-page">
             <div
                 className="content-panel"
-                style={{ backgroundColor: PanelColor(props.val[1].category) }}
+                style={{
+                    backgroundColor: PanelColor(props.val[1].category),
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}
             >
                 {props.val[1] === undefined
                     ? ''
-                    : parseDateTime(props.val[1].time)}
+                    : ' ' + parseDateTime(props.val[1].time)}
             </div>
             <div className="atom-main">
                 <h2 className="atom-category">
@@ -80,10 +85,7 @@ export default function Atom(props) {
                             <textarea
                                 id="content-txt"
                                 value={content}
-                                onChange={(e) => {
-                                    setContent(e.target.value);
-                                    console.log(e.target.value);
-                                }}
+                                onChange={(e) => setContent(e.target.value)}
                             />
                             <CategorySelect
                                 callback={(e) => setCategory(e.target.value)}

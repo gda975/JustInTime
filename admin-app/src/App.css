@@ -19,7 +19,7 @@
 }
 
 .atom-main>h2 {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .content-panel {
@@ -184,18 +184,6 @@ label {
     width: 35%;
 }
 
-/* body{
-    background-color: #B0D7EB;
-}
- */
-
-
-
-
-
-
-
-
 .App {
     text-align: center;
 }
@@ -237,5 +225,5 @@ label {
 }
 
 .sub-main-container {
-    margin-bottom: 30px;
+    margin-bottom: 300px;
 }

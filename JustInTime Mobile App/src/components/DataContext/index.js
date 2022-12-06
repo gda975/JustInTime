@@ -15,7 +15,7 @@ export const DataProvider = (props) => {
         'Helpful Reading': true,
         'Instructional Videos': true,
         'Workplace Updates': true,
-        'Staff Event': true,
+        'Staff Events': true,
     });
     const [categoryList, setCategoryList] = useState();
     const [allData, setAllData] = useState([]);
