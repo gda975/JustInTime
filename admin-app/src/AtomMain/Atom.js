@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { updateData, deleteData } from '../FirebaseAPI';
 import PanelColor from '../Utilities/PanelColor';
 import CategorySelect from '../Insert/CategorySelect';
+import Linkify from 'react-linkify';
 
 const parseDateTime = (datetime) => {
     const date = new Date(
@@ -82,7 +83,25 @@ export default function Atom(props) {
                 </p>
                 <div className="content" key={props.index + ''}>
                     {!toggleEdit ? (
-                        <div className="content-actual">{content || ''} </div>
+                        <Linkify
+                            componentDecorator={(
+                                decoratedHref,
+                                decoratedText,
+                                key
+                            ) => (
+                                <a
+                                    target="blank"
+                                    href={decoratedHref}
+                                    key={key}
+                                >
+                                    {decoratedText}
+                                </a>
+                            )}
+                        >
+                            <div className="content-actual">
+                                {content || ''}{' '}
+                            </div>
+                        </Linkify>
                     ) : (
                         <div className="content-edit">
                             <textarea
