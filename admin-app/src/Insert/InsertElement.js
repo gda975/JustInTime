@@ -70,7 +70,6 @@ export default function InsertElement(props) {
                     className="insert-cancel-button"
                     onClick={props.callback}
                 >
-                    {' '}
                     Cancel
                 </button>
             </div>

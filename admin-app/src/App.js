@@ -29,7 +29,7 @@ function App() {
             ) : (
                 <div>
                     <h1>Center for Nursing Excellence</h1>
-                    <h2>UNC CNE</h2>
+                    <h2>Just in Time Feed</h2>
                     <InsertAtom
                         category={globalCategory}
                         setCategory={setGlobalCategory}

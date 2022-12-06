@@ -74,14 +74,6 @@ select {
     margin-right: 10px;
 }
 
-button:hover {
-    background-color: #cacaca;
-}
-
-h1 {
-    margin-bottom: 0px;
-}
-
 div {
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -182,13 +174,7 @@ textarea:focus {
 }
 
 .login-input-container {
-    width: 30%;
-    margin:auto;
     margin-bottom: 10px;
-}
-
-.login-input {
-    
 }
 
 label {
@@ -239,4 +225,62 @@ label {
 
 .sub-main-container {
     margin-bottom: 300px;
+}
+
+.login-container {
+    border-radius: 12px;
+    width: fit-content;
+    padding: 30px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 5px 15px 2px rgba(29,61,82,0.54); 
+    box-shadow: 0px 5px 15px 2px rgba(29,61,82,0.54);
+    background-color: #c5def0;
+}
+
+.login-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+h1 {
+    margin-bottom: 0px;
+    font-weight: 600;
+    color: #4B9CD3;
+}
+
+h2.login {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+input {
+    padding: 2px 8px;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+    height: auto;
+    border-radius: 6px;
+    border: none;
+}
+
+button:hover {
+    -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.15); 
+    box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.15);
+    background-color: rgb(246, 246, 246)
+}
+
+select {
+    padding: 10px;
+    height: auto;
+    border-radius: 6px;
+}
+
+body {
+    background-color: rgb(246, 246, 246);
 }
