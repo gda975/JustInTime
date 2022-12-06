@@ -13,7 +13,7 @@ export default function InsertElement(props) {
         let date = new Date();
 
         getPostNumber(currentValue).then((e) => {
-            setTitle(currentValue + ' #' + e);
+            let titleNum = currentValue + ' #' + e;
 
             //reset category to ALL if not equal to current
             if (props.category !== currentValue) props.setCategory('ALL');
@@ -24,9 +24,11 @@ export default function InsertElement(props) {
                 date.toLocaleDateString() + ' ' + date.toLocaleTimeString(),
                 'text',
                 currentValue,
-                title
+                title === '' ? titleNum : title
             );
-            updatePostNumber(currentValue, e + 1);
+            if (title !== '') {
+                updatePostNumber(currentValue, e + 1);
+            }
         });
 
         props.callback();
@@ -38,13 +40,13 @@ export default function InsertElement(props) {
             <input
                 ref={props.refEl}
                 className="insert-title-input"
-                placeholder="Start typing title ..."
+                placeholder="Title"
                 type="text"
                 onInput={(e) => setTitle(e.target.value)}
             />
             <textarea
                 className="insert-textarea"
-                placeholder="Enter content ..."
+                placeholder="Content"
                 type="text"
                 onInput={(e) => {
                     setInput(e.target.value);

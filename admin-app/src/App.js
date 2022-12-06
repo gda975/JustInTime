@@ -1,4 +1,4 @@
-import { getData, logIn } from './FirebaseAPI';
+import { getData } from './FirebaseAPI';
 import { useState, useEffect } from 'react';
 import './App.css';
 import InsertAtom from './Insert/InsertAtom';
@@ -11,10 +11,6 @@ function App() {
     let [data, setData] = useState([]);
     let [feed, setFeed] = useState([]);
     let [login, setLogin] = useState(false);
-
-    useEffect(() => {
-        logIn(setLogin);
-    }, []);
 
     useEffect(() => {
         getData(setData);
@@ -34,7 +30,6 @@ function App() {
                 <div>
                     <h1>Center for Nursing Excellence</h1>
                     <h2>UNC CNE</h2>
-                    {/* <LoginPage/> */}
                     <InsertAtom
                         category={globalCategory}
                         setCategory={setGlobalCategory}
