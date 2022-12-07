@@ -42,7 +42,7 @@ What's left to do? This app is relatively close to deployment - with another sem
 * Hosting resources. The app and backend can be configured to host resources such as PDFs or videos, potentially relying on FireStore for blob storage.
 * Firebase analytics. The mobile app can be configured with Firebase analytics to get data on page views and app interaction. This can be a great way to understand how the app is being used.
 * Creating developer Apple/Google accounts. This will be needed to host the app and let nurses download it.
-* A more thorough testing suite. Currently, there are Jest tests that can be run with `npm test --watch-all` in the mobile app directory. However, navigation and interaction were harder to capture and test programatically, and will need more time to test and debug.
+* A more thorough testing suite. Currently, there are Jest tests that can be run with `npm test -- --watchAll` in the mobile app directory. However, navigation and interaction were harder to capture and test programatically, and will need more time to test and debug.
 
 # Contact
 If you have any issues or questions about further development/use, feel free to open a GitHub issue and reach out!
