@@ -36,6 +36,9 @@ Additionally, if you want to host videos within the app itself, you may need to 
 
 We do not expect any copyright, intellectual property, or HIPAA conflicts since the client mentioned that all data is publicly available and not linked to any patients.
 
+# Web app Authentication
+For now, everyone can sign up to the system and view the web portal. However, only certain authorized users will be able to make changes and edits. To start the process, first let the user sign up to the web admin. Then, as an administrator, log into the Firebase Console. On the left side panel you will see a "authentication" tab. Switch to the authentication tab, and a list of all authenticated users will be available. Every account comes with an indentifier (the email), and an UID. If you want to give edit access to a specific account, copy the account's UID. Then go to the 'realtime database' tab, and just create a new entry {UID: true} under the "admins" subtree. Just replace UID with the one you copied. Afterwards, the user who was granted access can log in as normally, but now can make changes to the database. If you need more control over the access of the database, go to the 'rules' tab on the realtime database. But this would need further understanding of Firebase's documentation.
+
 # Future work
 What's left to do? This app is relatively close to deployment - with another semester, it is very likely that this can become a fully functional and hosted application. 
 * Notifications. Currently, our app does not have the ability to send push notifications. The next step regarding this involves configuring Firebase to send push notifications and have it be a programmatic option through the admin portal, to select whether a notification should be sent or not. Then, the mobile app needs to be configured to receive and update accordingly. To test this requires building the app and testing it outside of Expo Go, which we were unable to get to in Fall '22.
