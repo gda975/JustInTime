@@ -19,7 +19,11 @@ const parseDateTime = (datetime) => {
         .toLocaleTimeString()
         .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
 
-    return `${month} ${dayNum}, ${time}`;
+    return `${month} ${dayNum}${
+        new Date().getFullYear() !== date.getFullYear()
+            ? ', ' + date.getFullYear()
+            : ''
+    } at ${time}`;
 };
 
 const ContentScreen = ({ route, navigation }) => {

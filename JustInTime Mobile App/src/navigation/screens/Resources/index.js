@@ -32,7 +32,7 @@ const ResourceScreen = ({ navigation }) => {
                 />
                 <ResourceCard
                     text={['Instructional', 'Videos']}
-                    color="#C4D600"
+                    color="#4F758B"
                     category="Instructional Videos"
                     navigation={navigation}
                 />
@@ -45,7 +45,7 @@ const ResourceScreen = ({ navigation }) => {
                 <ResourceCard
                     text={['Staff', 'Events']}
                     color="#13294B"
-                    category="Staff Event"
+                    category="Staff Events"
                     navigation={navigation}
                 />
             </ScrollView>

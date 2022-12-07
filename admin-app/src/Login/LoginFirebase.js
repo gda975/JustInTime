@@ -73,16 +73,16 @@ function handleErrorCode(code, callback) {
     }
     switch (code) {
         case "auth/email-already-in-use":
-            callback("Email already registed, log in instead!");
+            callback("Email already registed, log in instead");
             break;
         case "auth/invalid-email":
-            callback("Invalid Email!");
+            callback("Invalid email or password");
             break;
         case "auth/user-not-found":
-            callback("User not found!");
+            callback("User not found");
             break;
         case "auth/wrong-password":
-            callback("Wrong Password!");
+            callback("Invalid email or password");
             break;
         default:
             break;

@@ -1,8 +1,13 @@
 import { initializeApp } from 'firebase/app';
 import {
-    getDatabase, ref, get, child, set, onValue, push, update, remove, query, orderByChild, equalTo, off
+    getDatabase,
+    ref,
+    child,
+    onValue,
+    push,
+    update,
+    remove,
 } from 'firebase/database';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: 'AIzaSyA41mHLaNc1C9Cw-B07AYVuI_rh8f3Cx7g',
@@ -13,42 +18,24 @@ const firebaseConfig = {
     messagingSenderId: '162813204267',
     appId: '1:162813204267:web:0234c4cc89dbfe1a61976e',
     measurementId: 'G-QQ6S8Z137D',
-    databaseURL: 'https://just-in-time-5698c-default-rtdb.firebaseio.com',
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const dbRef = ref(getDatabase());
-
-
+const db = getDatabase(app);
 
 // GET APIs
 function testData(cb) {
     let dbBool = false;
-    // get method for read data once
-    /* get(child(dbRef, 'test')).then((snapshot) => {
-    if (snapshot.exists()) {
-      dbBool = true;
-      console.log(snapshot.val());
-    } else {
-      dbBool = false;
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  }); */
 
     const valueRef = ref(db, 'Posts');
     onValue(valueRef, (snapshot) => {
         if (snapshot.exists()) {
             dbBool = true;
             cb(dbBool + '');
-            console.log(snapshot.val());
         } else {
             dbBool = false;
             cb(dbBool + '');
-            console.log('No data');
         }
     });
 }
@@ -63,7 +50,7 @@ function getData(callback) {
                 snapshot.forEach((child) => {
                     const data = [child.key, child.val()];
                     entries.push(data);
-                })
+                });
                 callback(entries);
             } else {
                 callback(entries);
@@ -74,37 +61,36 @@ function getData(callback) {
     }
 }
 
-/* let valueRef;
-    if (category == "ALL") valueRef = query(pathRef, orderByChild('time'));
-    else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
-*/
-
-
 function getPostNumber(category) {
     return new Promise(function (resolve, reject) {
         try {
-            const pathRef = ref(db, 'Posts_number' + '/' + category);
+            const pathRef = ref(db, 'Posts_number/' + category);
             let value;
 
             onValue(pathRef, (snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
                     value = snapshot.val();
                     resolve(value);
                 } else {
                     resolve(null);
                 }
-            })
-        }
-        catch (e) {
+            });
+        } catch (e) {
             reject(e);
         }
-    })
-
+    });
 }
 
 // POST APIs
-function writeData(author, content, resource, time, type, category, title) {
+async function writeData(
+    author,
+    content,
+    resource,
+    time,
+    type,
+    category,
+    title
+) {
     const db = getDatabase();
 
     //text post entry
@@ -115,7 +101,7 @@ function writeData(author, content, resource, time, type, category, title) {
         resource: false,
         time: time,
         type: type,
-        category: category
+        category: category,
     };
 
     //retrieve key
@@ -123,7 +109,11 @@ function writeData(author, content, resource, time, type, category, title) {
 
     const updates = {};
     updates['/Post' + newKey] = text_post;
-    return update(ref(db, 'Posts'), updates).catch((error) => { alert("Unathorized Access!") });
+    try {
+        return await update(ref(db, 'Posts'), updates);
+    } catch (error) {
+        alert('Unauthorized Access!');
+    }
 }
 
 // PUT APIS
@@ -132,15 +122,15 @@ function updateData(content, key, date, category) {
 
     //retrieve post
     const path = 'Posts/' + key;
-    const post = ref(db, path);
-
 
     const updates = {};
     updates['/content'] = content;
     updates['/time'] = date;
     updates['/category'] = category;
-    update(ref(db, path), updates).catch(error => { alert("Unathorized Access!") });
-    return "";
+    update(ref(db, path), updates).catch((error) => {
+        alert('Unauthorized Access!');
+    });
+    return '';
 }
 
 function updatePostNumber(category, number) {
@@ -148,7 +138,6 @@ function updatePostNumber(category, number) {
 
     //retrieve post
     const path = 'Posts_number';
-    const post = ref(db, path);
 
     const updates = {};
     updates['/' + category] = number;
@@ -156,13 +145,25 @@ function updatePostNumber(category, number) {
 }
 
 // DELETE APIS
-function deleteData(key) {
+async function deleteData(key) {
     const db = getDatabase();
 
     //get path
     const path = 'Posts/' + key;
 
-    return remove(ref(db, path)).catch(error => { alert("Unathorized Access!") });
+    try {
+        return await remove(ref(db, path));
+    } catch (error) {
+        alert('Unauthorized Access!');
+    }
 }
 
-export { writeData, testData, getData, updateData, deleteData, getPostNumber, updatePostNumber};
+export {
+    writeData,
+    testData,
+    getData,
+    updateData,
+    deleteData,
+    getPostNumber,
+    updatePostNumber,
+};

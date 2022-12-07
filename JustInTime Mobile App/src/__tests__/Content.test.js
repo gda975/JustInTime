@@ -16,7 +16,11 @@ const parseDateTime = (datetime) => {
         timeStyle: 'short',
     }).format(date);
 
-    return `${month} ${dayNum}, ${time}`;
+    return `${month} ${dayNum}${
+        new Date().getFullYear() !== date.getFullYear()
+            ? ', ' + date.getFullYear()
+            : ''
+    } at ${time}`;
 };
 
 test('integration check content page renders properly', () => {

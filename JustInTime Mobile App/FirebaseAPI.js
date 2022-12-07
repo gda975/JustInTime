@@ -22,8 +22,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const dbRef = ref(getDatabase());
+const db = getDatabase(app);
 
 function getData(category) {
     const pathRef = ref(db, 'Posts');
@@ -33,18 +32,12 @@ function getData(category) {
     else valueRef = query(pathRef, orderByChild('category'), equalTo(category));
 
     let entries = [];
-    // console.log(valueRef);
     onValue(valueRef, (snapshot) => {
-        // console.log(category);
         if (snapshot.exists()) {
             snapshot.forEach((child) => {
                 const data = child.val();
                 entries.push(data);
             });
-            // cb(entries.reverse());
-        } else {
-            // cb(null);
-            // console.log('No data');
         }
     });
     return entries;
