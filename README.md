@@ -5,6 +5,7 @@ This is a mobile app where users (nurses) can receive useful information updates
 
 # Admin Portal
 Link to admin: https://just-in-time-5698c.web.app
+Link to Firebase database console: https://console.firebase.google.com/
 
 # Download and Usage
 Adminstrators can login to the website through the link above using any web browser and add, change, and remove posts. Administrator accounts need to be given access through the Firebase console and request can be accessed by emailing sirducanhpro@gmail.com.<br>
