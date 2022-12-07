@@ -15,6 +15,7 @@ A video detailing how to set up and run the application can also be found <a>her
 # App Details
 ![image](https://user-images.githubusercontent.com/49326544/206061285-b4039af6-e609-4ae0-8c45-5b4f669a4804.png)
 ![image](https://user-images.githubusercontent.com/49326544/206061340-a435720f-0f3e-4c32-b68c-7b2ce7a1a7c7.png)
+![image](https://user-images.githubusercontent.com/49326544/206064078-6b399e2c-6ef3-4aac-bddd-c909c4469654.png)
 ![image](https://user-images.githubusercontent.com/49326544/206061378-b1269ef5-8207-433c-bbce-bbec75331620.png)
 
 The app is written in JavaScript, with the React framework for the web admin portal and React Native for the app. It is compiled with Expo and has a Firebase Realtime Database back-end system used to query data.
