@@ -4,7 +4,7 @@ Just In Time Application for UNC Nursing Staff and UNC Center for Nursing Excell
 This is a mobile app where users (nurses) can receive useful information updates such as policy changes, new resources, and other information that is necessary for them to perform their job. Administrators can use the admin portal to add new posts to send to the nurse users. 
 
 # Admin Portal
-Link to admin: https://just-in-time-5698c.web.app
+Link to admin: https://just-in-time-5698c.web.app <br>
 Link to Firebase database console: https://console.firebase.google.com/
 
 # Download and Usage
