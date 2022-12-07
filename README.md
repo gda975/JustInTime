@@ -49,7 +49,7 @@ What's left to do? This app is relatively close to deployment - with another sem
 If you have any issues or questions about further development/use, feel free to open a GitHub issue and reach out!
 
 # Fake Logins
-User with Access <br>
+User with Full (View/Editing) Access <br>
 Email: theosteiner@gmail.com <br>
 Password: lskmfdl <br> 
 
