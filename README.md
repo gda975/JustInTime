@@ -49,10 +49,10 @@ What's left to do? This app is relatively close to deployment - with another sem
 If you have any issues or questions about further development/use, feel free to open a GitHub issue and reach out!
 
 # Fake Logins
-User with Access
+User with Access <br>
 Email: theosteiner@gmail.com <br>
 Password: lskmfdl <br> 
 
-User with Restricted (View Only) Access
+User with Restricted (View Only) Access <br>
 Email: restrictedemail@gmail.com <br>
 Password: dweiufbewifbei <br>
