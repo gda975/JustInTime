@@ -49,8 +49,10 @@ What's left to do? This app is relatively close to deployment - with another sem
 If you have any issues or questions about further development/use, feel free to open a GitHub issue and reach out!
 
 # Fake Logins
-theosteiner@gmail.com <br>
-lskmfdl <br> 
+User with Access
+Email: theosteiner@gmail.com <br>
+Password: lskmfdl <br> 
 
-restrictedemail@gmail.com <br>
-dweiufbewifbei <br>
+User with Restricted (View Only) Access
+Email: restrictedemail@gmail.com <br>
+Password: dweiufbewifbei <br>
