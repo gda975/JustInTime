@@ -1,14 +1,11 @@
 .content-page {
     box-shadow: 0px 0.5px 10px rgb(174, 174, 174);
-    /*  border: 0.2px solid rgb(208, 208, 208); */
-    width: 35%;
+    width: 65%;
     margin: auto;
     margin-top: 20px;
     border-radius: 10px;
     text-align: start;
-
     background-color: #F4E8DD;
-
 }
 
 .atom-main {
@@ -41,17 +38,6 @@
     width: 100%;
     box-sizing: border-box;
     background-color: #F4E8DD;
-}
-
-.category-button-container {
-    position: fixed;
-    left: 5%;
-}
-
-.category-button {
-    display: block;
-    margin-left: 5px;
-    margin-bottom: 5px;
 }
 
 .insert-select-edit {
@@ -148,11 +134,6 @@ textarea:focus {
     display: inline;
 }
 
-.insert-button-container {
-    position: fixed;
-    left: 5%;
-}
-
 .insert-atom {
     padding: 10px;
     border: 0.2px solid rgb(203, 203, 203);
@@ -224,6 +205,9 @@ label {
 }
 
 .sub-main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     margin-bottom: 300px;
 }
 
@@ -283,4 +267,73 @@ select {
 
 body {
     background-color: rgb(246, 246, 246);
+}
+
+.category-button-container {
+    background-color: #4B9CD3;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.category-button {
+    border-radius: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #a4c6dc;
+    background-color: transparent;
+    font-size: large;
+}
+
+.category-button:hover {
+    border-radius: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #a4c6dc;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.category-button-selected {
+    border-radius: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #a4c6dc;
+    background-color: #74afd6;
+    font-size: large;
+}
+
+.category-button-selected:hover {
+    border-radius: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #a4c6dc;
+    background-color: #74afd6;
+    font-size: large;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.feed-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-placeholder {
+    height: 100vh;
+    width: 250px;
+    flex: none;
+}
+
+.insert-button {
+    padding: 15px;
+    font-size: larger;
+    background-color: #74afd6;
+    color: white;
+}
+
+.insert-button:hover {
+    background-color: #4b84ab;
 }

@@ -3,10 +3,13 @@ import MainFeed from './MainFeed';
 export default function Feed(props) {
     return (
         <div className="feed-container">
+            <div className="sidebar-placeholder" />
             <div className="category-button-container">
-                <h2>Choose Categories</h2>
+                <h2 style={{ fontWeight: '600' }}>Filter by Category</h2>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'ALL' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -16,7 +19,11 @@ export default function Feed(props) {
                     All Categories
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Workplace Updates'
+                            ? '-selected'
+                            : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -26,7 +33,9 @@ export default function Feed(props) {
                     Workplace Updates
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Policy Links' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -36,7 +45,11 @@ export default function Feed(props) {
                     Policy Links
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Instructional Videos'
+                            ? '-selected'
+                            : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -46,7 +59,9 @@ export default function Feed(props) {
                     Instructional Videos
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Useful Sites' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -56,7 +71,9 @@ export default function Feed(props) {
                     Useful Sites
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Helpful Reading' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -66,7 +83,9 @@ export default function Feed(props) {
                     Helpful Reading
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Staff Events' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -76,7 +95,9 @@ export default function Feed(props) {
                     Staff Events
                 </button>
                 <button
-                    className="category-button"
+                    className={`category-button${
+                        props.category === 'Other' ? '-selected' : ''
+                    }`}
                     onClick={(e) => {
                         props.setCategory(e.target.value);
                     }}
@@ -90,6 +111,7 @@ export default function Feed(props) {
                 category={props.category}
                 entries={props.globalEntries}
                 entriesCallback={props.setEntries}
+                insertButton={props.insertButton}
             />
         </div>
     );

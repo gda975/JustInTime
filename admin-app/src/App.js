@@ -20,6 +20,10 @@ function App() {
         setFeed(HandleEntries(data, globalCategory));
     }, [data, globalCategory]);
 
+    const insertButton = (
+        <InsertAtom category={globalCategory} setCategory={setGlobalCategory} />
+    );
+
     return (
         <div className="App">
             {!login ? (
@@ -27,18 +31,12 @@ function App() {
                     <LoginPage callback={setLogin} />
                 </div>
             ) : (
-                <div>
-                    <h1>Center for Nursing Excellence</h1>
-                    <h2>Just in Time Feed</h2>
-                    <InsertAtom
-                        category={globalCategory}
-                        setCategory={setGlobalCategory}
-                    />
-                    <br></br>
+                <div className="feed">
                     <Feed
                         setCategory={setGlobalCategory}
                         category={globalCategory}
                         globalEntries={feed}
+                        insertButton={insertButton}
                     />
                 </div>
             )}
