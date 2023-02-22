@@ -2371,7 +2371,7 @@
   "resolved" "https://registry.npmjs.org/@react-native-community/masked-view/-/masked-view-0.1.11.tgz"
   "version" "0.1.11"
 
-"@react-native-firebase/app@~15.4.0", "@react-native-firebase/app@16.4.6":
+"@react-native-firebase/app@~15.4.0", "@react-native-firebase/app@16.4.6", "@react-native-firebase/app@17.3.0":
   "integrity" "sha512-1Xf1Q0x6x6dZamRjIpDLCvj4CUwozr1mvH3sc3A4J1avjGUwgqD0RR58DGd7r9akU+JmEXLHB84EZ9Aa68AHDg=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/app/-/app-15.4.0.tgz"
   "version" "15.4.0"
@@ -2389,6 +2389,11 @@
   "integrity" "sha512-mHuCWobdFJh8HxngbXydZ4SMauNAoLlUUqwMhiC+ume6Us6H6YcNiSs5e1Y7WdQfElYn/npP3ee53BCnhlzUFw=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/installations/-/installations-16.4.6.tgz"
   "version" "16.4.6"
+
+"@react-native-firebase/messaging@^17.3.0":
+  "integrity" "sha512-A1NNrU5KrztJLym5p+VNIbU3pLOSHW9DpJdXyIBR/n/5nZBLL/zLsMoDs8dvfaeyBPiWuvVQbloOKfd5mTvmOw=="
+  "resolved" "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-17.3.0.tgz"
+  "version" "17.3.0"
 
 "@react-native/assets@1.0.0":
   "integrity" "sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ=="
@@ -4045,6 +4050,42 @@
     "@expo/config" "~7.0.0"
     "uuid" "^3.3.2"
 
+"expo-dev-client@~1.3.1":
+  "integrity" "sha512-GGMaLwc3FNdcGB2UsEj252CV9DmWJWMblqX0h5AtiEnmKyVBRn3/yiQyWdPFDkLletYGvDeILfMHUo/PRdOGIA=="
+  "resolved" "https://registry.npmjs.org/expo-dev-client/-/expo-dev-client-1.3.1.tgz"
+  "version" "1.3.1"
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
+    "expo-dev-launcher" "1.3.1"
+    "expo-dev-menu" "1.3.1"
+    "expo-dev-menu-interface" "0.7.2"
+    "expo-manifests" "~0.3.0"
+    "expo-updates-interface" "~0.7.0"
+
+"expo-dev-launcher@1.3.1":
+  "integrity" "sha512-yZLJZBEnU10suJg1j3HcX2be7ri1qfDek4axbwb4JG5g5T4+wHHvqfTVNlpitg/wfylI8zj2EzZ0jH6A6NtkNQ=="
+  "resolved" "https://registry.npmjs.org/expo-dev-launcher/-/expo-dev-launcher-1.3.1.tgz"
+  "version" "1.3.1"
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
+    "expo-dev-menu" "1.3.1"
+    "resolve-from" "^5.0.0"
+    "semver" "^7.3.5"
+
+"expo-dev-menu-interface@0.7.2":
+  "integrity" "sha512-Ym0IFsgBj9bdInjRcxv6xfczdTCKfPKUAsLZ1sD5twpOs7oBViMnTC0+KTGkkYHG4EapWbu9yApPmbV3N10Zcg=="
+  "resolved" "https://registry.npmjs.org/expo-dev-menu-interface/-/expo-dev-menu-interface-0.7.2.tgz"
+  "version" "0.7.2"
+
+"expo-dev-menu@1.3.1":
+  "integrity" "sha512-D3g4JgmxBl1AFmd4MvZfTjzCBDRBqe/wepcsjOlIPunZ9ad87+ACABgQMi1rQ7S2MzlNk+q9OtntVGXfwfoxMQ=="
+  "resolved" "https://registry.npmjs.org/expo-dev-menu/-/expo-dev-menu-1.3.1.tgz"
+  "version" "1.3.1"
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
+    "expo-dev-menu-interface" "0.7.2"
+    "semver" "^7.3.5"
+
 "expo-error-recovery@~3.2.0":
   "integrity" "sha512-XZ630ks5HNxa9oc2Ya1hEn1ez031Cy4VnyxerPC2o9fKNKSrD/64cRqGF9NkGM3X2uf8+PCB9adxVflAIXBf6w=="
   "resolved" "https://registry.npmjs.org/expo-error-recovery/-/expo-error-recovery-3.2.0.tgz"
@@ -4065,10 +4106,22 @@
   dependencies:
     "fontfaceobserver" "^2.1.0"
 
+"expo-json-utils@~0.3.0":
+  "integrity" "sha512-ceo0pWFJqRAsNjZWX3rVDhy+NDzmrBNFOdvW+HE4EHqlt+OEUu9INIYKO8fU+g3ifI0VcKqHfvvj5wKsSpvPBw=="
+  "resolved" "https://registry.npmjs.org/expo-json-utils/-/expo-json-utils-0.3.0.tgz"
+  "version" "0.3.0"
+
 "expo-keep-awake@~10.2.0":
   "integrity" "sha512-kIRtO4Hmrvxh4E45IPWG/NiUZsuRe1AQwBT09pq+kx8nm6tUS4B9TeL6+1NFy+qVBLbGKDqoQD5Ez7XYTFtBeQ=="
   "resolved" "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-10.2.0.tgz"
   "version" "10.2.0"
+
+"expo-manifests@~0.3.0":
+  "integrity" "sha512-zv2a4pzhbvxVjrTO4XEiP5THt4RwtxyJjfixFhDNfHtDQR7fS4h9sZSGX9ind+IS5SQJQ2ykfVAi8xnwP6zHaw=="
+  "resolved" "https://registry.npmjs.org/expo-manifests/-/expo-manifests-0.3.1.tgz"
+  "version" "0.3.1"
+  dependencies:
+    "expo-json-utils" "~0.3.0"
 
 "expo-modules-autolinking@>=0.8.1", "expo-modules-autolinking@0.10.3":
   "integrity" "sha512-av9ln2zwUt303g98raX7sDmESgL3SXs1sbbtIjh1rL7R0676XIUacIKgbydR0/4tMbOShWx14Z9fozpk9xIAJA=="
@@ -4093,6 +4146,11 @@
   "integrity" "sha512-vh98g8qMIjig/2XTBsoAWS6Vo2dIIwDWjB3/GiuZ9Lazpxc9GO/APfJ4dar7MibzIDUKIrjotrcL6rLdPH13Ew=="
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.4.0.tgz"
   "version" "1.4.0"
+
+"expo-updates-interface@~0.7.0":
+  "integrity" "sha512-saThnbrYDSjKxfMFFguAvh5o5KGabvAOHItkJRwq2L3c0T/3q26Q0kM83880h/+TTtAVsl1+Vhny9d+ImD3yvQ=="
+  "resolved" "https://registry.npmjs.org/expo-updates-interface/-/expo-updates-interface-0.7.0.tgz"
+  "version" "0.7.0"
 
 "expo@*", "expo@~46.0.16":
   "integrity" "sha512-lZETkf3t+gbZjKjSceIpU7I8Rmm5nZ0ZG1WPzNBBbm+k64/+kKV96s6RqS37W1TTDpIbd+AucT9kKpvtv0JB2A=="
@@ -4457,6 +4515,11 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
+
+"fsevents@^2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
