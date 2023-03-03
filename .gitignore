@@ -13,6 +13,14 @@ web-build/
 # production
 /build
 
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+
 # macOS
 .DS_Store
 
@@ -25,3 +33,4 @@ web-build/
 .local.env
 
 service-account.json
+google-services.json
