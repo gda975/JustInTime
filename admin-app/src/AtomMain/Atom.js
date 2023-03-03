@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { updateData, deleteData } from '../FirebaseAPI';
+import { updateData, deleteData } from '../firebase/FirebaseAPI';
 import PanelColor from '../Utilities/PanelColor';
-import CategorySelect from '../Insert/CategorySelect';
+import CategorySelect from '../components/Insert/CategorySelect';
 import Linkify from 'react-linkify';
 
 const parseDateTime = (datetime) => {
