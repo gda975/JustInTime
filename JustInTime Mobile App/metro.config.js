@@ -4,3 +4,4 @@ exports.resolver = {
     ...defaultResolver,
     sourceExts: [...defaultResolver.sourceExts, 'cjs'],
 };
+

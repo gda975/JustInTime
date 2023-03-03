@@ -4,6 +4,8 @@ import DateBar from '../../../components/DateBar';
 import TitleBar from '../../../components/TitleBar';
 import useData from '../../../hooks/useData';
 
+import { toggleTopicSubscription } from '../../../notifications/notifications';
+
 const SettingsItem = (props) => {
     const [toggle, setToggle] =
         props.toggleControl || useState(props.default || true);
@@ -23,7 +25,10 @@ const SettingsItem = (props) => {
         >
             <Text style={{ fontSize: 20 }}>{props.children}</Text>
             <Switch
-                onValueChange={() => setToggle(!toggle)}
+                onValueChange={() => {
+                    setToggle(!toggle);
+                    toggleTopicSubscription(toggle, props.children);
+                }}
                 value={toggle}
                 disabled={props.disabled}
             />
@@ -148,7 +153,7 @@ const SettingsScreen = () => {
             >
                 <SettingsGroup>
                     <SettingsItem toggleControl={[notify, setNotify]}>
-                        Allow notifications
+                        Allow Notifications
                     </SettingsItem>
                 </SettingsGroup>
                 <SettingsGroup>
