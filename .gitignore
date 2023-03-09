@@ -17,7 +17,8 @@ web-build/
 /coverage
 
 # next.js
-admin-app/.next/
+/.next/
+/admin-app/.next
 /out/
 
 

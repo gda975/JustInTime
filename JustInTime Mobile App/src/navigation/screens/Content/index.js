@@ -4,6 +4,8 @@ import { Linking } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
 
+import EmbeddedLink from '../../../components/EmbeddedLink';
+
 const parseDateTime = (datetime) => {
     const date = new Date(
         typeof datetime == 'string' ? datetime.replace(/\-/g, '/') : datetime
@@ -67,6 +69,7 @@ const ContentScreen = ({ route, navigation }) => {
                     <Text style={{ paddingVertical: 8, fontSize: 20 }}>
                         {content}
                     </Text>
+                    <EmbeddedLink />
                 </Hyperlink>
             </ScrollView>
         </View>
