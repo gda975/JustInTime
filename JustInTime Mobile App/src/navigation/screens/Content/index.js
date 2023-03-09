@@ -28,8 +28,21 @@ const parseDateTime = (datetime) => {
     } at ${time}`;
 };
 
+const parseVideoLinks = (content) => {
+    const embeddedVideoLinks = []
+    var words = content.trim().split(/\s+/);
+    words.forEach(word => {
+        if (word.startsWith("https://uncch.hosted.panopto.com")){
+            embeddedVideoLinks.push(word)
+        }
+    });
+    return embeddedVideoLinks
+}
+
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
+    const embeddedVideoLinks = parseVideoLinks(content)
+
     return (
         <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
@@ -69,8 +82,8 @@ const ContentScreen = ({ route, navigation }) => {
                     <Text style={{ paddingVertical: 8, fontSize: 20 }}>
                         {content}
                     </Text>
-                    <EmbeddedLink />
                 </Hyperlink>
+                {embeddedVideoLinks.map((videoLink) => <EmbeddedLink videoLink={videoLink}/>)}
             </ScrollView>
         </View>
     );

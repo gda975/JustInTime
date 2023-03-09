@@ -3,7 +3,10 @@ import { View, Text } from 'react-native';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-export default function EmbeddedLink() {
+export default function EmbeddedLink({videoLink}) {
+    if (!videoLink){
+        return null
+    }
     return (
         <View>
             <WebView
@@ -14,7 +17,7 @@ export default function EmbeddedLink() {
                 originWhitelist={['*']}
                 style={styles.container}
                 source={{
-                    html: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+                    html: `<iframe width="100%" height="100%" src=${videoLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
                 }}
             />
         </View>
