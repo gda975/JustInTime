@@ -18,7 +18,7 @@ web-build/
 
 # next.js
 /.next/
-/admin-app/.next
+/admin-app/.next/
 /out/
 
 

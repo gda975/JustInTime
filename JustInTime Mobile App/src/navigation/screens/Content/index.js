@@ -5,6 +5,7 @@ import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
 
 import EmbeddedLink from '../../../components/EmbeddedLink';
+import { useEffect, useState } from 'react';
 
 const parseDateTime = (datetime) => {
     const date = new Date(
@@ -83,7 +84,7 @@ const ContentScreen = ({ route, navigation }) => {
                         {content}
                     </Text>
                 </Hyperlink>
-                {embeddedVideoLinks.map((videoLink) => <EmbeddedLink videoLink={videoLink}/>)}
+                {embeddedVideoLinks ? embeddedVideoLinks.map((videoLink) => <EmbeddedLink videoLink={videoLink} key={videoLink}/>) : ""}
             </ScrollView>
         </View>
     );
