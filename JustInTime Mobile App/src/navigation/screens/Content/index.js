@@ -4,6 +4,9 @@ import { Linking } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
 import BackButton from '../../../components/BackButton';
 
+import EmbeddedLink from '../../../components/EmbeddedLink';
+import { useEffect, useState } from 'react';
+
 const parseDateTime = (datetime) => {
     const date = new Date(
         typeof datetime == 'string' ? datetime.replace(/\-/g, '/') : datetime
@@ -26,8 +29,21 @@ const parseDateTime = (datetime) => {
     } at ${time}`;
 };
 
+const parseVideoLinks = (content) => {
+    const embeddedVideoLinks = []
+    var words = content.trim().split(/\s+/);
+    words.forEach(word => {
+        if (word.startsWith("https://uncch.hosted.panopto.com")){
+            embeddedVideoLinks.push(word)
+        }
+    });
+    return embeddedVideoLinks
+}
+
 const ContentScreen = ({ route, navigation }) => {
     const { title, content, datetime } = route.params;
+    const embeddedVideoLinks = parseVideoLinks(content)
+
     return (
         <View style={[{ paddingTop: 56 }, { paddingBottom: 8 }]}>
             <BackButton navigation={navigation} />
@@ -68,6 +84,7 @@ const ContentScreen = ({ route, navigation }) => {
                         {content}
                     </Text>
                 </Hyperlink>
+                {embeddedVideoLinks ? embeddedVideoLinks.map((videoLink) => <EmbeddedLink videoLink={videoLink} key={videoLink}/>) : ""}
             </ScrollView>
         </View>
     );

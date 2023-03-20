@@ -24,22 +24,22 @@ function App() {
     );
 
     return (
-        <div className="App">
-            {!login ? (
-                <div>
-                    <LoginPage callback={setLogin} />
-                </div>
-            ) : (
-                <div className="feed">
-                    <Feed
-                        setCategory={setGlobalCategory}
-                        category={globalCategory}
-                        globalEntries={feed}
-                        insertButton={insertButton}
-                    />
-                </div>
-            )}
-        </div>
+            <div className="App">
+                {!login ? (
+                    <div>
+                        <LoginPage callback={setLogin} />
+                    </div>
+                ) : (
+                    <div className="feed">
+                        <Feed
+                            setCategory={setGlobalCategory}
+                            category={globalCategory}
+                            globalEntries={feed}
+                            insertButton={insertButton}
+                        />
+                    </div>
+                )}
+            </div>
     );
 }
 

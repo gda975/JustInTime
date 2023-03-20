@@ -17,8 +17,10 @@ web-build/
 /coverage
 
 # next.js
-admin-app/.next/
+/.next/
+./admin-app/.next/
 /out/
+JustInTime/admin-app/.next/
 
 
 # macOS
@@ -33,4 +35,4 @@ admin-app/.next/
 .local.env
 
 service-account.json
-google-services.json
+# google-services.json
