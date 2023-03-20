@@ -1,3 +1,5 @@
+// Uncomment all lines below to enable notifications (Currently works for android)
+
 // import messaging from '@react-native-firebase/messaging';
 
 const requestUserPermission = async () => {
