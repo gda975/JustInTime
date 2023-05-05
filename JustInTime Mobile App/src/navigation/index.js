@@ -33,10 +33,6 @@ const MainContainer = () => {
                                     iconName = focused
                                         ? 'home'
                                         : 'home-outline';
-                                } else if (routeName === 'Updates') {
-                                    iconName = focused
-                                        ? 'sync'
-                                        : 'sync-outline';
                                 } else if (routeName === 'Resources') {
                                     iconName = focused
                                         ? 'albums'
@@ -68,7 +64,7 @@ const MainContainer = () => {
                         })}
                     >
                         <Tab.Screen name={'Home'} component={HomeStack} />
-                        <Tab.Screen name={'Updates'} component={UpdatesStack} />
+                        {/* <Tab.Screen name={'Updates'} component={UpdatesStack} /> */}
                         <Tab.Screen
                             name={'Resources'}
                             component={ResourceStack}

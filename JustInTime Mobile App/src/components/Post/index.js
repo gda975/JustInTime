@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     item: {
         marginVertical: 8,
         marginHorizontal: 24,
-        borderRadius: 12,
+        borderRadius: 5,
         overflow: 'hidden',
     },
     title: {
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
         paddingHorizontal: 12,
         backgroundColor: '#E8DED1',
+        //
     },
     datetimebar: {
         paddingHorizontal: 12,

@@ -18,8 +18,8 @@ const ResourceCard = (props) => {
                     style={{
                         backgroundColor: props.color,
                         padding: 20,
-                        borderTopLeftRadius: 12,
-                        borderTopRightRadius: 12,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5,
                     }}
                 />
                 <View style={styles.textArea}>
@@ -39,15 +39,15 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 2,
         shadowOpacity: 0.25,
-        margin: 12,
+        margin: 2,
     },
     textArea: {
         backgroundColor: '#F4E8DD',
         height: 120,
-        width: 160,
+        width: 200,
         justifyContent: 'center',
-        borderBottomLeftRadius: 12,
-        borderBottomRightRadius: 12,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
     },
     text: {
         fontSize: 24,
